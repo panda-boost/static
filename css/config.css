@@ -1,0 +1,363 @@
+@charset "utf-8";
+/*
+* FileName "config.css"
+* Version: 1.0.0
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
+*/
+.bst-config-container *{
+	box-sizing:border-box;
+	color:var(--fr-color);
+	font-family:system-ui,sans-serif;
+	line-height:1.5em;
+	margin:0;
+	position:relative;
+	vertical-align:top;
+	-webkit-overflow-scrolling:touch;
+	-webkit-text-size-adjust:100%;
+}
+.bst-config-button{
+	background-color:transparent;
+	border:1px solid var(--border-color);
+	border-radius:0.25em;
+	cursor:pointer;
+	display:inline-block;
+	margin:0 0.25em;
+	outline:none;
+	padding:0.25em 0.5em;
+	text-align:center;
+	user-select:none;
+	-webkit-appearance:button;
+}
+.bst-config-button:hover{
+	background-color:var(--field-focus-color);
+}
+.bst-config-footer{
+	padding:0.5em 0.25em;
+}
+.bst-config-footer .bst-config-footer-button{
+	background-color:transparent;
+	border:1px solid var(--border-color);
+	border-radius:0.25em;
+	cursor:pointer;
+	display:inline-block;
+	margin:0 0.25em;
+	outline:none;
+	padding:0.5em;
+	text-align:center;
+	user-select:none;
+	-webkit-appearance:button;
+}
+.bst-config-footer .bst-config-footer-button:hover{
+	background-color:var(--field-focus-color);
+}
+.bst-config-main h1{
+	font-weight:normal;
+	padding:0.5em;
+}
+.bst-config-main section{
+	border-left:3px solid var(--border-color);
+	padding:0.5em;
+	margin-left:2em;
+}
+.bst-config-main .bst-config-tabbed-panels{
+	border-top:1px solid var(--border-color);
+	margin-top:-1px;
+	padding:0.5em;
+	z-index:1;
+}
+.bst-config-main .bst-config-tabbed-panels .bst-config-tabbed-panel{
+	padding:0.5em;
+}
+.bst-config-main .bst-config-tabbed-panels .bst-config-tabbed-panel .bst-config-borderd-block{
+	border:1px solid var(--border-color);
+	border-radius:0.25em;
+	padding:0.5em;
+}
+.bst-config-main .bst-config-tabbed-panels .bst-config-tabbed-panel .bst-config-flex-columns{
+	display:flex;
+	flex-direction:row;
+}
+.bst-config-main .bst-config-tabbed-panels .bst-config-tabbed-panel .bst-config-flex-columns .bst-config-flex-column{
+	display:flex;
+	flex:1;
+	flex-direction:column;
+}
+.bst-config-main .bst-config-tabbed-panels .bst-config-tabbed-panel .bst-config-tabbed-panel-block{
+	border:3px solid var(--border-color);
+	border-radius:0.25em;
+	padding:0;
+}
+.bst-config-main .bst-config-tabbed-panels .bst-config-tabbed-panel .bst-config-tabbed-panel-block h1{
+	border-bottom:3px solid var(--border-color);
+	margin-bottom:0.5em;
+}
+.bst-config-main .bst-config-tabbed-panels .bst-config-tabbed-panel .bst-config-tabbed-panel-block section{
+	border:none;
+	padding:0 0.5em 0.5em 2em;
+	margin:0;
+}
+.bst-config-main .bst-config-tabbed-tabs{
+	overflow:hidden;
+	padding:0 0.25em;
+	scroll-behavior:smooth;
+	white-space:nowrap;
+	z-index:2;
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab{
+	border-top:1px solid var(--border-color);
+	border-left:1px solid var(--border-color);
+	border-right:1px solid var(--border-color);
+	border-top-left-radius:0.25em;
+	border-top-right-radius:0.25em;
+	display:inline-block;
+	overflow:visible;
+	padding:0.5em;
+	margin:0 0.125em;
+	white-space:nowrap;
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab .bst-icon{
+	background-size:1.5em 1.5em;
+	height:1.5em;
+	width:1.5em;
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab .bst-config-tabbed-tab-label{
+	display:inline-block;
+	line-height:1.5em;
+	padding:0 0.25em;
+	user-select:none;
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab .bst-config-tabbed-tab-prompt{
+	display:inline-block;
+	line-height:1.5em;
+	outline:none;
+	padding:0 0.25em;
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab .bst-config-tabbed-tab-prompt:focus{
+	border:1px solid var(--field-focus-color);
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab.bst-activate{
+	border-top:1px solid var(--emphasis-color);
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab.bst-activate:after{
+	background-color:var(--bg-color);
+	bottom:0;
+	content:'';
+	display:block;
+	height:2px;
+	left:0;
+	position:absolute;
+	width:100%;
+}
+.bst-config-main .bst-config-tabbed-tabs .bst-config-tabbed-tab.bst-dragging *{
+	pointer-events:none;
+	user-select:none;
+}
+.bst-config-main .bst-config-tabbed-tab-guide{
+	background-color:var(--field-focus-color);
+	border-top-left-radius:0.25em;
+	border-top-right-radius:0.25em;
+	display:inline-block;
+	height:2.5em;
+}
+.bst-config-main .bst-config-tabbed-tab-scroller{
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:3;
+}
+.bst-config-main .bst-config-tabbed-tab-scroller .bst-icon.bst-icon-arrow{
+	height:2.5em;
+	width:2.5em;
+}
+.bst-config-main .bst-config-tabbed-tab-scroller:not(.bst-hidden)+.bst-config-tabbed-tabs{
+	width:calc(100% - 5em);
+}
+_::-webkit-full-page-media, _:future, :root .bst-config-tabbed-tabs{
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+_::-webkit-full-page-media, _:future, :root .bst-config-tabbed-tabs::-webkit-scrollbar{
+	height:0;
+	width:0;
+}
+/*
+Temporarily retained until cached data is cleared.
+*/
+.kb-config-container *{
+	box-sizing:border-box;
+	color:var(--fr-color);
+	font-family:system-ui,sans-serif;
+	line-height:1.5em;
+	margin:0;
+	position:relative;
+	vertical-align:top;
+	-webkit-overflow-scrolling:touch;
+	-webkit-text-size-adjust:100%;
+}
+.kb-config-button{
+	background-color:transparent;
+	border:1px solid var(--border-color);
+	border-radius:0.25em;
+	cursor:pointer;
+	display:inline-block;
+	margin:0 0.25em;
+	outline:none;
+	padding:0.25em 0.5em;
+	text-align:center;
+	user-select:none;
+	-webkit-appearance:button;
+}
+.kb-config-button:hover{
+	background-color:var(--field-focus-color);
+}
+.kb-config-footer{
+	padding:0.5em 0.25em;
+}
+.kb-config-footer .kb-config-footer-button{
+	background-color:transparent;
+	border:1px solid var(--border-color);
+	border-radius:0.25em;
+	cursor:pointer;
+	display:inline-block;
+	margin:0 0.25em;
+	outline:none;
+	padding:0.5em;
+	text-align:center;
+	user-select:none;
+	-webkit-appearance:button;
+}
+.kb-config-footer .kb-config-footer-button:hover{
+	background-color:var(--field-focus-color);
+}
+.kb-config-main h1{
+	font-weight:normal;
+	padding:0.5em;
+}
+.kb-config-main section{
+	border-left:3px solid var(--border-color);
+	padding:0.5em;
+	margin-left:2em;
+}
+.kb-config-main .kb-config-tabbed-panels{
+	border-top:1px solid var(--border-color);
+	margin-top:-1px;
+	padding:0.5em;
+	z-index:1;
+}
+.kb-config-main .kb-config-tabbed-panels .kb-config-tabbed-panel{
+	padding:0.5em;
+}
+.kb-config-main .kb-config-tabbed-panels .kb-config-tabbed-panel .kb-config-borderd-block{
+	border:1px solid var(--border-color);
+	border-radius:0.25em;
+	padding:0.5em;
+}
+.kb-config-main .kb-config-tabbed-panels .kb-config-tabbed-panel .kb-config-flex-columns{
+	display:flex;
+	flex-direction:row;
+}
+.kb-config-main .kb-config-tabbed-panels .kb-config-tabbed-panel .kb-config-flex-columns .kb-config-flex-column{
+	display:flex;
+	flex:1;
+	flex-direction:column;
+}
+.kb-config-main .kb-config-tabbed-panels .kb-config-tabbed-panel .kb-config-tabbed-panel-block{
+	border:3px solid var(--border-color);
+	border-radius:0.25em;
+	padding:0;
+}
+.kb-config-main .kb-config-tabbed-panels .kb-config-tabbed-panel .kb-config-tabbed-panel-block h1{
+	border-bottom:3px solid var(--border-color);
+	margin-bottom:0.5em;
+}
+.kb-config-main .kb-config-tabbed-panels .kb-config-tabbed-panel .kb-config-tabbed-panel-block section{
+	border:none;
+	padding:0 0.5em 0.5em 2em;
+	margin:0;
+}
+.kb-config-main .kb-config-tabbed-tabs{
+	overflow:hidden;
+	padding:0 0.25em;
+	scroll-behavior:smooth;
+	white-space:nowrap;
+	z-index:2;
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab{
+	border-top:1px solid var(--border-color);
+	border-left:1px solid var(--border-color);
+	border-right:1px solid var(--border-color);
+	border-top-left-radius:0.25em;
+	border-top-right-radius:0.25em;
+	display:inline-block;
+	overflow:visible;
+	padding:0.5em;
+	margin:0 0.125em;
+	white-space:nowrap;
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab .kb-icon{
+	background-size:1.5em 1.5em;
+	height:1.5em;
+	width:1.5em;
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab .kb-config-tabbed-tab-label{
+	display:inline-block;
+	line-height:1.5em;
+	padding:0 0.25em;
+	user-select:none;
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab .kb-config-tabbed-tab-prompt{
+	display:inline-block;
+	line-height:1.5em;
+	outline:none;
+	padding:0 0.25em;
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab .kb-config-tabbed-tab-prompt:focus{
+	border:1px solid var(--field-focus-color);
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab.kb-activate{
+	border-top:1px solid var(--emphasis-color);
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab.kb-activate:after{
+	background-color:var(--bg-color);
+	bottom:0;
+	content:'';
+	display:block;
+	height:2px;
+	left:0;
+	position:absolute;
+	width:100%;
+}
+.kb-config-main .kb-config-tabbed-tabs .kb-config-tabbed-tab.kb-dragging *{
+	pointer-events:none;
+	user-select:none;
+}
+.kb-config-main .kb-config-tabbed-tab-guide{
+	background-color:var(--field-focus-color);
+	border-top-left-radius:0.25em;
+	border-top-right-radius:0.25em;
+	display:inline-block;
+	height:2.5em;
+}
+.kb-config-main .kb-config-tabbed-tab-scroller{
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:3;
+}
+.kb-config-main .kb-config-tabbed-tab-scroller .kb-icon.kb-icon-arrow{
+	height:2.5em;
+	width:2.5em;
+}
+.kb-config-main .kb-config-tabbed-tab-scroller:not(.kb-hidden)+.kb-config-tabbed-tabs{
+	width:calc(100% - 5em);
+}
+_::-webkit-full-page-media, _:future, :root .kb-config-tabbed-tabs{
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+_::-webkit-full-page-media, _:future, :root .kb-config-tabbed-tabs::-webkit-scrollbar{
+	height:0;
+	width:0;
+}

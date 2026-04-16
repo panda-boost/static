@@ -1,0 +1,264 @@
+@charset "utf-8";
+/*
+* FileName "gantt.css"
+* Version: 1.0.0
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
+*/
+:root{
+  --gantt-bg-color:rgba(255,255,255,1);
+  --gantt-fr-color:rgba(38,50,56,0.75);
+  --gantt-active-bg-color:rgba(66,165,245,0.75);
+  --gantt-active-fr-color:rgba(255,255,255,1);
+}
+#bst-gantt-header{
+  display:flex;
+  padding:0.5em;
+}
+#bst-gantt-header .bst-gantt-header-filter{
+  flex-grow:1;
+}
+#bst-gantt-header .bst-gantt-button{
+  background-color:transparent !important;
+  border:none;
+  border-radius:0.25em !important;
+  color:var(--gantt-fr-color) !important;
+  display:inline-block;
+  line-height:1em;
+  padding:0.5em !important;
+}
+#bst-gantt-header .bst-gantt-button:focus{
+  box-shadow:none !important;
+  outline:none !important;
+}
+#bst-gantt-header .bst-gantt-button.bst-gantt-pickup-button{
+  background-color:transparent;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcdJREFUeNpiYKAUMMIYhbPW/EeX7E8LYWQiZAI2BY6EFBA0YT9JvgAIIAr9T5bfaSSJFwAEEHWiGpeXsQFQMNDc5gVAfBFkGTabCYVWAhBfoCSo42kS2gABNEQRyYkEOYEwDU9nO5KbmRcAbTlAruYEcopNogFezcAAbKDE5vrBmbYBAmiE52a0GC4AUgJUsOMDMJFPQBdkwZf1qOhBkix2pGVQ47N4Py2jdMAKXRZyNCGXu8BE6EBO6JDlY1ClQGyjZ5A13IZaHJPaxiTV4kJqlVyjFQQIAATQKBoFA9ICaaCGBcAKpYFoi4GWgmobByp57gDQcsfRSoKFxuX04CurRxPXkLDYkZJGPzlNnw3AOAtESg9087EDtHnrQO+gFhixiWvUYrr1JOIpSdmUWJwwJIN6wNpco2D4A4AAG0WjYBSMguExCoGnlhyMk1iNxNa8pLY97AdpxBHtLqaRlqSZRnP1KBjZpTQ1R9uoCbCO3I3m4ZHoYRY62rUBlCuASe8BWjYBZZH9wy2GD8BGWoEenA/EBsM9hh3QZtMXjubhUQ+PenjUw6MeHmT1MDLYT+4k4GgM09jDBwepPw4yjIJRMApGwXAEAJ/sditfnAXXAAAAAElFTkSuQmCC");
+  background-position:center; center;
+  background-repeat:no-repeat;
+  background-size:2em 2em;
+  border:none;
+  cursor:pointer;
+  display:inline-block;
+  height:2em;
+  outline:none;
+  text-align:center;
+  width:2.5em;
+  -webkit-appearance:button;
+}
+#bst-gantt-header .bst-gantt-button.bst-gantt-search-button{
+  background-color:transparent;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA8NJREFUeNpiYKAUMMIYhbPW/AdSjkC8vz8thBFDJVCBA5piMGBCUrMfrxXoOrFag0sxXgAQQFRAMLsw7MTlCCYsJuzHFawgsACIDwL9vACX/QkEHQkQQNSJany+IxgnME3YggWXONGRik2OBd15MEUwp0LD3QEaxIT9jCf45wNxIs44IgUABNAQRYx4AgYGHgADSJFglgBqfA/V+AAaVROAWIGoTA1NSQI4xBVw2gyUbIAmjg84zL5PMCeTApiQkmYDIV8RWzQqAg17gCyGLVsykpKziMrXpOR1Ug1oGPi0DRBAo7mZUESB8lsBktABYLI5QBOLoaWDAJHmCeLJz8RZjKUcw2kouuOIyTyMeIL0PaGCE02PAlIpRVAPrtKrAMn1isQEHazMgQIFoks+NHAAySf9dE3VQAvvI7n8A9BHgsSmB7LjGEdckwIItjhIacYoQNvh6PFXCLRkAo6cgNMBjLSIPywOCAQ6YAPdikWgAwJGqyQYAAigUTQKBk0LxAHakyO2SU2ZxWgVBjbgSGoTiFAlYQCkzhNp1gWg5YYk90Rw1EznsVQIjNBqDzTsg9wUMgDqOU+xj9H6DTh9gyVUDIFqL5DlY7SBlA/4ghBqiSOS0HlKghq5NSFIRHuL5LY1ExWzZiFatqObxcjxSleLsbZS6WFxPylxjsviDehjHEQAA4oTF9DFgUjcemheZSAyzy+gNFVPQM6bQMPnY6s0sIxiJlKjrD5PahAS25NgImCAIZrPcYEPxI7/kNOT6EcbDYDl3UD00SlifE71ngSxltOqC0PQcpqUXBQnLipYDkqYigyjYEQCgADtmosNwiAQhssGdQPdoG6AE2g3cAPtBMYJGjfQCRxB3cgNtNecphqgRzmoGP6YNKkJ5csBxz3SLykp6X+zEET/D0HmxuJ+CNf3U6g0p2AAnGJAK5nmBNeGPbWOEwwY4xnImOeejNGmGLjBxUDYi8GiMMGK0v3QKRXuTBZvxqpGAzaUGJ0s0rNioGa6CA5sCFbZ+lkw+l77srRNbCozdbfZu8rFeNKfm8dK8dfEdU/bBGpSE5CxwqIONnPwBfwLKkYHpuRmB0g35jX0ofXQuKEZl780nBVW1RUuC5eKd23fQF9ilQi71cDqvh3ED0vDpMDKpW0tBEFrw5hsK2joTStH6D6rQkBwyz7LIq89urQ4hNj8vHBcglRwLjmDs4WHuIdrB195xEvMXdElwwYufJoDV0CBB1vRdS2Ufe4DXGQRiBM8CmAiOCm4iArYAA4ua/7VipmUlJQUv54rDro2xEmevQAAAABJRU5ErkJggg==");
+  background-position:center; center;
+  background-repeat:no-repeat;
+  background-size:2em 2em;
+  border:none;
+  cursor:pointer;
+  display:inline-block;
+  height:2em;
+  outline:none;
+  text-align:center;
+  width:2.5em;
+  -webkit-appearance:button;
+}
+#bst-gantt-header .bst-gantt-button.bst-gantt-button-active{
+  background-color:var(--gantt-active-bg-color) !important;
+  color:var(--gantt-active-fr-color) !important;
+}
+.gantt .grid-background {
+  fill: none;
+}
+.gantt .grid-header {
+  fill: #ffffff;
+  stroke: #e0e0e0;
+  stroke-width: 1.4;
+}
+.gantt .grid-row {
+  fill: #ffffff;
+}
+.gantt .grid-row:nth-child(even) {
+  fill: #f5f5f5;
+}
+.gantt .row-line {
+  stroke: #ebeff2;
+}
+.gantt .tick {
+  stroke: #e0e0e0;
+  stroke-width: 0.2;
+}
+.gantt .tick.thick {
+  stroke-width: 0.4;
+}
+.gantt .today-highlight {
+  fill: #fcf8e3;
+  opacity: 0.5;
+}
+.gantt .arrow {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.4;
+}
+.gantt .bar {
+  fill: #b8c2cc;
+  stroke: #8D99A6;
+  stroke-width: 0;
+  transition: stroke-width 0.3s ease;
+  user-select: none;
+}
+.gantt .bar-progress {
+  opacity: 0.75;
+}
+.gantt .bar-progress.default {
+  fill: #8a8aff;
+}
+.gantt .bar-invalid {
+  fill: transparent;
+  stroke: #8D99A6;
+  stroke-width: 1;
+  stroke-dasharray: 5;
+}
+.gantt .bar-invalid ~ .bar-label {
+  fill: #555;
+}
+.gantt .bar-label {
+  fill: #fff;
+  dominant-baseline: central;
+  text-anchor: middle;
+  font-size: 12px;
+  font-weight: lighter;
+}
+.gantt .bar-label.big {
+  fill: #555;
+  text-anchor: start;
+}
+.gantt .handle {
+  fill: #ddd;
+  cursor: ew-resize;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.gantt .bar-wrapper {
+  cursor: pointer;
+  outline: none;
+}
+.gantt .bar-wrapper:hover .bar {
+  fill: #a9b5c1;
+}
+.gantt .bar-wrapper:hover .bar-progress {
+  opacity: 1;
+}
+.gantt .bar-wrapper:hover .handle {
+  visibility: visible;
+  opacity: 1;
+}
+.gantt .bar-wrapper.active .bar {
+  fill: #a9b5c1;
+}
+.gantt .bar-wrapper.active .bar-progress {
+  opacity: 1;
+}
+.gantt .lower-text, .gantt .upper-text {
+  font-size: 12px;
+  text-anchor: middle;
+}
+.gantt .upper-text {
+  fill: #555;
+}
+.gantt .lower-text {
+  fill: #333;
+}
+.gantt .hide {
+  display: none;
+}
+
+.gantt-container {
+  position: relative;
+  overflow: auto;
+  font-size: 12px;
+}
+.gantt-container .popup-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0;
+  color: #959da5;
+  border-radius: 3px;
+}
+.gantt-container .popup-wrapper .title {
+  border-bottom: 3px solid #a3a3ff;
+  padding: 10px;
+}
+.gantt-container .popup-wrapper .subtitle {
+  padding: 10px;
+  color: #dfe2e5;
+}
+.gantt-container .popup-wrapper .progress {
+  padding: 0 10px 10px 10px;
+  color: #dfe2e5;
+}
+.gantt-container .popup-wrapper .pointer {
+  position: absolute;
+  height: 5px;
+  margin: 0 0 0 -5px;
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}/*
+Temporarily retained until cached data is cleared.
+*/
+#kb-gantt-header{
+  display:flex;
+  padding:0.5em;
+}
+#kb-gantt-header .kb-gantt-header-filter{
+  flex-grow:1;
+}
+#kb-gantt-header .kb-gantt-button{
+  background-color:transparent !important;
+  border:none;
+  border-radius:0.25em !important;
+  color:var(--gantt-fr-color) !important;
+  display:inline-block;
+  line-height:1em;
+  padding:0.5em !important;
+}
+#kb-gantt-header .kb-gantt-button:focus{
+  box-shadow:none !important;
+  outline:none !important;
+}
+#kb-gantt-header .kb-gantt-button.kb-gantt-pickup-button{
+  background-color:transparent;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcdJREFUeNpiYKAUMMIYhbPW/EeX7E8LYWQiZAI2BY6EFBA0YT9JvgAIIAr9T5bfaSSJFwAEEHWiGpeXsQFQMNDc5gVAfBFkGTabCYVWAhBfoCSo42kS2gABNEQRyYkEOYEwDU9nO5KbmRcAbTlAruYEcopNogFezcAAbKDE5vrBmbYBAmiE52a0GC4AUgJUsOMDMJFPQBdkwZf1qOhBkix2pGVQ47N4Py2jdMAKXRZyNCGXu8BE6EBO6JDlY1ClQGyjZ5A13IZaHJPaxiTV4kJqlVyjFQQIAATQKBoFA9ICaaCGBcAKpYFoi4GWgmobByp57gDQcsfRSoKFxuX04CurRxPXkLDYkZJGPzlNnw3AOAtESg9087EDtHnrQO+gFhixiWvUYrr1JOIpSdmUWJwwJIN6wNpco2D4A4AAG0WjYBSMguExCoGnlhyMk1iNxNa8pLY97AdpxBHtLqaRlqSZRnP1KBjZpTQ1R9uoCbCO3I3m4ZHoYRY62rUBlCuASe8BWjYBZZH9wy2GD8BGWoEenA/EBsM9hh3QZtMXjubhUQ+PenjUw6MeHmT1MDLYT+4k4GgM09jDBwepPw4yjIJRMApGwXAEAJ/sditfnAXXAAAAAElFTkSuQmCC");
+  background-position:center; center;
+  background-repeat:no-repeat;
+  background-size:2em 2em;
+  border:none;
+  cursor:pointer;
+  display:inline-block;
+  height:2em;
+  outline:none;
+  text-align:center;
+  width:2.5em;
+  -webkit-appearance:button;
+}
+#kb-gantt-header .kb-gantt-button.kb-gantt-search-button{
+  background-color:transparent;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA8NJREFUeNpiYKAUMMIYhbPW/AdSjkC8vz8thBFDJVCBA5piMGBCUrMfrxXoOrFag0sxXgAQQFRAMLsw7MTlCCYsJuzHFawgsACIDwL9vACX/QkEHQkQQNSJany+IxgnME3YggWXONGRik2OBd15MEUwp0LD3QEaxIT9jCf45wNxIs44IgUABNAQRYx4AgYGHgADSJFglgBqfA/V+AAaVROAWIGoTA1NSQI4xBVw2gyUbIAmjg84zL5PMCeTApiQkmYDIV8RWzQqAg17gCyGLVsykpKziMrXpOR1Ug1oGPi0DRBAo7mZUESB8lsBktABYLI5QBOLoaWDAJHmCeLJz8RZjKUcw2kouuOIyTyMeIL0PaGCE02PAlIpRVAPrtKrAMn1isQEHazMgQIFoks+NHAAySf9dE3VQAvvI7n8A9BHgsSmB7LjGEdckwIItjhIacYoQNvh6PFXCLRkAo6cgNMBjLSIPywOCAQ6YAPdikWgAwJGqyQYAAigUTQKBk0LxAHakyO2SU2ZxWgVBjbgSGoTiFAlYQCkzhNp1gWg5YYk90Rw1EznsVQIjNBqDzTsg9wUMgDqOU+xj9H6DTh9gyVUDIFqL5DlY7SBlA/4ghBqiSOS0HlKghq5NSFIRHuL5LY1ExWzZiFatqObxcjxSleLsbZS6WFxPylxjsviDehjHEQAA4oTF9DFgUjcemheZSAyzy+gNFVPQM6bQMPnY6s0sIxiJlKjrD5PahAS25NgImCAIZrPcYEPxI7/kNOT6EcbDYDl3UD00SlifE71ngSxltOqC0PQcpqUXBQnLipYDkqYigyjYEQCgADtmosNwiAQhssGdQPdoG6AE2g3cAPtBMYJGjfQCRxB3cgNtNecphqgRzmoGP6YNKkJ5csBxz3SLykp6X+zEET/D0HmxuJ+CNf3U6g0p2AAnGJAK5nmBNeGPbWOEwwY4xnImOeejNGmGLjBxUDYi8GiMMGK0v3QKRXuTBZvxqpGAzaUGJ0s0rNioGa6CA5sCFbZ+lkw+l77srRNbCozdbfZu8rFeNKfm8dK8dfEdU/bBGpSE5CxwqIONnPwBfwLKkYHpuRmB0g35jX0ofXQuKEZl780nBVW1RUuC5eKd23fQF9ilQi71cDqvh3ED0vDpMDKpW0tBEFrw5hsK2joTStH6D6rQkBwyz7LIq89urQ4hNj8vHBcglRwLjmDs4WHuIdrB195xEvMXdElwwYufJoDV0CBB1vRdS2Ufe4DXGQRiBM8CmAiOCm4iArYAA4ua/7VipmUlJQUv54rDro2xEmevQAAAABJRU5ErkJggg==");
+  background-position:center; center;
+  background-repeat:no-repeat;
+  background-size:2em 2em;
+  border:none;
+  cursor:pointer;
+  display:inline-block;
+  height:2em;
+  outline:none;
+  text-align:center;
+  width:2.5em;
+  -webkit-appearance:button;
+}
+#kb-gantt-header .kb-gantt-button.kb-gantt-button-active{
+  background-color:var(--gantt-active-bg-color) !important;
+  color:var(--gantt-active-fr-color) !important;
+}

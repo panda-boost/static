@@ -1,0 +1,73 @@
+@charset "utf-8";
+/*
+* FileName "monthlybalance.css"
+* Version: 1.0.0
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
+*/
+.bst-monthlybalance-operation *{
+	box-sizing:border-box;
+}
+.bst-monthlybalance-operation .bst-field .bst-field-value{
+	position:relative;
+}
+.bst-monthlybalance-operation .bst-field .bst-field-value select{
+	padding-left:0.5em !important;
+}
+.bst-monthlybalance-operation:not(.bst-mobile){
+	display:inline-flex;
+	margin:0 8px 0 0;
+	vertical-align:top;
+}
+.bst-monthlybalance-operation:not(.bst-mobile) *{
+	line-height:48px;
+}
+.bst-monthlybalance-operation:not(.bst-mobile) .bst-field{
+	padding:0 0.25em;
+}
+.bst-monthlybalance-operation.bst-mobile{
+	margin:0.25em 0.25em 0 0.25em;
+	width:calc(100% - 0.5em);
+}
+.bst-monthlybalance-operation.bst-mobile *{
+	line-height:2em;
+}
+.bst-monthlybalance-operation.bst-mobile .bst-field{
+	padding:0.125em 0.25em;
+	width:100%;
+}
+/*
+Temporarily retained until cached data is cleared.
+*/
+.kb-monthlybalance-operation *{
+	box-sizing:border-box;
+}
+.kb-monthlybalance-operation .kb-field .kb-field-value{
+	position:relative;
+}
+.kb-monthlybalance-operation .kb-field .kb-field-value select{
+	padding-left:0.5em !important;
+}
+.kb-monthlybalance-operation:not(.kb-mobile){
+	display:inline-flex;
+	margin:0 8px 0 0;
+	vertical-align:top;
+}
+.kb-monthlybalance-operation:not(.kb-mobile) *{
+	line-height:48px;
+}
+.kb-monthlybalance-operation:not(.kb-mobile) .kb-field{
+	padding:0 0.25em;
+}
+.kb-monthlybalance-operation.kb-mobile{
+	margin:0.25em 0.25em 0 0.25em;
+	width:calc(100% - 0.5em);
+}
+.kb-monthlybalance-operation.kb-mobile *{
+	line-height:2em;
+}
+.kb-monthlybalance-operation.kb-mobile .kb-field{
+	padding:0.125em 0.25em;
+	width:100%;
+}

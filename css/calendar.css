@@ -1,0 +1,107 @@
+@charset "utf-8";
+/*
+* FileName "calendar.css"
+* Version: 1.0.0
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
+*/
+:root{
+	--active-bg-color:rgba(66,165,245,0.75);
+	--active-fr-color:rgba(255,255,255,1);
+	--calendar-bg-color:rgba(255,255,255,1);
+	--calendar-fr-color:rgba(38,50,56,0.75);
+	--day-color-sat:rgba(227,242,254,1);
+	--day-color-sun:rgba(254,236,234,1);
+	--day-color-today:rgba(255,244,233,1);
+}
+.bst-calendar{
+	background-color:var(--calendar-bg-color);
+}
+.fc *{
+	font-family:system-ui,sans-serif;
+	font-weight:normal !important;
+}
+.fc .fc-button{
+	background-color:transparent !important;
+	border:none;
+	border-radius:0.25em !important;
+	color:var(--calendar-fr-color) !important;
+	padding:0.5em !important;
+}
+.fc .fc-button:focus{
+	box-shadow:none !important;
+	outline:none !important;
+}
+.fc .fc-button.fc-pickup-button{
+	background-color:transparent;
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcdJREFUeNpiYKAUMMIYhbPW/EeX7E8LYWQiZAI2BY6EFBA0YT9JvgAIIAr9T5bfaSSJFwAEEHWiGpeXsQFQMNDc5gVAfBFkGTabCYVWAhBfoCSo42kS2gABNEQRyYkEOYEwDU9nO5KbmRcAbTlAruYEcopNogFezcAAbKDE5vrBmbYBAmiE52a0GC4AUgJUsOMDMJFPQBdkwZf1qOhBkix2pGVQ47N4Py2jdMAKXRZyNCGXu8BE6EBO6JDlY1ClQGyjZ5A13IZaHJPaxiTV4kJqlVyjFQQIAATQKBoFA9ICaaCGBcAKpYFoi4GWgmobByp57gDQcsfRSoKFxuX04CurRxPXkLDYkZJGPzlNnw3AOAtESg9087EDtHnrQO+gFhixiWvUYrr1JOIpSdmUWJwwJIN6wNpco2D4A4AAG0WjYBSMguExCoGnlhyMk1iNxNa8pLY97AdpxBHtLqaRlqSZRnP1KBjZpTQ1R9uoCbCO3I3m4ZHoYRY62rUBlCuASe8BWjYBZZH9wy2GD8BGWoEenA/EBsM9hh3QZtMXjubhUQ+PenjUw6MeHmT1MDLYT+4k4GgM09jDBwepPw4yjIJRMApGwXAEAJ/sditfnAXXAAAAAElFTkSuQmCC");
+	background-position:center; center;
+	background-repeat:no-repeat;
+	background-size:2em 2em;
+	border:none;
+	cursor:pointer;
+	display:inline-block;
+	height:1.5em;
+	outline:none;
+	text-align:center;
+	width:2.5em;
+	-webkit-appearance:button;
+}
+.fc .fc-button.fc-button-active{
+	background-color:var(--active-bg-color) !important;
+	color:var(--active-fr-color) !important;
+}
+.fc .fc-day.fc-day-sat{
+	background-color:var(--day-color-sat);
+}
+.fc .fc-day.fc-day-sun{
+	background-color:var(--day-color-sun);
+}
+.fc .fc-day.fc-day-today{
+	background-color:var(--day-color-today) !important;
+}
+.fc .fc-daygrid-dot-event .fc-event-title{
+	flex-grow:0 !important;
+	flex-shrink:0 !important;
+}
+.fc .fc-dayGridMonth-view .fc-daygrid-day-events{
+	min-height:10em !important;
+}
+.fc .fc-timegrid-body.fc-liquid{
+	background-color:var(--calendar-bg-color);
+	min-height:auto !important;
+	overflow:unset !important;
+}
+.fc .fc-header-toolbar{
+	background-color:var(--calendar-bg-color);
+	position:sticky;
+	z-index:10;
+}
+.fc .fc-header-toolbar.fc-header-toolbar-border{
+	border-bottom:1px solid var(--fc-border-color);
+}
+.fc :is(.fc-dayGridMonth-view,.fc-dayGridDay-view,.fc-dayGridWeek-view,.fc-timeGridDay-view,.fc-timeGridWeek-view) > table > thead{
+	position:sticky;
+	z-index:3;
+}
+.fc .fc-toolbar{
+	margin:0 !important;
+	padding:0.25em;
+}
+.fc .fc-toolbar *{
+	vertical-align:middle;
+}
+.fc .fc-toolbar .fc-toolbar-title{
+	color:var(--calendar-fr-color) !important;
+	display:inline-block;
+	font-size:1em;
+	line-height:1.5em;
+	padding:0 0.5em;
+}
+/*
+Temporarily retained until cached data is cleared.
+*/
+.kb-calendar{
+	background-color:var(--calendar-bg-color);
+}

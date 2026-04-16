@@ -1,0 +1,113 @@
+@charset "utf-8";
+/*
+* FileName "fusion.css"
+* Version: 1.0.0
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
+*/
+.bst-fusion-operation *{
+	box-sizing:border-box;
+}
+.bst-fusion-operation .bst-field .bst-field-value{
+	position:relative;
+}
+.bst-fusion-operation .bst-field .bst-field-value select{
+	padding-left:0.5em !important;
+}
+.bst-fusion-operation .bst-fusion-pickup-button{
+	background-color:transparent !important;
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcdJREFUeNpiYKAUMMIYhbPW/EeX7E8LYWQiZAI2BY6EFBA0YT9JvgAIIAr9T5bfaSSJFwAEEHWiGpeXsQFQMNDc5gVAfBFkGTabCYVWAhBfoCSo42kS2gABNEQRyYkEOYEwDU9nO5KbmRcAbTlAruYEcopNogFezcAAbKDE5vrBmbYBAmiE52a0GC4AUgJUsOMDMJFPQBdkwZf1qOhBkix2pGVQ47N4Py2jdMAKXRZyNCGXu8BE6EBO6JDlY1ClQGyjZ5A13IZaHJPaxiTV4kJqlVyjFQQIAATQKBoFA9ICaaCGBcAKpYFoi4GWgmobByp57gDQcsfRSoKFxuX04CurRxPXkLDYkZJGPzlNnw3AOAtESg9087EDtHnrQO+gFhixiWvUYrr1JOIpSdmUWJwwJIN6wNpco2D4A4AAG0WjYBSMguExCoGnlhyMk1iNxNa8pLY97AdpxBHtLqaRlqSZRnP1KBjZpTQ1R9uoCbCO3I3m4ZHoYRY62rUBlCuASe8BWjYBZZH9wy2GD8BGWoEenA/EBsM9hh3QZtMXjubhUQ+PenjUw6MeHmT1MDLYT+4k4GgM09jDBwepPw4yjIJRMApGwXAEAJ/sditfnAXXAAAAAElFTkSuQmCC");
+	background-position:center; center;
+	background-repeat:no-repeat;
+	background-size:2em 2em;
+	border:none;
+	border-radius:0.25em !important;
+	cursor:pointer;
+	display:inline-block;
+	outline:none;
+	padding:0.5em !important;
+	text-align:center;
+	width:2.5em;
+	-webkit-appearance:button;
+}
+.bst-fusion-operation .bst-fusion-pickup-guide{
+	display:inline-block;
+}
+.bst-fusion-operation:not(.bst-mobile){
+	display:inline-flex;
+	margin:0 8px 0 0;
+	vertical-align:top;
+}
+.bst-fusion-operation:not(.bst-mobile) *{
+	line-height:48px;
+}
+.bst-fusion-operation:not(.bst-mobile) .bst-field{
+	padding:0 0.25em;
+}
+.bst-fusion-operation.bst-mobile{
+	display:flex;
+	margin:0.25em 0.25em 0 0.25em;
+	width:calc(100% - 0.5em);
+}
+.bst-fusion-operation.bst-mobile *{
+	line-height:2em;
+}
+.bst-fusion-operation.bst-mobile .bst-field{
+	padding:0.125em 0.25em;
+	width:100%;
+}
+/*
+Temporarily retained until cached data is cleared.
+*/
+.kb-fusion-operation *{
+	box-sizing:border-box;
+}
+.kb-fusion-operation .kb-field .kb-field-value{
+	position:relative;
+}
+.kb-fusion-operation .kb-field .kb-field-value select{
+	padding-left:0.5em !important;
+}
+.kb-fusion-operation .kb-fusion-pickup-button{
+	background-color:transparent !important;
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcdJREFUeNpiYKAUMMIYhbPW/EeX7E8LYWQiZAI2BY6EFBA0YT9JvgAIIAr9T5bfaSSJFwAEEHWiGpeXsQFQMNDc5gVAfBFkGTabCYVWAhBfoCSo42kS2gABNEQRyYkEOYEwDU9nO5KbmRcAbTlAruYEcopNogFezcAAbKDE5vrBmbYBAmiE52a0GC4AUgJUsOMDMJFPQBdkwZf1qOhBkix2pGVQ47N4Py2jdMAKXRZyNCGXu8BE6EBO6JDlY1ClQGyjZ5A13IZaHJPaxiTV4kJqlVyjFQQIAATQKBoFA9ICaaCGBcAKpYFoi4GWgmobByp57gDQcsfRSoKFxuX04CurRxPXkLDYkZJGPzlNnw3AOAtESg9087EDtHnrQO+gFhixiWvUYrr1JOIpSdmUWJwwJIN6wNpco2D4A4AAG0WjYBSMguExCoGnlhyMk1iNxNa8pLY97AdpxBHtLqaRlqSZRnP1KBjZpTQ1R9uoCbCO3I3m4ZHoYRY62rUBlCuASe8BWjYBZZH9wy2GD8BGWoEenA/EBsM9hh3QZtMXjubhUQ+PenjUw6MeHmT1MDLYT+4k4GgM09jDBwepPw4yjIJRMApGwXAEAJ/sditfnAXXAAAAAElFTkSuQmCC");
+	background-position:center; center;
+	background-repeat:no-repeat;
+	background-size:2em 2em;
+	border:none;
+	border-radius:0.25em !important;
+	cursor:pointer;
+	display:inline-block;
+	outline:none;
+	padding:0.5em !important;
+	text-align:center;
+	width:2.5em;
+	-webkit-appearance:button;
+}
+.kb-fusion-operation .kb-fusion-pickup-guide{
+	display:inline-block;
+}
+.kb-fusion-operation:not(.kb-mobile){
+	display:inline-flex;
+	margin:0 8px 0 0;
+	vertical-align:top;
+}
+.kb-fusion-operation:not(.kb-mobile) *{
+	line-height:48px;
+}
+.kb-fusion-operation:not(.kb-mobile) .kb-field{
+	padding:0 0.25em;
+}
+.kb-fusion-operation.kb-mobile{
+	display:flex;
+	margin:0.25em 0.25em 0 0.25em;
+	width:calc(100% - 0.5em);
+}
+.kb-fusion-operation.kb-mobile *{
+	line-height:2em;
+}
+.kb-fusion-operation.kb-mobile .kb-field{
+	padding:0.125em 0.25em;
+	width:100%;
+}

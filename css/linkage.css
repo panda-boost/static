@@ -1,0 +1,123 @@
+@charset "utf-8";
+/*
+* FileName "linkage.css"
+* Version: 1.0.0
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
+*/
+.bst-linkage-container .bst-dropdown:is(.bst-hour,.bst-minute){
+	width:calc(3.5em + 2px);
+}
+.bst-linkage-container .bst-field .bst-field-value:is(.bst-condition,.bst-file,.bst-organization,.bst-group,.bst-user) .bst-guide{
+	width:calc(100% - 1.75em);
+}
+.bst-linkage-container .bst-field:is(.bst-disabled,.bst-readonly):not(.bst-picker) .bst-field-value.bst-lookup .bst-guide{
+	width:calc(100% - 1.75em);
+}
+.bst-linkage-container .bst-view tbody{
+	z-index:auto;
+}
+.bst-linkage-container .bst-view tbody :is(td,th){
+	background-color:transparent;
+}
+.bst-linkage-container .bst-view thead{
+	position:relative;
+	top:auto;
+	z-index:auto;
+}
+.bst-linkage-container .bst-view thead :is(td,th){
+	background-color:var(--emphasis-color);
+}
+.bst-linkage-container .bst-view thead :is(td,th):before{
+	border:none;
+}
+.bst-linkage-container .bst-view thead :is(td,th) *{
+	color:var(--bg-color);
+}
+.bst-linkage-container .bst-view .bst-view-row .bst-view-row-cell{
+	background-color:transparent;
+}
+.bst-linkage-container .bst-linkage-container-footer *{
+	padding:0.25em 0;
+	position:relative;
+	vertical-align:middle;
+}
+.bst-linkage-container .bst-linkage-container-footer .bst-icon{
+	background-position:center;
+	background-size:1.75em 1.75em;
+}
+.bst-linkage-container .bst-linkage-container-footer .bst-linkage-container-button{
+	background-color:transparent;
+	border:none;
+	color:var(--emphasis-color);
+	cursor:pointer;
+	display:inline-block;
+	line-height:2em;
+	outline:none;
+	padding-right:0.5em;
+	text-align:center;
+	-webkit-appearance:button;
+}
+.bst-linkage-container .bst-linkage-container-footer .bst-linkage-container-monitor{
+	line-height:2em;
+}
+/*
+Temporarily retained until cached data is cleared.
+*/
+.kb-linkage-container .kb-dropdown:is(.kb-hour,.kb-minute){
+	width:calc(3.5em + 2px);
+}
+.kb-linkage-container .kb-field .kb-field-value:is(.kb-condition,.kb-file,.kb-organization,.kb-group,.kb-user) .kb-guide{
+	width:calc(100% - 1.75em);
+}
+.kb-linkage-container .kb-field:is(.kb-disabled,.kb-readonly):not(.kb-picker) .kb-field-value.kb-lookup .kb-guide{
+	width:calc(100% - 1.75em);
+}
+.kb-linkage-container .kb-view tbody{
+	z-index:auto;
+}
+.kb-linkage-container .kb-view tbody :is(td,th){
+	background-color:transparent;
+}
+.kb-linkage-container .kb-view thead{
+	position:relative;
+	top:auto;
+	z-index:auto;
+}
+.kb-linkage-container .kb-view thead :is(td,th){
+	background-color:var(--emphasis-color);
+}
+.kb-linkage-container .kb-view thead :is(td,th):before{
+	border:none;
+}
+.kb-linkage-container .kb-view thead :is(td,th) *{
+	color:var(--bg-color);
+}
+.kb-linkage-container .kb-view .kb-view-row .kb-view-row-cell{
+	background-color:transparent;
+}
+.kb-linkage-container .kb-linkage-container-footer *{
+	padding:0.25em 0;
+	position:relative;
+	vertical-align:middle;
+}
+.kb-linkage-container .kb-linkage-container-footer .kb-icon{
+	background-position:center;
+	background-size:1.75em 1.75em;
+}
+.kb-linkage-container .kb-linkage-container-footer .kb-linkage-container-button{
+	background-color:transparent;
+	border:none;
+	color:var(--emphasis-color);
+	cursor:pointer;
+	display:inline-block;
+	line-height:2em;
+	outline:none;
+	padding-right:0.5em;
+	text-align:center;
+	-webkit-appearance:button;
+}
+.kb-linkage-container .kb-linkage-container-footer .kb-linkage-container-monitor{
+	line-height:2em;
+}
