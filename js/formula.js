@@ -1278,7 +1278,7 @@ window.BooooooostFormula=class{
 									);
 								})
 							);
-							field.recordPicker=new KintoneBoosterRecordPicker(type,true,((type=='user')?[{code:{value:'LOGINUSER()'},name:{value:'Login user'}}]:[]));
+							field.recordPicker=new BooooooostRecordPicker(type,true,((type=='user')?[{code:{value:'LOGINUSER()'},name:{value:'Login user'}}]:[]));
 						})((() => {
 							var res='';
 							switch (fieldInfo.type)
