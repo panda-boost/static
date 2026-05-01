@@ -329,7 +329,7 @@ window.BooooooostFilter=class extends BooooooostDialog{
 			height:'calc(100% - 1em)',
 			width:'55em'
 		});
-		this.contents.addClass('kb-filterbuilder').css({
+		this.contents.addClass('bst-filterbuilder').css({
 			padding:'0'
 		});
 	}
@@ -448,10 +448,10 @@ window.BooooooostFilter=class extends BooooooostDialog{
 					}
 				}).spread((row,index) => {
 					/* event */
-					row.elm('.kb-table-row-add').on('click',(e) => {
+					row.elm('.bst-table-row-add').on('click',(e) => {
 						this.table.insertRow(row);
 					});
-					row.elm('.kb-table-row-del').on('click',(e) => {
+					row.elm('.bst-table-row-del').on('click',(e) => {
 						bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],() => {
 							this.table.delRow(row);
 						});
@@ -524,8 +524,8 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																})({
 																	pattern:field.elm('[field-id=pattern]').elm('select'),
 																	date:field.elm('[field-id=value]').elm('input'),
-																	hour:(field.elm('[field-id=value]').elm('.kb-hour'))?field.elm('[field-id=value]').elm('.kb-hour').elm('select'):null,
-																	minute:(field.elm('[field-id=value]').elm('.kb-minute'))?field.elm('[field-id=value]').elm('.kb-minute').elm('select'):null,
+																	hour:(field.elm('[field-id=value]').elm('.bst-hour'))?field.elm('[field-id=value]').elm('.bst-hour').elm('select'):null,
+																	minute:(field.elm('[field-id=value]').elm('.bst-minute'))?field.elm('[field-id=value]').elm('.bst-minute').elm('select'):null,
 																	interval:field.elm('[field-id=interval]').elm('input'),
 																	unit:field.elm('[field-id=unit]').elm('select')
 																});
@@ -545,12 +545,12 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																break;
 															case 'TIME':
 																res='""';
-																if (field.elm('.kb-hour').elm('select').val())
-																	if (!field.elm('.kb-minute').elm('select').val()) field.elm('.kb-minute').elm('select').val('00');
-																if (field.elm('.kb-minute').elm('select').val())
-																	if (!field.elm('.kb-hour').elm('select').val()) field.elm('.kb-hour').elm('select').val('00');
-																if (field.elm('.kb-hour').elm('select').val() && field.elm('.kb-minute').elm('select').val())
-																	res='"'+field.elm('.kb-hour').elm('select').val()+':'+field.elm('.kb-minute').elm('select').val()+'"';
+																if (field.elm('.bst-hour').elm('select').val())
+																	if (!field.elm('.bst-minute').elm('select').val()) field.elm('.bst-minute').elm('select').val('00');
+																if (field.elm('.bst-minute').elm('select').val())
+																	if (!field.elm('.bst-hour').elm('select').val()) field.elm('.bst-hour').elm('select').val('00');
+																if (field.elm('.bst-hour').elm('select').val() && field.elm('.bst-minute').elm('select').val())
+																	res='"'+field.elm('.bst-hour').elm('select').val()+':'+field.elm('.bst-minute').elm('select').val()+'"';
 																if (operator.match(/in/)) res='('+res+')';
 																break;
 															default:
@@ -621,8 +621,8 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																})({
 																	pattern:field.elm('[field-id=pattern]').elm('select'),
 																	date:field.elm('[field-id=value]').elm('input'),
-																	hour:(field.elm('[field-id=value]').elm('.kb-hour'))?field.elm('[field-id=value]').elm('.kb-hour').elm('select'):null,
-																	minute:(field.elm('[field-id=value]').elm('.kb-minute'))?field.elm('[field-id=value]').elm('.kb-minute').elm('select'):null,
+																	hour:(field.elm('[field-id=value]').elm('.bst-hour'))?field.elm('[field-id=value]').elm('.bst-hour').elm('select'):null,
+																	minute:(field.elm('[field-id=value]').elm('.bst-minute'))?field.elm('[field-id=value]').elm('.bst-minute').elm('select'):null,
 																	interval:field.elm('[field-id=interval]').elm('input'),
 																	unit:field.elm('[field-id=unit]').elm('select')
 																});
@@ -643,8 +643,8 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																	return result;
 																},[]);
 																field.elm('input').val(JSON.stringify(values));
-																field.elm('.kb-guide').empty();
-																values.each((value,index) => field.elm('.kb-field-value').guide(value));
+																field.elm('.bst-guide').empty();
+																values.each((value,index) => field.elm('.bst-field-value').guide(value));
 																break;
 															case 'GROUP_SELECT':
 																var values=value.split(',').map((item) => item.trim()).reduce((result,current) => {
@@ -659,8 +659,8 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																	return result;
 																},[]);
 																field.elm('input').val(JSON.stringify(values));
-																field.elm('.kb-guide').empty();
-																values.each((value,index) => field.elm('.kb-field-value').guide(value));
+																field.elm('.bst-guide').empty();
+																values.each((value,index) => field.elm('.bst-field-value').guide(value));
 																break;
 															case 'ORGANIZATION_SELECT':
 																var values=value.split(',').map((item) => item.trim()).reduce((result,current) => {
@@ -675,20 +675,20 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																	return result;
 																},[]);
 																field.elm('input').val(JSON.stringify(values));
-																field.elm('.kb-guide').empty();
-																values.each((value,index) => field.elm('.kb-field-value').guide(value));
+																field.elm('.bst-guide').empty();
+																values.each((value,index) => field.elm('.bst-field-value').guide(value));
 																break;
 															case 'TIME':
 																var values=value.replace(/(^["']{1}|["']{1}$)/g,'').split(':').filter((item) => item);
 																if (values.length==2)
 																{
-																	field.elm('.kb-hour').elm('select').val(values[0]);
-																	field.elm('.kb-minute').elm('select').val(values[1]);
+																	field.elm('.bst-hour').elm('select').val(values[0]);
+																	field.elm('.bst-minute').elm('select').val(values[1]);
 																}
 																else
 																{
-																	field.elm('.kb-hour').elm('select').val('');
-																	field.elm('.kb-minute').elm('select').val('');
+																	field.elm('.bst-hour').elm('select').val('');
+																	field.elm('.bst-minute').elm('select').val('');
 																}
 																break;
 															default:
@@ -737,7 +737,7 @@ window.BooooooostFilter=class extends BooooooostDialog{
 														res=bst.create('div')
 														.append(
 															((field) => {
-																field.addClass('kb-filterbuilder-date').elm('select').assignOption([
+																field.addClass('bst-filterbuilder-date').elm('select').assignOption([
 																	{code:'today',label:bst.constants.filter.pattern.today[bst.operator.language]},
 																	{code:'from today',label:bst.constants.filter.pattern.from.today[bst.operator.language]},
 																	{code:'from thisweek',label:bst.constants.filter.pattern.from.thisweek[bst.operator.language]},
@@ -780,7 +780,7 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																return bst.field.activate(bst.field.create(fieldInfo),((app) => {
 																	app.fields[fieldInfo.code]=fieldInfo;
 																	return app;
-																})({id:'filterbuilder',fields:{}})).addClass('kb-filterbuilder-date').hide()
+																})({id:'filterbuilder',fields:{}})).addClass('bst-filterbuilder-date').hide()
 															})(bst.extend({},fieldInfo))
 														)
 														.append(
@@ -791,7 +791,7 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																required:false,
 																noLabel:true,
 																digit:false
-															}).addClass('kb-filterbuilder-date').css({width:'5em'}).hide()
+															}).addClass('bst-filterbuilder-date').css({width:'5em'}).hide()
 														)
 														.append(
 															bst.field.create({
@@ -805,7 +805,7 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																	{index:1,label:'month'},
 																	{index:2,label:'year'}
 																]
-															}).addClass('kb-filterbuilder-date').hide()
+															}).addClass('bst-filterbuilder-date').hide()
 														);
 														break;
 													case 'DROP_DOWN':
@@ -827,9 +827,9 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																		});
 																	})(Object.values(fieldInfo.options));
 																	return field;
-																})(bst.create('div').addClass('kb-field-value'))
+																})(bst.create('div').addClass('bst-field-value'))
 															);
-														})(bst.create('div').addClass('kb-field').attr('field-id','value'));
+														})(bst.create('div').addClass('bst-field').attr('field-id','value'));
 														break;
 													case 'FILE':
 													case 'MULTI_LINE_TEXT':
@@ -855,9 +855,9 @@ window.BooooooostFilter=class extends BooooooostDialog{
 																		);
 																	});
 																	return field;
-																})(bst.create('div').addClass('kb-field-value'))
+																})(bst.create('div').addClass('bst-field-value'))
 															);
-														})(bst.create('div').addClass('kb-field').attr('field-id','value'));
+														})(bst.create('div').addClass('bst-field').attr('field-id','value'));
 														break;
 													default:
 														((fieldInfo) => {
@@ -889,12 +889,12 @@ window.BooooooostFilter=class extends BooooooostDialog{
 							operators:row.elm('[field-id=operators]').elm('select'),
 							values:row.elm('[field-id=values]').css({padding:'0'})
 						});
-					})(row.addClass('kb-scope').attr('form-id','form_filterbuilder'));
+					})(row.addClass('bst-scope').attr('form-id','form_filterbuilder'));
 				},(table,index) => {
 					if (table.tr.length==0) table.addRow();
 				},false);
 				this.contents.empty()
-				.append(bst.create('span').addClass('kb-table-caption').html(bst.constants.filter.caption.filter[bst.operator.language]))
+				.append(bst.create('span').addClass('bst-table-caption').html(bst.constants.filter.caption.filter[bst.operator.language]))
 				.append(this.table);
 				if (query)
 				{
@@ -1237,8 +1237,8 @@ window.BooooooostFormula=class{
 				{
 					case 'CHECK_BOX':
 					case 'MULTI_SELECT':
-						field.addClass('kb-assist').append(
-							bst.create('button').addClass('kb-icon kb-icon-lookup kb-search').on('click',(e) => {
+						field.addClass('bst-assist').append(
+							bst.create('button').addClass('bst-icon bst-icon-lookup bst-search').on('click',(e) => {
 								bst.pickupMultiple(
 									Object.values(fieldInfo.options).reduce((result,current) => {
 										result[current.index]={label:{value:current.label}};
@@ -1254,8 +1254,8 @@ window.BooooooostFormula=class{
 					case 'ORGANIZATION_SELECT':
 					case 'USER_SELECT':
 						((type) => {
-							field.addClass('kb-assist').append(
-								bst.create('button').addClass('kb-icon kb-icon-'+type+' kb-search').on('click',(e) => {
+							field.addClass('bst-assist').append(
+								bst.create('button').addClass('bst-icon bst-icon-'+type+' bst-search').on('click',(e) => {
 									field.recordPicker.show(
 										{
 											picker:{
@@ -1297,8 +1297,8 @@ window.BooooooostFormula=class{
 						})());
 						break;
 					default:
-						field.removeClass('kb-assist');
-						if (field.elm('.kb-search')) field.removeChild(field.elm('.kb-search'));
+						field.removeClass('bst-assist');
+						if (field.elm('.bst-search')) field.removeChild(field.elm('.bst-search'));
 						break;
 				}
 			}
