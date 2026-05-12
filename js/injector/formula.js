@@ -1690,6 +1690,46 @@ window.BooooooostFormula=class{
 					return res;
 				})(TO_STRING(code),(bool)?record:origin);
 			};
+			var TIME_DIFF=(from,to,format) => {
+				var parseTime=(value) => {
+					var res={type:parseType(value),value:null};
+					switch (res.type)
+					{
+						case 'datetime':
+							res.value=new Date(value);
+							break;
+						case 'time':
+							((time) => {
+								res.value=new Date();
+								res.value.setHours(parseInt(time[0],10));
+								res.value.setMinutes(parseInt(time[1],10));
+								res.value.setSeconds(0);
+								res.value.setMilliseconds(0);
+							})(value.split(':'));
+							break;
+					}
+					return res;
+				};
+				var parseType=(value) => {
+					if (!isNaN(Date.parse(value))) return 'datetime';
+					if (/^(?:[01]?\d|2[0-3]):[0-5]\d$/.test(value)) return 'time';
+					return '';
+				};
+				var fromTime=parseTime(TO_STRING(from));
+				var toTime=parseTime(TO_STRING(to));
+				if ((!fromTime.type || !toTime.type) || (fromTime.type != toTime.type)) return '';
+				else
+				{
+					var diff=toTime.value.getTime()-fromTime.value.getTime();
+					var minutes = diff/(1000*60);
+					var hours = minutes/60;
+					return TO_STRING(format)
+					.replace(/FH/g,hours.toString())
+					.replace(/H/g,Math.floor(hours).toString())
+					.replace(/FI/g,minutes.toString())
+					.replace(/I/g,(minutes%60).toString());
+				}
+			};
 			var TODAY=() => {
 				return new Date().format('Y-m-d');
 			};
