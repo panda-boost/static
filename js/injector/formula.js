@@ -2047,8 +2047,3 @@ bst.constants=bst.extend({
 		}
 	}
 },bst.constants);
-/*
-Temporarily retained until cached data is cleared.
-*/
-window.KintoneBoosterFilter=window.BooooooostFilter;
-window.KintoneBoosterFormula=window.BooooooostFormula;
