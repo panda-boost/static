@@ -39,35 +39,3 @@
 	background-color:var(--submit-bg-color);
 	color:var(--submit-fr-color);
 }
-/*
-Temporarily retained until cached data is cleared.
-*/
-.kb-spread-toolbar{
-	display:inline-block;
-	left:0;
-	padding:0.5em 0.25em;
-	position:sticky;
-}
-.kb-spread-toolbar .kb-spread-toolbar-button{
-	background-color:transparent;
-	border:1px solid var(--border-color);
-	border-radius:0.25em;
-	box-sizing:border-box;
-	color:var(--emphasis-color);
-	cursor:pointer;
-	display:inline-block;
-	margin:0 0.25em;
-	outline:none;
-	padding:0.5em 1em;
-	text-align:center;
-	user-select:none;
-	-webkit-appearance:button;
-}
-.kb-spread-toolbar .kb-spread-toolbar-button:hover{
-	background-color:var(--emphasis-color) !important;
-	color:var(--bg-color) !important;
-}
-.kb-spread-toolbar .kb-spread-toolbar-button.kb-spread-toolbar-button-submit{
-	background-color:var(--submit-bg-color);
-	color:var(--submit-fr-color);
-}

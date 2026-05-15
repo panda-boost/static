@@ -37,37 +37,3 @@
 	padding:0.125em 0.25em;
 	width:100%;
 }
-/*
-Temporarily retained until cached data is cleared.
-*/
-.kb-monthlybalance-operation *{
-	box-sizing:border-box;
-}
-.kb-monthlybalance-operation .kb-field .kb-field-value{
-	position:relative;
-}
-.kb-monthlybalance-operation .kb-field .kb-field-value select{
-	padding-left:0.5em !important;
-}
-.kb-monthlybalance-operation:not(.kb-mobile){
-	display:inline-flex;
-	margin:0 8px 0 0;
-	vertical-align:top;
-}
-.kb-monthlybalance-operation:not(.kb-mobile) *{
-	line-height:48px;
-}
-.kb-monthlybalance-operation:not(.kb-mobile) .kb-field{
-	padding:0 0.25em;
-}
-.kb-monthlybalance-operation.kb-mobile{
-	margin:0.25em 0.25em 0 0.25em;
-	width:calc(100% - 0.5em);
-}
-.kb-monthlybalance-operation.kb-mobile *{
-	line-height:2em;
-}
-.kb-monthlybalance-operation.kb-mobile .kb-field{
-	padding:0.125em 0.25em;
-	width:100%;
-}

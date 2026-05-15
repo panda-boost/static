@@ -99,9 +99,3 @@
 	line-height:1.5em;
 	padding:0 0.5em;
 }
-/*
-Temporarily retained until cached data is cleared.
-*/
-.kb-calendar{
-	background-color:var(--calendar-bg-color);
-}
