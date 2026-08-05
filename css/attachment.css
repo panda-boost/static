@@ -29,6 +29,10 @@
 	vertical-align:middle;
 	width:calc((100% - 2em) - 16px);
 }
+.bst-attachment-lookup-operation-input.bst-decoder-operation-input.bst-mobile{
+	vertical-align:middle;
+	width:calc((100% - 4em) - 32px);
+}
 .bst-attachment-search-operation *{
 	box-sizing:border-box;
 }
