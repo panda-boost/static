@@ -1,3 +1,10 @@
+/*!
+ * jsQR v1.4.0
+ * https://github.com/cozmo/jsQR
+ * Copyright (c) 2015 Cosmo Wolfe and contributors
+ * Licensed under the Apache License, Version 2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();

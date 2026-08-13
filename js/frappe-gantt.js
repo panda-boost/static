@@ -1,7 +1,9 @@
-/*
-* Frappe Gantt v14.62.4
-* https://github.com/frappe/gantt?tab=MIT-1-ov-file#readme
-*/
+/*!
+ * Frappe Gantt v14.62.4
+ * https://github.com/frappe/gantt
+ * Copyright (c) 2024 Frappe Technologies Pvt. Ltd.
+ * Licensed under the MIT License
+ */
 var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(p){return p.raw=p};$jscomp.createTemplateTagFirstArgWithRaw=function(p,k){p.raw=k;return p};$jscomp.arrayIteratorImpl=function(p){var k=0;return function(){return k<p.length?{done:!1,value:p[k++]}:{done:!0}}};$jscomp.arrayIterator=function(p){return{next:$jscomp.arrayIteratorImpl(p)}};
 $jscomp.makeIterator=function(p){var k="undefined"!=typeof Symbol&&Symbol.iterator&&p[Symbol.iterator];if(k)return k.call(p);if("number"==typeof p.length)return $jscomp.arrayIterator(p);throw Error(String(p)+" is not an iterable or ArrayLike");};$jscomp.arrayFromIterator=function(p){for(var k,m=[];!(k=p.next()).done;)m.push(k.value);return m};$jscomp.arrayFromIterable=function(p){return p instanceof Array?p:$jscomp.arrayFromIterator($jscomp.makeIterator(p))};
 var Gantt=function(){function p(a,b,c){a+="";b>>=0;c=String("undefined"!==typeof c?c:" ");if(a.length>b)return String(a);b-=a.length;b>c.length&&(c+=c.repeat(b/c.length));return c.slice(0,b)+String(a)}function k(a,b){return"string"===typeof a?(b||document).querySelector(a):a||null}function m(a,b){var c=document.createElementNS("http://www.w3.org/2000/svg",a),d;for(d in b)"append_to"===d?b.append_to.appendChild(c):"innerHTML"===d?c.innerHTML=b.innerHTML:c.setAttribute(d,b[d]);return c}function z(a,
