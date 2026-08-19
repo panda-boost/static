@@ -1,0 +1,25 @@
+@charset "utf-8";
+/*
+* FileName "spread-column-divider.css"
+* Version: 1.0.0
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
+*/
+.bst-view .bst-table tbody tr :is(td,th):after{
+	border-left:1px solid rgba(207,216,220,1);
+	content:'';
+	display:block;
+	height:100%;
+	left:0;
+	position:absolute;
+	top:0;
+	width:1px;
+	z-index:1000;
+}
+.bst-view .bst-table tbody tr :is(td,th):first-of-type:after{
+	border-left:none !important;
+}
+.bst-view .bst-view-row .bst-view-row-cell{
+	border-left:1px solid rgba(207,216,220,1);
+}
