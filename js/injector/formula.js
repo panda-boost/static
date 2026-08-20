@@ -1797,7 +1797,7 @@ window.BooooooostFormula=class{
 			};
 			try
 			{
-				var formula=param.formula.value.replace(/([^!><]{1})[ ]*=/g,'$1==');
+				var formula=param.formula.value.replace(/"(?:\\[\s\S]|[^"\\])*"|(?<![!<>=])=(?!=)/g,(match) => match === '=' ? '==' : match);
 				var reserved=[];
 				for (var key in fieldInfos)
 					((fieldInfo) => {
