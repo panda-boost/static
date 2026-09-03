@@ -1623,7 +1623,9 @@ window.BooooooostFormula=class{
 				})(TO_STRING(code),(bool)?record:origin);
 			};
 			var MATH=(formula) => {
-				return TO_STRING(formula).match(/[0-9 ()?:+*/%-]+/)?eval(TO_STRING(formula)):null;
+				return TO_STRING(formula).match(/^[0-9eE .()?:+*/%-]+$/)?((answer) => {
+					return (typeof answer=='number' && Number.isFinite(answer))?Number(answer.toPrecision(15)):answer;
+				})(eval(TO_STRING(formula))):null;
 			};
 			var NOW=() => {
 				var res='';
