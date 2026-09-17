@@ -5,79 +5,1281 @@
 * Distributed under the terms of the GNU Lesser General Public License.
 * https://opensource.org/licenses/LGPL-2.1
 */
-'use strict';(l=>{var q={};bst.field.load(kintone.app.getId()).then(y=>{bst.status.load(kintone.app.getId()).then(B=>{bst.view.load(kintone.app.getId()).then(C=>{bst.apps.load().then(D=>{bst.config[l].build({submit:(A,r)=>{try{var k=!1;r.tab=[];r.flat={};(b=>{bst.config[l].tabbed.tabs.some(c=>{var a=bst.record.get(c.panel,b);a.error?(bst.alert(bst.constants.common.message.invalid.record[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0):(k||(a.record.event.value.includes("process")?a.record.action.value||
-(bst.alert(bst.constants.config.message.invalid.action[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0):a.record.action.value=""),k||(a.record.event.value.includes("detail")?(a.record.label.value||(bst.alert(bst.constants.config.message.invalid.label.detail[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0),a.record.message.value||(bst.alert(bst.constants.config.message.invalid.message.detail[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0)):a.record.event.value.includes("index")?
-(a.record.label.value||(bst.alert(bst.constants.config.message.invalid.label.index[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0),a.record.message.value||(bst.alert(bst.constants.config.message.invalid.message.index[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0)):(a.record.label.value="",a.record.message.value="",a.record.view.value="")),k||(e=>{var d=[],f=[],h={},m=[],n=[],u={};(z=>{switch(z){case "update":case "upsert":if(a.record.criteria.value.each((g,p)=>{g.value.external.value&&
-g.value.internal.value&&(d.push(g),p=e.external[g.value.external.value].tableCode,g=e.internal[g.value.internal.value].tableCode)&&(p?(p in h||(h[p]=[]),h[p].push(g)):f.push(g))}),0==d.length)bst.alert(bst.constants.config.message.invalid.criteria[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0;else{f=Array.from(new Set(f)).filter(g=>g);for(var t in h)h[t]=Array.from(new Set(h[t])).filter(g=>g);if(1<f.length)bst.alert(bst.constants.config.message.invalid.dividing[bst.operator.language]),
-bst.config[l].tabbed.activate(c),k=!0;else if(1<Array.from(new Set(Object.values(h).flat())).filter(g=>g).length)bst.alert(bst.constants.config.message.invalid.multiple[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0;else for(t in h)if(h[t].join("")!=f.join("")&&f.join("")){bst.alert(bst.constants.config.message.invalid.diversion[bst.operator.language]);bst.config[l].tabbed.activate(c);k=!0;break}}}if(!k)if(a.record.mapping.value.each((g,p)=>{g.value.external.value&&g.value.internal.value&&
-(m.push(g),p=e.external[g.value.external.value].tableCode,g=e.internal[g.value.internal.value].tableCode)&&(p?(p in u||(u[p]=[]),u[p].push(g)):n.push(g))}),0==m.length)bst.alert(bst.constants.config.message.invalid.mapping[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0;else{n=Array.from(new Set(n)).filter(g=>g);for(t in u)u[t]=Array.from(new Set(u[t])).filter(g=>g);if(1<n.length)bst.alert(bst.constants.config.message.invalid.dividing[bst.operator.language]),bst.config[l].tabbed.activate(c),
-k=!0;else{for(t in u)if(1<u[t].length){bst.alert(bst.constants.config.message.invalid.various[bst.operator.language]);bst.config[l].tabbed.activate(c);k=!0;break}if(!k){switch(z){case "update":case "upsert":0!=n.length&&(0==f.length?(bst.alert(bst.constants.config.message.invalid.unmatch[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0):n.join("")!=f.join("")&&(bst.alert(bst.constants.config.message.invalid.dividing[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0))}k||(a.record.formula.value.some(g=>
-g.value.formula.value.match(/(class |fetch\(|function\(|XMLHttpRequest\(|=>|var |let |const )/g))?(bst.alert(bst.constants.config.message.invalid.formula[bst.operator.language]),bst.config[l].tabbed.activate(c),k=!0):(a.record.criteria.value=d,a.record.mapping.value=m,a.record.formula.value=a.record.formula.value.filter(g=>g.value.field.value),r.tab.push({label:c.label.html(),setting:a.record})))}}}})(a.record.pattern.value)})({external:c.fields.external.parallelize,internal:c.fields.internal.parallelize}));
-return k})})({id:q.app.id,fields:q.app.fields.tab});r.tab=JSON.stringify(r.tab);r.flat=JSON.stringify(r.flat);return k?!1:r}catch(b){return bst.alert(bst.error.parse(b)),!1}}},(A,r)=>{try{q.app={id:l,fields:{tab:{event:{code:"event",type:"CHECK_BOX",label:"",required:!0,noLabel:!0,options:[{index:0,label:"create"},{index:1,label:"edit"},{index:2,label:"process"},{index:3,label:"detail"},{index:4,label:"index"}]},action:{code:"action",type:"DROP_DOWN",label:bst.constants.config.caption.action[bst.operator.language],
-required:!1,noLabel:!1,options:[]},label:{code:"label",type:"SINGLE_LINE_TEXT",label:bst.constants.config.caption.label[bst.operator.language],required:!1,noLabel:!1,placeholder:""},message:{code:"message",type:"SINGLE_LINE_TEXT",label:bst.constants.config.caption.message[bst.operator.language],required:!1,noLabel:!1,placeholder:""},view:{code:"view",type:"DROP_DOWN",label:bst.constants.config.caption.view[bst.operator.language],required:!1,noLabel:!1,options:[]},app:{code:"app",type:"DROP_DOWN",
-label:"",required:!0,noLabel:!0,options:[]},pattern:{code:"pattern",type:"RADIO_BUTTON",label:"",required:!0,noLabel:!0,options:[{index:0,label:"insert"},{index:1,label:"update"},{index:2,label:"upsert"}]},criteria:{code:"criteria",type:"SUBTABLE",label:"",noLabel:!0,fields:{external:{code:"external",type:"DROP_DOWN",label:bst.constants.config.caption.destination[bst.operator.language],required:!1,noLabel:!0,options:[]},operator:{code:"operator",type:"DROP_DOWN",label:"",required:!1,noLabel:!0,options:[]},
-internal:{code:"internal",type:"DROP_DOWN",label:bst.constants.config.caption.source[bst.operator.language],required:!1,noLabel:!0,options:[]}}},filter:{code:"filter",type:"CONDITION",label:"",required:!1,noLabel:!0,app:{id:kintone.app.getId(),fields:y.parallelize}},mapping:{code:"mapping",type:"SUBTABLE",label:"",noLabel:!0,fields:{external:{code:"external",type:"DROP_DOWN",label:bst.constants.config.caption.destination[bst.operator.language],required:!1,noLabel:!0,options:[]},guide:{code:"guide",
-type:"SPACER",label:"",required:!1,noLabel:!0,contents:'<span class="bst-icon bst-icon-arrow bst-icon-arrow-left"></span>'},internal:{code:"internal",type:"DROP_DOWN",label:bst.constants.config.caption.source[bst.operator.language],required:!1,noLabel:!0,options:[]}}},formula:{code:"formula",type:"SUBTABLE",label:"",noLabel:!0,fields:{field:{code:"field",type:"DROP_DOWN",label:bst.constants.config.caption.destination[bst.operator.language],required:!1,noLabel:!0,options:[]},guide:{code:"guide",type:"SPACER",
-label:"",required:!1,noLabel:!0,contents:'<span class="bst-icon bst-icon-arrow bst-icon-arrow-left"></span>'},formula:{code:"formula",type:"SINGLE_LINE_TEXT",label:bst.constants.config.caption.formula.formula[bst.operator.language],required:!1,noLabel:!0}}}},flat:{}}};var k=(b,c,a)=>{bst.record.set(b.panel,c,(()=>{a.event.value.includes("process")&&b.panel.elm("[field-id=action]").closest("section").removeClass("bst-hidden");a.event.value.includes("detail")&&b.panel.elm("[field-id=label]").closest("section").removeClass("bst-hidden");
-a.event.value.includes("detail")&&b.panel.elm("[field-id=message]").closest("section").removeClass("bst-hidden");a.event.value.includes("index")&&b.panel.elm("[field-id=label]").closest("section").removeClass("bst-hidden");a.event.value.includes("index")&&b.panel.elm("[field-id=message]").closest("section").removeClass("bst-hidden");a.event.value.includes("index")&&b.panel.elm("[field-id=view]").closest("section").removeClass("bst-hidden");b.panel.elm("[field-id=app]").elm("select").val(a.app.value).rebuild().then(e=>
-{b.tables.criteria.clearRows();a.criteria.value.each((d,f)=>{d.value.external.value in e.criteria&&(h=>{h.elm("[field-id=external]").elm("select").val(d.value.external.value).rebuild().then(m=>{d.value.internal.value in m&&(h.elm("[field-id=operator]").elm("select").val(d.value.operator.value),h.elm("[field-id=internal]").elm("select").val(d.value.internal.value))})})(b.tables.criteria.addRow())});0==b.tables.criteria.tr.length&&b.tables.criteria.addRow();b.tables.mapping.clearRows();a.mapping.value.each((d,
-f)=>{d.value.external.value in e.mapping&&(h=>{h.elm("[field-id=external]").elm("select").val(d.value.external.value).rebuild().then(m=>{d.value.internal.value in m&&h.elm("[field-id=internal]").elm("select").val(d.value.internal.value)})})(b.tables.mapping.addRow())});0==b.tables.mapping.tr.length&&b.tables.mapping.addRow();b.tables.formula.clearRows();a.formula.value.each((d,f)=>{d.value.field.value in e.formula&&(f=b.tables.formula.addRow(),f.elm("[field-id=field]").elm("select").val(d.value.field.value).rebuild(),
-f.elm("[field-id=formula]").elm("input").val(d.value.formula.value))});0==b.tables.formula.tr.length&&b.tables.formula.addRow();(d=>{d.elm(".bst-guide").empty();a.filter.value?(d.elm("input").val(a.filter.value),a.filter.value.split(" and ").each((f,h)=>d.guide(f))):d.elm("input").val("")})(b.panel.elm("[field-id=filter]").elm(".bst-field-value"));"insert"!=a.pattern.value&&b.tables.criteria.closest("section").show().previousSibling.show()});return a})()).then(()=>{b.tables.formula.tr.each((e,d)=>
-{e.elm("select").rebuild(!1)})})};(b=>{for(var c in b)q.app.fields.tab[c]=b[c]})(bst.config[l].ui.fields.conditions.get(y,!0));(b=>{for(var c in b)q.app.fields.tab[c]=b[c]})(bst.config[l].ui.fields.users.get(y));bst.config[l].tabbed=new BooooooostConfigTabbed(A,{add:b=>{(c=>{b.fields={external:{},internal:y};b.tables={criteria:bst.table.create(c.fields.criteria,!1,!1,!1).spread((a,e)=>{a.elm(".bst-table-row-add").on("click",d=>{b.tables.criteria.insertRow(a)});a.elm(".bst-table-row-del").on("click",
-d=>{bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],()=>{b.tables.criteria.delRow(a)})});(d=>{d.external.on("change",f=>f.currentTarget.rebuild()).rebuild=()=>new Promise((f,h)=>{d.operator.empty();d.internal.empty().assignOption([{code:"",label:""}],"label","code");if(d.external.val()){h={};d.operator.assignOption(bst.filter.query.operator(b.fields.external.parallelize[d.external.val()]),"label","code");for(var m in b.fields.internal.parallelize){var n=b.fields.internal.parallelize[m];
-bst.field.typing(n,b.fields.external.parallelize[d.external.val()],!0)&&(h[n.code]=n)}d.internal.assignOption(Object.values(h),"label","code");f(h)}else f({})})})({external:a.elm("[field-id=external]").elm("select"),operator:a.elm("[field-id=operator]").elm("select"),internal:a.elm("[field-id=internal]").elm("select")})},(a,e)=>{0==a.tr.length&&a.addRow()},!1),mapping:bst.table.create(c.fields.mapping,!1,!1,!1).addClass("bst-mapping").spread((a,e)=>{a.elm(".bst-table-row-add").on("click",d=>{b.tables.mapping.insertRow(a)});
-a.elm(".bst-table-row-del").on("click",d=>{bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],()=>{b.tables.mapping.delRow(a)})});(d=>{d.external.on("change",f=>f.currentTarget.rebuild()).rebuild=()=>new Promise((f,h)=>{d.internal.empty().assignOption([{code:"",label:""}],"label","code");if(d.external.val()){h={};for(var m in b.fields.internal.parallelize){var n=b.fields.internal.parallelize[m];bst.field.typing(n,b.fields.external.parallelize[d.external.val()])&&(h[n.code]=
-n)}d.internal.assignOption(Object.values(h),"label","code");f(h)}else f({})})})({external:a.elm("[field-id=external]").elm("select"),internal:a.elm("[field-id=internal]").elm("select")})},(a,e)=>{0==a.tr.length&&a.addRow()},!1),formula:bst.table.create(c.fields.formula,!1,!1,!1).addClass("bst-mapping").spread((a,e)=>{a.elm(".bst-table-row-add").on("click",d=>{b.tables.formula.insertRow(a)});a.elm(".bst-table-row-del").on("click",d=>{bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],
-()=>{b.tables.formula.delRow(a)})});(d=>{d.field.on("change",f=>f.currentTarget.rebuild()).rebuild=(f=!0)=>{d.field.val()&&bst.formula.field.set(d.formula,b.fields.external.parallelize[d.field.val()],f)}})({field:a.elm("[field-id=field]").elm("select"),formula:a.elm("[field-id=formula]").elm(".bst-field-value")})},(a,e)=>{0==a.tr.length&&a.addRow()},!1)};b.panel.addClass("bst-scope").attr("form-id","form_"+c.id).append(bst.config[l].ui.fields.users.set(bst.config[l].ui.fields.conditions.set(bst.create("div").addClass("bst-config-tabbed-panel-block"),
-c),c).append(bst.create("h1").html(bst.constants.config.caption.event[bst.operator.language])).append(bst.create("section").append(bst.field.activate((a=>{a.elms("[type=checkbox]").each((e,d)=>{e.closest("label").elm("span").html(bst.constants.config.caption.event[e.val()][bst.operator.language])});return a})(bst.field.create(c.fields.event)),c))).append(bst.create("section").addClass("bst-hidden").append(bst.field.activate((a=>{a.elm("select").empty().assignOption([{code:"",label:""}].concat(B.actions.map(e=>
-({code:e.key,label:e.name+"&nbsp;("+e.from+"&nbsp;&gt;&nbsp;"+e.to+")"}))),"label","code");return a})(bst.field.create(c.fields.action)),c))).append(bst.create("section").addClass("bst-hidden").append(bst.field.activate(bst.field.create(c.fields.label).css({width:"100%"}),c))).append(bst.create("section").addClass("bst-hidden").append(bst.field.activate(bst.field.create(c.fields.message).css({width:"100%"}),c))).append(bst.create("section").addClass("bst-hidden").append(bst.field.activate((a=>{a.elm("select").empty().assignOption([{code:"",
-label:bst.constants.config.caption.view.all[bst.operator.language]}].concat(C.list.map(e=>({code:e.id,label:e.name}))),"label","code");return a})(bst.field.create(c.fields.view)),c)))).append(bst.create("h1").html(bst.constants.config.caption.app[bst.operator.language])).append(bst.create("section").append((a=>{a.elm("select").empty().assignOption([{appId:"",name:""}].concat(D),"name","appId").on("change",e=>e.currentTarget.rebuild()).rebuild=()=>new Promise((e,d)=>{((f,h,m,n,u)=>{f.clearRows();f.template.elm("[field-id=external]").css({width:"100%"}).elm("select").empty().assignOption([{code:"",
-label:""}],"label","code");f.template.elm("[field-id=operator]").css({width:"100%"}).elm("select").empty();f.template.elm("[field-id=internal]").css({width:"100%"}).elm("select").empty().assignOption([{code:"",label:""}],"label","code");h.clearRows();h.template.elm("[field-id=external]").css({width:"100%"}).elm("select").empty().assignOption([{code:"",label:""}],"label","code");h.template.elm("[field-id=internal]").css({width:"100%"}).elm("select").empty().assignOption([{code:"",label:""}],"label",
-"code");h.template.elm("[field-id=guide]").css({width:"100%"}).parentNode.addClass("bst-mapping-guide");m.clearRows();m.template.elm("[field-id=field]").css({width:"100%"}).elm("select").empty().assignOption([{code:"",label:""}],"label","code");m.template.elm("[field-id=guide]").css({width:"100%"}).parentNode.addClass("bst-mapping-guide");m.template.elm("[field-id=formula]").css({width:"450px"});a.elm("select").val()?bst.field.load(a.elm("select").val()).then(z=>{b.fields.external=z;e((t=>{var g=
-{criteria:b.fields.external.criterias,mapping:(p=>{var w={},x;for(x in p){var v=p[x];b.fields.external.disables.includes(v.code)||(w[v.code]=v)}return w})(b.fields.external.parallelize),formula:(p=>{var w={},x;for(x in p){var v=p[x];b.fields.external.disables.includes(v.code)||v.tableCode||"FILE"!=v.type&&(w[v.code]=v)}return w})(b.fields.external.parallelize)};f.template.elm("[field-id=external]").elm("select").assignOption(Object.values(g.criteria),"label","code");h.template.elm("[field-id=external]").elm("select").assignOption(Object.values(g.mapping),
-"label","code");m.template.elm("[field-id=field]").elm("select").assignOption(Object.values(g.formula),"label","code");f.addRow();h.addRow();m.addRow();n.reset({id:t,fields:b.fields.external.parallelize});return g})(a.elm("select").val()))}):(f.addRow(),h.addRow(),m.addRow(),n.reset({id:null,fields:{}}),e({criteria:{},mapping:{},formula:{}}))})(b.tables.criteria,b.tables.mapping,b.tables.formula,b.panel.elm("[field-id=filter]").elm(".bst-field-value"),bst.constants.config.caption)});return a})(bst.field.activate(bst.field.create(c.fields.app),
-c)))).append(bst.create("h1").html(bst.constants.config.caption.pattern[bst.operator.language])).append(bst.create("section").append(bst.field.activate((a=>{a.elms("[data-name="+c.fields.pattern.code+"]").each((e,d)=>{e.closest("label").elm("span").html(bst.constants.config.caption.pattern[e.val()][bst.operator.language])});return a})(bst.field.create(c.fields.pattern)),c))).append(bst.create("h1").hide().html(bst.constants.config.caption.criteria[bst.operator.language])).append(bst.create("section").hide().append(b.tables.criteria).append(bst.create("p").addClass("bst-caution").html(bst.constants.config.description.criteria[bst.operator.language])).append(bst.create("p").html(bst.constants.config.caption.filter[bst.operator.language])).append(bst.field.activate(bst.field.create(c.fields.filter).css({width:"100%"}),
-c))).append(bst.create("h1").html(bst.constants.config.caption.mapping[bst.operator.language])).append(bst.create("section").append(b.tables.mapping).append(bst.create("p").addClass("bst-caution").html(bst.constants.config.description.mapping[bst.operator.language]))).append(bst.create("h1").html(bst.constants.config.caption.formula[bst.operator.language])).append(bst.create("section").append(b.tables.formula).append(bst.create("p").addClass("bst-caution").html(bst.constants.config.description.formula[bst.operator.language])).append(bst.create("p").addClass("bst-caution").html(bst.constants.config.description.formula.fixed[bst.operator.language])).append(bst.create("p").addClass("bst-hint").html(bst.constants.config.description.formula.hint[bst.operator.language])).append(bst.create("p").addClass("bst-hint").html(bst.constants.config.description.formula.link[bst.operator.language]+
-"<br>"+bst.create("a").attr("href","https://booooooost.com/"+bst.operator.language.substring(0,2)+"/functions.html").attr("target","_blank").html("https://booooooost.com/"+bst.operator.language.substring(0,2)+"/functions.html").outerHTML)));b.panel.elm("[field-id=app]").elm("select").rebuild().then(a=>{b.tables.criteria.clearRows();b.tables.mapping.clearRows();b.tables.formula.clearRows();b.tables.criteria.addRow();b.tables.mapping.addRow();b.tables.formula.addRow()});bst.event.on("bst.change.event",
-a=>{a.container==b.panel&&(b.panel.elm("[field-id=action]").closest("section").addClass("bst-hidden"),b.panel.elm("[field-id=view]").closest("section").addClass("bst-hidden"),b.panel.elm("[field-id=label]").closest("section").addClass("bst-hidden"),b.panel.elm("[field-id=message]").closest("section").addClass("bst-hidden"),a.record.event.value.includes("process")&&b.panel.elm("[field-id=action]").closest("section").removeClass("bst-hidden"),a.record.event.value.includes("detail")&&b.panel.elm("[field-id=label]").closest("section").removeClass("bst-hidden"),
-a.record.event.value.includes("detail")&&b.panel.elm("[field-id=message]").closest("section").removeClass("bst-hidden"),a.record.event.value.includes("index")&&b.panel.elm("[field-id=label]").closest("section").removeClass("bst-hidden"),a.record.event.value.includes("index")&&b.panel.elm("[field-id=message]").closest("section").removeClass("bst-hidden"),a.record.event.value.includes("index")&&b.panel.elm("[field-id=view]").closest("section").removeClass("bst-hidden"));return a});bst.event.on("bst.change.pattern",
-a=>{if(a.container==b.panel)switch(a.record.pattern.value){case "insert":b.tables.criteria.closest("section").hide().previousSibling.hide();break;default:b.tables.criteria.closest("section").show().previousSibling.show()}return a});b.panel.elms("input,select,textarea").each((a,e)=>a.initialize())})({id:q.app.id,fields:q.app.fields.tab})},copy:(b,c)=>{var a={id:q.app.id,fields:q.app.fields.tab};k(c,a,bst.record.get(b.panel,a,!0).record)},del:b=>{}});0!=Object.keys(r).length?(b=>{b.each(c=>{var a={id:q.app.id,
-fields:q.app.fields.tab},e=bst.config[l].tabbed.add();k(e,a,c.setting);e.label.html(c.label)})})(JSON.parse(r.tab)):(b=>{b.panel.elm("[field-id=app]").elm("select").rebuild().then(c=>{b.tables.criteria.clearRows();b.tables.mapping.clearRows();b.tables.formula.clearRows();b.tables.criteria.addRow();b.tables.mapping.addRow();b.tables.formula.addRow()})})(bst.config[l].tabbed.add())}catch(b){bst.alert(bst.error.parse(b))}})})})})})})(kintone.$PLUGIN_ID);
-bst.constants=bst.extend({config:{caption:{action:{en:"Action Name",ja:"\u30a2\u30af\u30b7\u30e7\u30f3\u540d",zh:"\u64cd\u4f5c\u540d\u79f0","zh-TW":"\u64cd\u4f5c\u540d\u7a31"},app:{en:"Destination App for Copying or Updating",ja:"\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u5148\u30a2\u30d7\u30ea",zh:"\u7528\u4e8e\u590d\u5236\u6216\u66f4\u65b0\u7684\u76ee\u6807\u5e94\u7528","zh-TW":"\u7528\u65bc\u8907\u88fd\u6216\u66f4\u65b0\u7684\u76ee\u6a19\u61c9\u7528"},criteria:{en:"Record association for updates",
-ja:"\u66f4\u65b0\u6642\u306e\u30ec\u30b3\u30fc\u30c9\u306e\u95a2\u9023\u4ed8\u3051",zh:"\u66f4\u65b0\u65f6\u7684\u8bb0\u5f55\u5173\u8054","zh-TW":"\u66f4\u65b0\u6642\u7684\u8a18\u9304\u95dc\u806f"},destination:{en:"Destination",ja:"\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u5148\u30a2\u30d7\u30ea\u306e\u30d5\u30a3\u30fc\u30eb\u30c9",zh:"\u590d\u5236\u6216\u66f4\u65b0\u76ee\u6807\u5e94\u7528\u7684\u5b57\u6bb5","zh-TW":"\u8907\u88fd\u6216\u66f4\u65b0\u76ee\u6a19\u61c9\u7528\u7684\u5b57\u6bb5"},
-event:{en:"Action Available Event",ja:"\u52d5\u4f5c\u30a4\u30d9\u30f3\u30c8",zh:"\u53ef\u64cd\u4f5c\u4e8b\u4ef6","zh-TW":"\u53ef\u64cd\u4f5c\u4e8b\u4ef6",create:{en:"After Record Creation Success",ja:"\u30ec\u30b3\u30fc\u30c9\u8ffd\u52a0\u753b\u9762\u3067\u306e\u30ec\u30b3\u30fc\u30c9\u4fdd\u5b58\u6210\u529f\u5f8c",zh:"\u8bb0\u5f55\u521b\u5efa\u6210\u529f\u540e","zh-TW":"\u8a18\u9304\u5275\u5efa\u6210\u529f\u5f8c"},detail:{en:"Clicking the button on the record detail page",ja:"\u30ec\u30b3\u30fc\u30c9\u8a73\u7d30\u753b\u9762\u3067\u306e\u30dc\u30bf\u30f3\u30af\u30ea\u30c3\u30af",
-zh:"\u5728\u8bb0\u5f55\u8be6\u7ec6\u9875\u9762\u4e0a\u70b9\u51fb\u6309\u94ae","zh-TW":"\u5728\u8a18\u9304\u8a73\u7d30\u9801\u9762\u4e0a\u9ede\u64ca\u6309\u9215"},edit:{en:"After Record Edit Success",ja:"\u30ec\u30b3\u30fc\u30c9\u7de8\u96c6\u753b\u9762\u3067\u306e\u30ec\u30b3\u30fc\u30c9\u4fdd\u5b58\u6210\u529f\u5f8c",zh:"\u8bb0\u5f55\u7f16\u8f91\u6210\u529f\u540e","zh-TW":"\u8a18\u9304\u7de8\u8f2f\u6210\u529f\u5f8c"},index:{en:"Bulk Execution from List View",ja:"\u4e00\u89a7\u753b\u9762\u304b\u3089\u306e\u4e00\u62ec\u5b9f\u884c",
-zh:"\u4ece\u5217\u8868\u5c4f\u5e55\u7684\u6279\u91cf\u6267\u884c","zh-TW":"\u5f9e\u5217\u8868\u756b\u9762\u7684\u6279\u91cf\u57f7\u884c"},process:{en:"Process Action",ja:"\u30d7\u30ed\u30bb\u30b9\u30a2\u30af\u30b7\u30e7\u30f3",zh:"\u8fc7\u7a0b\u64cd\u4f5c","zh-TW":"\u904e\u7a0b\u64cd\u4f5c"}},filter:{en:"Narrow it down further",ja:"\u3055\u3089\u306b\u7d5e\u308a\u8fbc\u3080",zh:"\u8fdb\u4e00\u6b65\u7f29\u5c0f","zh-TW":"\u9032\u4e00\u6b65\u7e2e\u5c0f"},formula:{en:"Field to insert fixed values or calculation results",
-ja:"\u56fa\u5b9a\u5024\u3084\u8a08\u7b97\u7d50\u679c\u3092\u633f\u5165\u3059\u308b\u30d5\u30a3\u30fc\u30eb\u30c9",zh:"\u5c06\u56fa\u5b9a\u503c\u6216\u8ba1\u7b97\u7ed3\u679c\u63d2\u5165\u7684\u5b57\u6bb5","zh-TW":"\u5c07\u56fa\u5b9a\u503c\u6216\u8a08\u7b97\u7d50\u679c\u63d2\u5165\u7684\u5b57\u6bb5",formula:{en:"Fixed value or function",ja:"\u56fa\u5b9a\u5024\u307e\u305f\u306f\u95a2\u6570",zh:"\u56fa\u5b9a\u503c\u6216\u51fd\u6570","zh-TW":"\u56fa\u5b9a\u503c\u6216\u51fd\u6578"}},label:{en:"Execution Button Label",
-ja:"\u5b9f\u884c\u30dc\u30bf\u30f3\u306e\u30e9\u30d9\u30eb\u30c6\u30ad\u30b9\u30c8",zh:"\u6267\u884c\u6309\u94ae\u7684\u6807\u7b7e\u540d\u79f0","zh-TW":"\u57f7\u884c\u6309\u9215\u7684\u6a19\u7c64\u540d\u7a31"},mapping:{en:"Copy or Update Field Mappings",ja:"\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u3059\u308b\u30d5\u30a3\u30fc\u30eb\u30c9",zh:"\u590d\u5236\u6216\u66f4\u65b0\u5b57\u6bb5\u6620\u5c04","zh-TW":"\u8907\u88fd\u6216\u66f4\u65b0\u5b57\u6bb5\u6620\u5c04"},message:{en:"Execution Confirmation Dialog Message",
-ja:"\u5b9f\u884c\u78ba\u8a8d\u30c0\u30a4\u30a2\u30ed\u30b0\u306e\u30e1\u30c3\u30bb\u30fc\u30b8",zh:"\u6267\u884c\u786e\u8ba4\u5bf9\u8bdd\u6846\u7684\u6d88\u606f","zh-TW":"\u57f7\u884c\u78ba\u8a8d\u5c0d\u8a71\u6846\u7684\u6d88\u606f"},pattern:{en:"Pattern",ja:"\u30d1\u30bf\u30fc\u30f3",zh:"\u6a21\u5f0f","zh-TW":"\u6a21\u5f0f",insert:{en:"Insert only",ja:"\u30b3\u30d4\u30fc\u306e\u307f",zh:"\u4ec5\u590d\u5236","zh-TW":"\u50c5\u8907\u88fd"},update:{en:"Update only",ja:"\u66f4\u65b0\u306e\u307f",zh:"\u4ec5\u66f4\u65b0",
-"zh-TW":"\u50c5\u66f4\u65b0"},upsert:{en:"Upsert",ja:"\u66f4\u65b0\u51fa\u6765\u306a\u3051\u308c\u3070\u30b3\u30d4\u30fc",zh:"\u5982\u679c\u65e0\u6cd5\u66f4\u65b0\u5219\u590d\u5236","zh-TW":"\u5982\u679c\u7121\u6cd5\u66f4\u65b0\u5247\u8907\u88fd"}},source:{en:"Source",ja:"\u3053\u306e\u30a2\u30d7\u30ea\u306e\u30d5\u30a3\u30fc\u30eb\u30c9",zh:"\u6b64\u5e94\u7528\u7684\u5b57\u6bb5","zh-TW":"\u6b64\u61c9\u7528\u7684\u5b57\u6bb5"},view:{en:"Executable List View",ja:"\u5b9f\u884c\u53ef\u80fd\u306a\u4e00\u89a7\u753b\u9762",
-zh:"\u53ef\u6267\u884c\u7684\u5217\u8868\u5c4f\u5e55","zh-TW":"\u53ef\u57f7\u884c\u7684\u5217\u8868\u756b\u9762",all:{en:"No restrictions",ja:"\u5236\u9650\u3057\u306a\u3044",zh:"\u4e0d\u9650\u5236","zh-TW":"\u4e0d\u9650\u5236"}}},description:{criteria:{en:'When you specify your own app as the "Destination App for Copying or Updating" and link it to update the same record, please be cautious as unexpected errors might occur.',ja:"\u300c\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u5148\u30a2\u30d7\u30ea\u300d\u306b\u81ea\u30a2\u30d7\u30ea\u3092\u6307\u5b9a\u3057\u3001\u81ea\u30ec\u30b3\u30fc\u30c9\u3092\u66f4\u65b0\u3059\u308b\u3088\u3046\u306a\u95a2\u9023\u4ed8\u3051\u3092\u3059\u308b\u3068\u3001\u4e88\u671f\u305b\u306c\u30a8\u30e9\u30fc\u304c\u767a\u751f\u3057\u307e\u3059\u306e\u3067\u3001\u3054\u6ce8\u610f\u304f\u3060\u3055\u3044\u3002",
-zh:"\u5f53\u60a8\u6307\u5b9a\u81ea\u5df1\u7684\u5e94\u7528\u4e3a\u201c\u7528\u4e8e\u590d\u5236\u6216\u66f4\u65b0\u7684\u76ee\u6807\u5e94\u7528\u201d\u5e76\u94fe\u63a5\u5b83\u4ee5\u66f4\u65b0\u76f8\u540c\u7684\u8bb0\u5f55\u65f6\uff0c\u8bf7\u5c0f\u5fc3\uff0c\u56e0\u4e3a\u53ef\u80fd\u4f1a\u53d1\u751f\u610f\u5916\u7684\u9519\u8bef\u3002","zh-TW":"\u7576\u60a8\u6307\u5b9a\u81ea\u5df1\u7684\u61c9\u7528\u70ba\u201c\u7528\u65bc\u8907\u88fd\u6216\u66f4\u65b0\u7684\u76ee\u6a19\u61c9\u7528\u201d\u4e26\u93c8\u63a5\u5b83\u4ee5\u66f4\u65b0\u76f8\u540c\u7684\u8a18\u9304\u6642\uff0c\u8acb\u5c0f\u5fc3\uff0c\u56e0\u70ba\u53ef\u80fd\u6703\u767c\u751f\u610f\u5916\u7684\u932f\u8aa4\u3002"},
-formula:{en:"This feature is not just for simply copying or updating. It is used when you want to copy or update based on calculated results from the field value. Please note that the field code you assign as a function argument will be the field on the destination app for copying or updating.",ja:"\u3053\u306e\u6a5f\u80fd\u306f\u3001\u5358\u7d14\u306b\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u3059\u308b\u3060\u3051\u3067\u306f\u306a\u304f\u3001\u30d5\u30a3\u30fc\u30eb\u30c9\u306e\u5024\u3092\u5143\u306b\u8a08\u7b97\u3057\u305f\u7d50\u679c\u3092\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u3057\u305f\u3044\u5834\u5408\u306b\u5229\u7528\u3059\u308b\u6a5f\u80fd\u306b\u306a\u308a\u307e\u3059\u3002\u95a2\u6570\u306e\u5f15\u6570\u3068\u3057\u3066\u4ee3\u5165\u3059\u308b\u30d5\u30a3\u30fc\u30eb\u30c9\u30b3\u30fc\u30c9\u306f\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u5148\u30a2\u30d7\u30ea\u5074\u306e\u30d5\u30a3\u30fc\u30eb\u30c9\u306b\u306a\u308a\u307e\u3059\u306e\u3067\u3001\u3054\u6ce8\u610f\u304f\u3060\u3055\u3044\u3002",
-zh:"\u8fd9\u4e2a\u529f\u80fd\u4e0d\u4ec5\u4ec5\u662f\u4e3a\u4e86\u7b80\u5355\u5730\u590d\u5236\u6216\u66f4\u65b0\u3002\u5f53\u60a8\u60f3\u8981\u57fa\u4e8e\u5b57\u6bb5\u503c\u7684\u8ba1\u7b97\u7ed3\u679c\u8fdb\u884c\u590d\u5236\u6216\u66f4\u65b0\u65f6\uff0c\u60a8\u53ef\u4ee5\u4f7f\u7528\u6b64\u529f\u80fd\u3002\u8bf7\u6ce8\u610f\uff0c\u60a8\u4f5c\u4e3a\u51fd\u6570\u53c2\u6570\u5206\u914d\u7684\u5b57\u6bb5\u4ee3\u7801\u5c06\u662f\u7528\u4e8e\u590d\u5236\u6216\u66f4\u65b0\u7684\u76ee\u6807\u5e94\u7528\u4e2d\u7684\u5b57\u6bb5\u3002",
-"zh-TW":"\u9019\u500b\u529f\u80fd\u4e0d\u50c5\u50c5\u662f\u70ba\u4e86\u7c21\u55ae\u5730\u8907\u88fd\u6216\u66f4\u65b0\u3002\u7576\u60a8\u60f3\u8981\u57fa\u65bc\u5b57\u6bb5\u503c\u7684\u8a08\u7b97\u7d50\u679c\u9032\u884c\u8907\u88fd\u6216\u66f4\u65b0\u6642\uff0c\u60a8\u53ef\u4ee5\u4f7f\u7528\u6b64\u529f\u80fd\u3002\u8acb\u6ce8\u610f\uff0c\u60a8\u4f5c\u70ba\u51fd\u6578\u53c3\u6578\u5206\u914d\u7684\u5b57\u6bb5\u4ee3\u78bc\u5c07\u662f\u7528\u65bc\u8907\u88fd\u6216\u66f4\u65b0\u7684\u76ee\u6a19\u61c9\u7528\u4e2d\u7684\u5b57\u6bb5\u3002",
-fixed:{en:"When entering a fixed value, please enclose it in double quotes.",ja:"\u56fa\u5b9a\u5024\u3092\u5165\u529b\u3059\u308b\u5834\u5408\u306f\u3001\u30c0\u30d6\u30eb\u30af\u30a9\u30fc\u30c6\u30fc\u30b7\u30e7\u30f3\u3067\u56f2\u3046\u3088\u3046\u306b\u3057\u3066\u4e0b\u3055\u3044\u3002",zh:"\u5f53\u8f93\u5165\u56fa\u5b9a\u503c\u65f6\uff0c\u8bf7\u7528\u53cc\u5f15\u53f7\u62ec\u8d77\u6765\u3002","zh-TW":"\u7576\u8f38\u5165\u56fa\u5b9a\u503c\u6642\uff0c\u8acb\u7528\u96d9\u5f15\u865f\u62ec\u8d77\u4f86\u3002"},
-hint:{en:"This feature can only be used for fields that do not belong to a table.",ja:"\u3053\u306e\u6a5f\u80fd\u304c\u4f7f\u3048\u308b\u306e\u306f\u30c6\u30fc\u30d6\u30eb\u306b\u5c5e\u3055\u306a\u3044\u30d5\u30a3\u30fc\u30eb\u30c9\u306e\u307f\u3068\u306a\u308a\u307e\u3059\u3002",zh:"\u8be5\u529f\u80fd\u53ea\u80fd\u7528\u4e8e\u4e0d\u5c5e\u4e8e\u8868\u683c\u7684\u5b57\u6bb5\u3002","zh-TW":"\u8a72\u529f\u80fd\u53ea\u80fd\u7528\u65bc\u4e0d\u5c6c\u65bc\u8868\u683c\u7684\u5b57\u6bb5\u3002"},link:{en:"You can refer to the available functions from the URL below.",
-ja:"\u5229\u7528\u53ef\u80fd\u306a\u95a2\u6570\u306f\u4ee5\u4e0b\u306eURL\u304b\u3089\u53c2\u7167\u3057\u3066\u4e0b\u3055\u3044\u3002",zh:"\u60a8\u53ef\u4ee5\u4ece\u4e0b\u9762\u7684URL\u53c2\u8003\u53ef\u7528\u7684\u529f\u80fd\u3002","zh-TW":"\u60a8\u53ef\u4ee5\u5f9e\u4e0b\u9762\u7684URL\u53c3\u8003\u53ef\u7528\u7684\u529f\u80fd\u3002"}},mapping:{en:'This plugin not only allows for copying and updating between records, but also supports special transfers such as "merged transfer" which copies or updates from a record to a table, and "segmented transfer" which copies or updates from a table to a record. When performing operations that involve updates, it\'s essential to ensure proper associations, so please be cautious.',
-ja:"\u672c\u30d7\u30e9\u30b0\u30a4\u30f3\u306f\u30ec\u30b3\u30fc\u30c9\u540c\u58eb\u306e\u30b3\u30d4\u30fc\u3084\u66f4\u65b0\u3060\u3051\u3067\u306f\u306a\u304f\u3001\u30ec\u30b3\u30fc\u30c9\u304b\u3089\u30c6\u30fc\u30d6\u30eb\u3078\u306e\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u3092\u884c\u3046\u300c\u7d50\u5408\u8ee2\u9001\u300d\u3084\u30c6\u30fc\u30d6\u30eb\u304b\u3089\u30ec\u30b3\u30fc\u30c9\u3078\u306e\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u3092\u884c\u3046\u300c\u5206\u5272\u8ee2\u9001\u300d\u3068\u3044\u3063\u305f\u7279\u6b8a\u306a\u8ee2\u9001\u304c\u53ef\u80fd\u3068\u306a\u3063\u3066\u304a\u308a\u307e\u3059\u304c\u3001\u66f4\u65b0\u3092\u4f34\u3046\u51e6\u7406\u3092\u884c\u3046\u5834\u5408\u306f\u3001\u95a2\u9023\u4ed8\u3051\u304c\u91cd\u8981\u3068\u306a\u308a\u307e\u3059\u306e\u3067\u3001\u3054\u6ce8\u610f\u304f\u3060\u3055\u3044\u3002",
-zh:"\u6b64\u63d2\u4ef6\u4e0d\u4ec5\u652f\u6301\u8bb0\u5f55\u4e4b\u95f4\u7684\u590d\u5236\u548c\u66f4\u65b0\uff0c\u8fd8\u652f\u6301\u4ece\u8bb0\u5f55\u5230\u8868\u7684\u201c\u5408\u5e76\u4f20\u8f93\u201d\u6216\u4ece\u8868\u5230\u8bb0\u5f55\u7684\u201c\u5206\u5272\u4f20\u8f93\u201d\u7b49\u7279\u6b8a\u4f20\u8f93\u3002\u5f53\u6267\u884c\u6d89\u53ca\u66f4\u65b0\u7684\u64cd\u4f5c\u65f6\uff0c\u786e\u4fdd\u9002\u5f53\u7684\u5173\u8054\u662f\u975e\u5e38\u91cd\u8981\u7684\uff0c\u6240\u4ee5\u8bf7\u6ce8\u610f\u3002",
-"zh-TW":"\u6b64\u63d2\u4ef6\u4e0d\u50c5\u652f\u6301\u8a18\u9304\u4e4b\u9593\u7684\u8907\u88fd\u548c\u66f4\u65b0\uff0c\u9084\u652f\u6301\u5f9e\u8a18\u9304\u5230\u8868\u7684\u201c\u5408\u4f75\u50b3\u8f38\u201d\u6216\u5f9e\u8868\u5230\u8a18\u9304\u7684\u201c\u5206\u5272\u50b3\u8f38\u201d\u7b49\u7279\u6b8a\u50b3\u8f38\u3002\u7576\u57f7\u884c\u6d89\u53ca\u66f4\u65b0\u7684\u64cd\u4f5c\u6642\uff0c\u78ba\u4fdd\u9069\u7576\u7684\u95dc\u806f\u662f\u975e\u5e38\u91cd\u8981\u7684\uff0c\u6240\u4ee5\u8acb\u6ce8\u610f\u3002"}},
-message:{invalid:{action:{en:'If you specify "Process Action" for the action event, please indicate its action name.',ja:"\u52d5\u4f5c\u30a4\u30d9\u30f3\u30c8\u306b\u300c\u30d7\u30ed\u30bb\u30b9\u30a2\u30af\u30b7\u30e7\u30f3\u300d\u3092\u6307\u5b9a\u3057\u305f\u5834\u5408\u306f\u3001\u305d\u306e\u30a2\u30af\u30b7\u30e7\u30f3\u540d\u3092\u6307\u5b9a\u3057\u3066\u4e0b\u3055\u3044\u3002",zh:"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u8fc7\u7a0b\u64cd\u4f5c\u201d\uff0c\u8bf7\u6307\u5b9a\u5176\u64cd\u4f5c\u540d\u79f0\u3002",
-"zh-TW":"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u904e\u7a0b\u64cd\u4f5c\u201d\uff0c\u8acb\u6307\u5b9a\u5176\u64cd\u4f5c\u540d\u7a31\u3002"},criteria:{en:"Please specify the record association for updates.",ja:"\u66f4\u65b0\u6642\u306e\u30ec\u30b3\u30fc\u30c9\u306e\u95a2\u9023\u4ed8\u3051\u3092\u6307\u5b9a\u3057\u3066\u4e0b\u3055\u3044\u3002",zh:"\u8bf7\u6307\u5b9a\u66f4\u65b0\u65f6\u7684\u8bb0\u5f55\u5173\u8054\u3002","zh-TW":"\u8acb\u6307\u5b9a\u66f4\u65b0\u6642\u7684\u8a18\u9304\u95dc\u806f\u3002"},
-diversion:{en:"When performing record division and transfer, it is not possible to specify fields from tables other than the table to which the field for division and transfer belongs as criteria for associating the records to be transferred",ja:"\u30ec\u30b3\u30fc\u30c9\u306e\u5206\u5272\u8ee2\u9001\u3092\u884c\u3046\u5834\u5408\u306f\u3001\u5206\u5272\u8ee2\u9001\u3059\u308b\u30d5\u30a3\u30fc\u30eb\u30c9\u304c\u5c5e\u3059\u308b\u30c6\u30fc\u30d6\u30eb\u4ee5\u5916\u306e\u30c6\u30fc\u30d6\u30eb\u5185\u30d5\u30a3\u30fc\u30eb\u30c9\u3092\u8ee2\u9001\u3059\u308b\u30ec\u30b3\u30fc\u30c9\u306e\u95a2\u9023\u4ed8\u3051\u306b\u6307\u5b9a\u3059\u308b\u3053\u3068\u306f\u51fa\u6765\u307e\u305b\u3093",
-zh:"\u5728\u8fdb\u884c\u8bb0\u5f55\u5206\u5272\u548c\u4f20\u8f93\u65f6\uff0c\u4e0d\u80fd\u5c06\u5206\u5272\u548c\u4f20\u8f93\u5b57\u6bb5\u6240\u5c5e\u8868\u4ee5\u5916\u7684\u8868\u5185\u5b57\u6bb5\u6307\u5b9a\u4e3a\u8981\u4f20\u8f93\u8bb0\u5f55\u7684\u5173\u8054\u5b57\u6bb5\u3002","zh-TW":"\u5728\u9032\u884c\u8a18\u9304\u5206\u5272\u548c\u50b3\u8f38\u6642\uff0c\u4e0d\u80fd\u5c07\u5206\u5272\u548c\u50b3\u8f38\u6b04\u4f4d\u6240\u5c6c\u8868\u4ee5\u5916\u7684\u8868\u5167\u6b04\u4f4d\u6307\u5b9a\u70ba\u8981\u50b3\u8f38\u8a18\u9304\u7684\u95dc\u806f\u6b04\u4f4d\u3002"},
-dividing:{en:"For the segmented transfer of records, the fields being segmented must belong to the same table.",ja:"\u30ec\u30b3\u30fc\u30c9\u306e\u5206\u5272\u8ee2\u9001\u3092\u884c\u3046\u5834\u5408\u306f\u3001\u5206\u5272\u8ee2\u9001\u3059\u308b\u30d5\u30a3\u30fc\u30eb\u30c9\u304c\u540c\u3058\u30c6\u30fc\u30d6\u30eb\u5185\u306b\u5c5e\u3059\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059\u3002",zh:"\u6267\u884c\u8bb0\u5f55\u7684\u5206\u6bb5\u4f20\u8f93\u65f6\uff0c\u9700\u8981\u5206\u6bb5\u7684\u5b57\u6bb5\u5fc5\u987b\u5c5e\u4e8e\u540c\u4e00\u5f20\u8868\u3002",
-"zh-TW":"\u57f7\u884c\u8a18\u9304\u7684\u5206\u6bb5\u50b3\u8f38\u6642\uff0c\u9700\u8981\u5206\u6bb5\u7684\u5b57\u6bb5\u5fc5\u9808\u5c6c\u65bc\u540c\u4e00\u5f35\u8868\u3002"},formula:{en:"Contains characters that cannot be used in the formula.",ja:"\u8a08\u7b97\u5f0f\u306b\u4f7f\u7528\u51fa\u6765\u306a\u3044\u6587\u5b57\u304c\u542b\u307e\u308c\u3066\u3044\u307e\u3059\u3002",zh:"\u8868\u8fbe\u5f0f\u4e2d\u5305\u542b\u65e0\u6548\u5b57\u7b26\u3002","zh-TW":"\u8868\u9054\u5f0f\u4e2d\u5305\u542b\u7121\u6548\u5b57\u7b26\u3002"},
-label:{detail:{en:'If you specify "Clicking the button on the record detail page" for the action event, please input its execution button label.',ja:"\u52d5\u4f5c\u30a4\u30d9\u30f3\u30c8\u306b\u300c\u30ec\u30b3\u30fc\u30c9\u8a73\u7d30\u753b\u9762\u3067\u306e\u30dc\u30bf\u30f3\u30af\u30ea\u30c3\u30af\u300d\u3092\u6307\u5b9a\u3057\u305f\u5834\u5408\u306f\u3001\u305d\u306e\u5b9f\u884c\u30dc\u30bf\u30f3\u306e\u30e9\u30d9\u30eb\u30c6\u30ad\u30b9\u30c8\u3092\u5165\u529b\u3057\u3066\u4e0b\u3055\u3044\u3002",
-zh:"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u5728\u8bb0\u5f55\u8be6\u7ec6\u9875\u9762\u4e0a\u70b9\u51fb\u6309\u94ae\u201d\uff0c\u8bf7\u8f93\u5165\u5176\u6267\u884c\u6309\u94ae\u7684\u6807\u7b7e\u540d\u79f0\u3002","zh-TW":"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u5728\u8a18\u9304\u8a73\u7d30\u9801\u9762\u4e0a\u9ede\u64ca\u6309\u9215\u201d\uff0c\u8acb\u8f38\u5165\u5176\u57f7\u884c\u6309\u9215\u7684\u6a19\u7c64\u540d\u7a31\u3002"},index:{en:'If you specify "Bulk Execution from List View" for the action event, please input its execution button label.',
-ja:"\u52d5\u4f5c\u30a4\u30d9\u30f3\u30c8\u306b\u300c\u4e00\u89a7\u753b\u9762\u304b\u3089\u306e\u4e00\u62ec\u5b9f\u884c\u300d\u3092\u6307\u5b9a\u3057\u305f\u5834\u5408\u306f\u3001\u305d\u306e\u5b9f\u884c\u30dc\u30bf\u30f3\u306e\u30e9\u30d9\u30eb\u30c6\u30ad\u30b9\u30c8\u3092\u5165\u529b\u3057\u3066\u4e0b\u3055\u3044\u3002",zh:"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u4ece\u5217\u8868\u5c4f\u5e55\u7684\u6279\u91cf\u6267\u884c\u201d\uff0c\u8bf7\u8f93\u5165\u5176\u6267\u884c\u6309\u94ae\u7684\u6807\u7b7e\u540d\u79f0\u3002",
-"zh-TW":"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u5f9e\u5217\u8868\u756b\u9762\u7684\u6279\u91cf\u57f7\u884c\u201d\uff0c\u8acb\u8f38\u5165\u5176\u57f7\u884c\u6309\u9215\u7684\u6a19\u7c64\u540d\u7a31\u3002"}},mapping:{en:"Please specify the Field Mappings to Copy or Update.",ja:"\u30b3\u30d4\u30fc\u307e\u305f\u306f\u66f4\u65b0\u3059\u308b\u30d5\u30a3\u30fc\u30eb\u30c9\u3092\u6307\u5b9a\u3057\u3066\u4e0b\u3055\u3044\u3002",zh:"\u8bf7\u6307\u5b9a\u8981\u590d\u5236\u6216\u66f4\u65b0\u7684\u5b57\u6bb5\u6620\u5c04\u3002",
-"zh-TW":"\u8acb\u6307\u5b9a\u8981\u8907\u88fd\u6216\u66f4\u65b0\u7684\u5b57\u6bb5\u6620\u5c04\u3002"},message:{detail:{en:'If you specify "Clicking the button on the record detail page" for the action event, please input its execution confirmation dialog message.',ja:"\u52d5\u4f5c\u30a4\u30d9\u30f3\u30c8\u306b\u300c\u30ec\u30b3\u30fc\u30c9\u8a73\u7d30\u753b\u9762\u3067\u306e\u30dc\u30bf\u30f3\u30af\u30ea\u30c3\u30af\u300d\u3092\u6307\u5b9a\u3057\u305f\u5834\u5408\u306f\u3001\u305d\u306e\u5b9f\u884c\u78ba\u8a8d\u30c0\u30a4\u30a2\u30ed\u30b0\u306e\u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u5165\u529b\u3057\u3066\u4e0b\u3055\u3044\u3002",
-zh:"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u5728\u8bb0\u5f55\u8be6\u7ec6\u9875\u9762\u4e0a\u70b9\u51fb\u6309\u94ae\u201d\uff0c\u8bf7\u8f93\u5165\u5176\u6267\u884c\u786e\u8ba4\u5bf9\u8bdd\u6846\u7684\u6d88\u606f\u3002","zh-TW":"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u5728\u8a18\u9304\u8a73\u7d30\u9801\u9762\u4e0a\u9ede\u64ca\u6309\u9215\u201d\uff0c\u8acb\u8f38\u5165\u5176\u57f7\u884c\u78ba\u8a8d\u5c0d\u8a71\u6846\u7684\u6d88\u606f\u3002"},
-index:{en:'If you specify "Bulk Execution from List View" for the action event, please input its execution confirmation dialog message.',ja:"\u52d5\u4f5c\u30a4\u30d9\u30f3\u30c8\u306b\u300c\u4e00\u89a7\u753b\u9762\u304b\u3089\u306e\u4e00\u62ec\u5b9f\u884c\u300d\u3092\u6307\u5b9a\u3057\u305f\u5834\u5408\u306f\u3001\u305d\u306e\u5b9f\u884c\u78ba\u8a8d\u30c0\u30a4\u30a2\u30ed\u30b0\u306e\u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u5165\u529b\u3057\u3066\u4e0b\u3055\u3044\u3002",zh:"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u4ece\u5217\u8868\u5c4f\u5e55\u7684\u6279\u91cf\u6267\u884c\u201d\uff0c\u8bf7\u8f93\u5165\u5176\u6267\u884c\u786e\u8ba4\u5bf9\u8bdd\u6846\u7684\u6d88\u606f\u3002",
-"zh-TW":"\u5982\u679c\u5728\u64cd\u4f5c\u4e8b\u4ef6\u4e2d\u6307\u5b9a\u4e86\u201c\u5f9e\u5217\u8868\u756b\u9762\u7684\u6279\u91cf\u57f7\u884c\u201d\uff0c\u8acb\u8f38\u5165\u5176\u57f7\u884c\u78ba\u8a8d\u5c0d\u8a71\u6846\u7684\u6d88\u606f\u3002"}},multiple:{en:"You cannot specify fields from different tables for the record association for updates.",ja:"\u66f4\u65b0\u6642\u306e\u30ec\u30b3\u30fc\u30c9\u306e\u95a2\u9023\u4ed8\u3051\u306b\u7570\u306a\u308b\u30c6\u30fc\u30d6\u30eb\u5185\u306e\u30d5\u30a3\u30fc\u30eb\u30c9\u3092\u6307\u5b9a\u3059\u308b\u3053\u3068\u306f\u51fa\u6765\u307e\u305b\u3093\u3002",
-zh:"\u65e0\u6cd5\u4e3a\u66f4\u65b0\u65f6\u7684\u8bb0\u5f55\u5173\u8054\u6307\u5b9a\u6765\u81ea\u4e0d\u540c\u8868\u7684\u5b57\u6bb5\u3002","zh-TW":"\u7121\u6cd5\u70ba\u66f4\u65b0\u6642\u7684\u8a18\u9304\u95dc\u806f\u6307\u5b9a\u4f86\u81ea\u4e0d\u540c\u8868\u7684\u6b04\u4f4d\u3002"},unmatch:{en:"When performing segmented record transfers, you need to specify a record association for updates that matches the segmented transfer.",ja:"\u30ec\u30b3\u30fc\u30c9\u306e\u5206\u5272\u8ee2\u9001\u3092\u884c\u3046\u5834\u5408\u306f\u3001\u66f4\u65b0\u6642\u306e\u30ec\u30b3\u30fc\u30c9\u306e\u95a2\u9023\u4ed8\u3051\u306b\u3082\u5206\u5272\u8ee2\u9001\u306b\u5408\u81f4\u3057\u305f\u95a2\u9023\u4ed8\u3051\u3092\u6307\u5b9a\u3059\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059\u3002",
-zh:"\u6267\u884c\u8bb0\u5f55\u5206\u6bb5\u8f6c\u79fb\u65f6\uff0c\u8fd8\u9700\u8981\u4e3a\u66f4\u65b0\u65f6\u7684\u8bb0\u5f55\u5173\u8054\u6307\u5b9a\u7b26\u5408\u5206\u6bb5\u8f6c\u79fb\u6761\u4ef6\u7684\u5173\u8054\u3002","zh-TW":"\u57f7\u884c\u8a18\u9304\u5206\u6bb5\u8f49\u79fb\u6642\uff0c\u9084\u9700\u8981\u70ba\u66f4\u65b0\u6642\u7684\u8a18\u9304\u95dc\u806f\u6307\u5b9a\u7b26\u5408\u5206\u6bb5\u8f49\u79fb\u689d\u4ef6\u7684\u95dc\u806f\u3002"},various:{en:"Combining fields from different tables to transfer to the same table is not possible.",
-ja:"\u7570\u306a\u308b\u30c6\u30fc\u30d6\u30eb\u5185\u306e\u30d5\u30a3\u30fc\u30eb\u30c9\u3092\u7d44\u307f\u5408\u308f\u305b\u3066\u3001\u540c\u3058\u30c6\u30fc\u30d6\u30eb\u306b\u8ee2\u9001\u3059\u308b\u3053\u3068\u306f\u51fa\u6765\u307e\u305b\u3093\u3002",zh:"\u4e0d\u53ef\u4ee5\u5c06\u4e0d\u540c\u8868\u4e2d\u7684\u5b57\u6bb5\u7ec4\u5408\u4f20\u8f93\u5230\u540c\u4e00\u5f20\u8868\u3002","zh-TW":"\u4e0d\u53ef\u4ee5\u5c07\u4e0d\u540c\u8868\u4e2d\u7684\u5b57\u6bb5\u7d44\u5408\u50b3\u8f38\u5230\u540c\u4e00\u5f35\u8868\u3002"}}}}},
-bst.constants);
+"use strict";
+((PLUGIN_ID) => {
+	var vars={};
+	bst.field.load(kintone.app.getId()).then((fieldInfos) => {
+		bst.status.load(kintone.app.getId()).then((statusInfos) => {
+			bst.view.load(kintone.app.getId()).then((viewInfos) => {
+				bst.apps.load().then((appInfos) => {
+					bst.config[PLUGIN_ID].build(
+						{
+							submit:(container,config) => {
+								try
+								{
+									var error=false;
+									config.tab=[];
+									config.flat={};
+									((app) => {
+										bst.config[PLUGIN_ID].tabbed.tabs.some((item) => {
+											var res=bst.record.get(item.panel,app);
+											if (!res.error)
+											{
+												if (!error)
+												{
+													if (res.record.event.value.includes('process'))
+													{
+														if (!res.record.action.value)
+														{
+															bst.alert(bst.constants.config.message.invalid.action[bst.operator.language]);
+															bst.config[PLUGIN_ID].tabbed.activate(item);
+															error=true;
+														}
+													}
+													else res.record.action.value='';
+												}
+												if (!error)
+												{
+													if (res.record.event.value.includes('detail'))
+													{
+														if (!res.record.label.value)
+														{
+															bst.alert(bst.constants.config.message.invalid.label.detail[bst.operator.language]);
+															bst.config[PLUGIN_ID].tabbed.activate(item);
+															error=true;
+														}
+														if (!res.record.message.value)
+														{
+															bst.alert(bst.constants.config.message.invalid.message.detail[bst.operator.language]);
+															bst.config[PLUGIN_ID].tabbed.activate(item);
+															error=true;
+														}
+													}
+													else
+													{
+														if (res.record.event.value.includes('index'))
+														{
+															if (!res.record.label.value)
+															{
+																bst.alert(bst.constants.config.message.invalid.label.index[bst.operator.language]);
+																bst.config[PLUGIN_ID].tabbed.activate(item);
+																error=true;
+															}
+															if (!res.record.message.value)
+															{
+																bst.alert(bst.constants.config.message.invalid.message.index[bst.operator.language]);
+																bst.config[PLUGIN_ID].tabbed.activate(item);
+																error=true;
+															}
+														}
+														else
+														{
+															res.record.label.value='';
+															res.record.message.value='';
+															res.record.view.value='';
+														}
+													}
+												}
+												if (!error)
+												{
+													((fields) => {
+														var criteria={
+															config:[],
+															divide:[],
+															table:{}
+														};
+														var mapping={
+															config:[],
+															divide:[],
+															table:{}
+														};
+														((pattern) => {
+															switch (pattern)
+															{
+																case 'update':
+																case 'upsert':
+																	res.record.criteria.value.each((values,index) => {
+																		if (values.value.external.value && values.value.internal.value)
+																		{
+																			criteria.config.push(values);
+																			((tables) => {
+																				if (tables.internal)
+																				{
+																					if (tables.external)
+																					{
+																						if (!(tables.external in criteria.table)) criteria.table[tables.external]=[];
+																						criteria.table[tables.external].push(tables.internal);
+																					}
+																					else criteria.divide.push(tables.internal);
+																				}
+																			})({
+																				external:fields.external[values.value.external.value].tableCode,
+																				internal:fields.internal[values.value.internal.value].tableCode
+																			});
+																		}
+																	});
+																	if (criteria.config.length==0)
+																	{
+																		bst.alert(bst.constants.config.message.invalid.criteria[bst.operator.language]);
+																		bst.config[PLUGIN_ID].tabbed.activate(item);
+																		error=true;
+																	}
+																	else
+																	{
+																		criteria.divide=Array.from(new Set(criteria.divide)).filter((item) => item);
+																		for (var key in criteria.table) criteria.table[key]=Array.from(new Set(criteria.table[key])).filter((item) => item);
+																		if (criteria.divide.length>1)
+																		{
+																			bst.alert(bst.constants.config.message.invalid.dividing[bst.operator.language]);
+																			bst.config[PLUGIN_ID].tabbed.activate(item);
+																			error=true;
+																		}
+																		else
+																		{
+																			if (Array.from(new Set(Object.values(criteria.table).flat())).filter((item) => item).length>1)
+																			{
+																				bst.alert(bst.constants.config.message.invalid.multiple[bst.operator.language]);
+																				bst.config[PLUGIN_ID].tabbed.activate(item);
+																				error=true;
+																			}
+																			else
+																			{
+																				for (var key in criteria.table)
+																					if (criteria.table[key].join('')!=criteria.divide.join('') && criteria.divide.join(''))
+																					{
+																						bst.alert(bst.constants.config.message.invalid.diversion[bst.operator.language]);
+																						bst.config[PLUGIN_ID].tabbed.activate(item);
+																						error=true;
+																						break;
+																					}
+																			}
+																		}
+																	}
+																	break;
+															}
+															if (!error)
+															{
+																res.record.mapping.value.each((values,index) => {
+																	if (values.value.external.value && values.value.internal.value)
+																	{
+																		mapping.config.push(values);
+																		((tables) => {
+																			if (tables.internal)
+																			{
+																				if (tables.external)
+																				{
+																					if (!(tables.external in mapping.table)) mapping.table[tables.external]=[];
+																					mapping.table[tables.external].push(tables.internal);
+																				}
+																				else mapping.divide.push(tables.internal);
+																			}
+																		})({
+																			external:fields.external[values.value.external.value].tableCode,
+																			internal:fields.internal[values.value.internal.value].tableCode
+																		});
+																	}
+																});
+																if (mapping.config.length==0)
+																{
+																	bst.alert(bst.constants.config.message.invalid.mapping[bst.operator.language]);
+																	bst.config[PLUGIN_ID].tabbed.activate(item);
+																	error=true;
+																}
+																else
+																{
+																	mapping.divide=Array.from(new Set(mapping.divide)).filter((item) => item);
+																	for (var key in mapping.table) mapping.table[key]=Array.from(new Set(mapping.table[key])).filter((item) => item);
+																	if (mapping.divide.length>1)
+																	{
+																		bst.alert(bst.constants.config.message.invalid.dividing[bst.operator.language]);
+																		bst.config[PLUGIN_ID].tabbed.activate(item);
+																		error=true;
+																	}
+																	else
+																	{
+																		for (var key in mapping.table)
+																		{
+																			if (mapping.table[key].length>1)
+																			{
+																				bst.alert(bst.constants.config.message.invalid.various[bst.operator.language]);
+																				bst.config[PLUGIN_ID].tabbed.activate(item);
+																				error=true;
+																				break;
+																			}
+																		}
+																		if (!error)
+																		{
+																			switch (pattern)
+																			{
+																				case 'update':
+																				case 'upsert':
+																					if (mapping.divide.length!=0)
+																					{
+																						if (criteria.divide.length==0)
+																						{
+																							bst.alert(bst.constants.config.message.invalid.unmatch[bst.operator.language]);
+																							bst.config[PLUGIN_ID].tabbed.activate(item);
+																							error=true;
+																						}
+																						else
+																						{
+																							if (mapping.divide.join('')!=criteria.divide.join(''))
+																							{
+																								bst.alert(bst.constants.config.message.invalid.dividing[bst.operator.language]);
+																								bst.config[PLUGIN_ID].tabbed.activate(item);
+																								error=true;
+																							}
+																						}
+																					}
+																					break;
+																			}
+																			if (!error)
+																			{
+																				if (res.record.formulaDestination.value.some((item) => {
+																					return item.value.formula.value.match(/(class |fetch\(|function\(|XMLHttpRequest\(|=>|var |let |const )/g);
+																				}))
+																				{
+																					bst.alert(bst.constants.config.message.invalid.formula[bst.operator.language]);
+																					bst.config[PLUGIN_ID].tabbed.activate(item);
+																					error=true;
+																				}
+																				else
+																				{
+																					if (res.record.formulaSource.value.some((item) => {
+																						return item.value.formula.value.match(/(class |fetch\(|function\(|XMLHttpRequest\(|=>|var |let |const )/g);
+																					}))
+																					{
+																						bst.alert(bst.constants.config.message.invalid.formula[bst.operator.language]);
+																						bst.config[PLUGIN_ID].tabbed.activate(item);
+																						error=true;
+																					}
+																					else
+																					{
+																						res.record.criteria.value=criteria.config;
+																						res.record.mapping.value=mapping.config;
+																						res.record.formulaDestination.value=res.record.formulaDestination.value.filter((item) => item.value.field.value);
+																						res.record.formulaSource.value=res.record.formulaSource.value.filter((item) => item.value.field.value);
+																						config.tab.push({label:item.label.html(),setting:res.record});
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														})(res.record.pattern.value);
+													})({
+														external:item.fields.external.parallelize,
+														internal:item.fields.internal.parallelize
+													});
+												}
+											}
+											else
+											{
+												bst.alert(bst.constants.common.message.invalid.record[bst.operator.language]);
+												bst.config[PLUGIN_ID].tabbed.activate(item);
+												error=true;
+											}
+											return error;
+										});
+									})({
+										id:vars.app.id,
+										fields:vars.app.fields.tab
+									});
+									config.tab=JSON.stringify(config.tab);
+									config.flat=JSON.stringify(config.flat);
+									return !(error)?config:false;
+								}
+								catch(error)
+								{
+									bst.alert(bst.error.parse(error));
+									return false;
+								}
+							}
+						},
+						(container,config) => {
+							try
+							{
+								vars.app={
+									id:PLUGIN_ID,
+									fields:{
+										tab:{
+											event:{
+												code:'event',
+												type:'CHECK_BOX',
+												label:'',
+												required:true,
+												noLabel:true,
+												options:[
+													{index:0,label:'create'},
+													{index:1,label:'edit'},
+													{index:2,label:'process'},
+													{index:3,label:'detail'},
+													{index:4,label:'index'}
+												]
+											},
+											action:{
+												code:'action',
+												type:'DROP_DOWN',
+												label:bst.constants.config.caption.action[bst.operator.language],
+												required:false,
+												noLabel:false,
+												options:[]
+											},
+											label:{
+												code:'label',
+												type:'SINGLE_LINE_TEXT',
+												label:bst.constants.config.caption.label[bst.operator.language],
+												required:false,
+												noLabel:false,
+												placeholder:''
+											},
+											message:{
+												code:'message',
+												type:'SINGLE_LINE_TEXT',
+												label:bst.constants.config.caption.message[bst.operator.language],
+												required:false,
+												noLabel:false,
+												placeholder:''
+											},
+											view:{
+												code:'view',
+												type:'DROP_DOWN',
+												label:bst.constants.config.caption.view[bst.operator.language],
+												required:false,
+												noLabel:false,
+												options:[]
+											},
+											app:{
+												code:'app',
+												type:'DROP_DOWN',
+												label:'',
+												required:true,
+												noLabel:true,
+												options:[]
+											},
+											pattern:{
+												code:'pattern',
+												type:'RADIO_BUTTON',
+												label:'',
+												required:true,
+												noLabel:true,
+												options:[
+													{index:0,label:'insert'},
+													{index:1,label:'update'},
+													{index:2,label:'upsert'}
+												]
+											},
+											criteria:{
+												code:'criteria',
+												type:'SUBTABLE',
+												label:'',
+												noLabel:true,
+												fields:{
+													external:{
+														code:'external',
+														type:'DROP_DOWN',
+														label:bst.constants.config.caption.destination[bst.operator.language],
+														required:false,
+														noLabel:true,
+														options:[]
+													},
+													operator:{
+														code:'operator',
+														type:'DROP_DOWN',
+														label:'',
+														required:false,
+														noLabel:true,
+														options:[]
+													},
+													internal:{
+														code:'internal',
+														type:'DROP_DOWN',
+														label:bst.constants.config.caption.source[bst.operator.language],
+														required:false,
+														noLabel:true,
+														options:[]
+													}
+												}
+											},
+											filter:{
+												code:'filter',
+												type:'CONDITION',
+												label:'',
+												required:false,
+												noLabel:true,
+												app:{
+													id:kintone.app.getId(),
+													fields:fieldInfos.parallelize
+												}
+											},
+											mapping:{
+												code:'mapping',
+												type:'SUBTABLE',
+												label:'',
+												noLabel:true,
+												fields:{
+													external:{
+														code:'external',
+														type:'DROP_DOWN',
+														label:bst.constants.config.caption.destination[bst.operator.language],
+														required:false,
+														noLabel:true,
+														options:[]
+													},
+													guide:{
+														code:'guide',
+														type:'SPACER',
+														label:'',
+														required:false,
+														noLabel:true,
+														contents:'<span class="bst-icon bst-icon-arrow bst-icon-arrow-left"></span>'
+													},
+													internal:{
+														code:'internal',
+														type:'DROP_DOWN',
+														label:bst.constants.config.caption.source[bst.operator.language],
+														required:false,
+														noLabel:true,
+														options:[]
+													}
+												}
+											},
+											formulaDestination:{
+												code:'formulaDestination',
+												type:'SUBTABLE',
+												label:'',
+												noLabel:true,
+												fields:{
+													field:{
+														code:'field',
+														type:'DROP_DOWN',
+														label:bst.constants.config.caption.destination[bst.operator.language],
+														required:false,
+														noLabel:true,
+														options:[]
+													},
+													guide:{
+														code:'guide',
+														type:'SPACER',
+														label:'',
+														required:false,
+														noLabel:true,
+														contents:'<span class="bst-icon bst-icon-arrow bst-icon-arrow-left"></span>'
+													},
+													formula:{
+														code:'formula',
+														type:'SINGLE_LINE_TEXT',
+														label:bst.constants.config.caption.formula.formula[bst.operator.language],
+														required:false,
+														noLabel:true
+													}
+												}
+											},
+											formulaSource:{
+												code:'formulaSource',
+												type:'SUBTABLE',
+												label:'',
+												noLabel:true,
+												fields:{
+													field:{
+														code:'field',
+														type:'DROP_DOWN',
+														label:bst.constants.config.caption.source[bst.operator.language],
+														required:false,
+														noLabel:true,
+														options:[]
+													},
+													guide:{
+														code:'guide',
+														type:'SPACER',
+														label:'',
+														required:false,
+														noLabel:true,
+														contents:'<span class="bst-icon bst-icon-arrow bst-icon-arrow-left"></span>'
+													},
+													formula:{
+														code:'formula',
+														type:'SINGLE_LINE_TEXT',
+														label:bst.constants.config.caption.formula.formula[bst.operator.language],
+														required:false,
+														noLabel:true
+													}
+												}
+											}
+										},
+										flat:{
+										}
+									}
+								};
+								var setup=(tab,app,record) => {
+									bst.record.set(tab.panel,app,(() => {
+										if (record.event.value.includes('process')) tab.panel.elm('[field-id=action]').closest('section').removeClass('bst-hidden');
+										if (record.event.value.includes('detail')) tab.panel.elm('[field-id=label]').closest('section').removeClass('bst-hidden');
+										if (record.event.value.includes('detail')) tab.panel.elm('[field-id=message]').closest('section').removeClass('bst-hidden');
+										if (record.event.value.includes('index')) tab.panel.elm('[field-id=label]').closest('section').removeClass('bst-hidden');
+										if (record.event.value.includes('index')) tab.panel.elm('[field-id=message]').closest('section').removeClass('bst-hidden');
+										if (record.event.value.includes('index')) tab.panel.elm('[field-id=view]').closest('section').removeClass('bst-hidden');
+										tab.panel.elm('[field-id=app]').elm('select').val(record.app.value).rebuild().then((fields) => {
+											tab.tables.criteria.clearRows();
+											record.criteria.value.each((values,index) => {
+												if (values.value.external.value in fields.criteria)
+													((row) => {
+														row.elm('[field-id=external]').elm('select').val(values.value.external.value).rebuild().then((fields) => {
+															if (values.value.internal.value in fields)
+															{
+																row.elm('[field-id=operator]').elm('select').val(values.value.operator.value);
+																row.elm('[field-id=internal]').elm('select').val(values.value.internal.value);
+															}
+														});
+													})(tab.tables.criteria.addRow());
+											});
+											if (tab.tables.criteria.tr.length==0) tab.tables.criteria.addRow();
+											tab.tables.mapping.clearRows();
+											record.mapping.value.each((values,index) => {
+												if (values.value.external.value in fields.mapping)
+													((row) => {
+														row.elm('[field-id=external]').elm('select').val(values.value.external.value).rebuild().then((fields) => {
+															if (values.value.internal.value in fields) row.elm('[field-id=internal]').elm('select').val(values.value.internal.value);
+														});
+													})(tab.tables.mapping.addRow());
+											});
+											if (tab.tables.mapping.tr.length==0) tab.tables.mapping.addRow();
+											tab.tables.formula.destination.clearRows();
+											record.formulaDestination.value.each((values,index) => {
+												if (values.value.field.value in fields.formula)
+													((row) => {
+														row.elm('[field-id=field]').elm('select').val(values.value.field.value).rebuild();
+														row.elm('[field-id=formula]').elm('input').val(values.value.formula.value);
+													})(tab.tables.formula.destination.addRow());
+											});
+											if (tab.tables.formula.destination.tr.length==0) tab.tables.formula.destination.addRow();
+											((field) => {
+												field.elm('.bst-guide').empty();
+												if (record.filter.value)
+												{
+													field.elm('input').val(record.filter.value);
+													record.filter.value.split(' and ').each((value,index) => field.guide(value));
+												}
+												else field.elm('input').val('');
+											})(tab.panel.elm('[field-id=filter]').elm('.bst-field-value'));
+											if (record.pattern.value!='insert') tab.tables.criteria.closest('section').show().previousSibling.show();
+										});
+										return record;
+									})())
+									.then(() => {
+										tab.tables.formula.destination.tr.each((element,index) => {
+											element.elm('select').rebuild(false);
+										});
+										tab.tables.formula.source.tr.each((element,index) => {
+											element.elm('select').rebuild(false);
+										});
+									});
+								};
+								((fieldInfos) => {
+									for (var key in fieldInfos) vars.app.fields.tab[key]=fieldInfos[key];
+								})(bst.config[PLUGIN_ID].ui.fields.conditions.get(fieldInfos,true));
+								((fieldInfos) => {
+									for (var key in fieldInfos) vars.app.fields.tab[key]=fieldInfos[key];
+								})(bst.config[PLUGIN_ID].ui.fields.users.get(fieldInfos));
+								/* tabbed */
+								bst.config[PLUGIN_ID].tabbed=new BooooooostConfigTabbed(
+									container,
+									{
+										add:(tab) => {
+											((app) => {
+												tab.fields={
+													external:{},
+													internal:fieldInfos
+												};
+												tab.tables={
+													criteria:bst.table.create(app.fields.criteria,false,false,false).spread((row,index) => {
+														/* event */
+														row.elm('.bst-table-row-add').on('click',(e) => {
+															tab.tables.criteria.insertRow(row);
+														});
+														row.elm('.bst-table-row-del').on('click',(e) => {
+															bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],() => {
+																tab.tables.criteria.delRow(row);
+															});
+														});
+														/* modify elements */
+														((cells) => {
+															cells.external.on('change',(e) => e.currentTarget.rebuild()).rebuild=() => {
+																return new Promise((resolve,reject) => {
+																	cells.operator.empty();
+																	cells.internal.empty().assignOption([{code:'',label:''}],'label','code');
+																	if (cells.external.val())
+																	{
+																		resolve((() => {
+																			var res={};
+																			cells.operator.assignOption(bst.filter.query.operator(tab.fields.external.parallelize[cells.external.val()]),'label','code');
+																			for (var key in tab.fields.internal.parallelize)
+																				((fieldInfo) => {
+																					if (bst.field.typing(fieldInfo,tab.fields.external.parallelize[cells.external.val()],true)) res[fieldInfo.code]=fieldInfo;
+																				})(tab.fields.internal.parallelize[key]);
+																			cells.internal.assignOption(Object.values(res),'label','code');
+																			return res;
+																		})());
+																	}
+																	else resolve({});
+																});
+															};
+														})({
+															external:row.elm('[field-id=external]').elm('select'),
+															operator:row.elm('[field-id=operator]').elm('select'),
+															internal:row.elm('[field-id=internal]').elm('select')
+														});
+													},(table,index) => {
+														if (table.tr.length==0) table.addRow();
+													},false),
+													mapping:bst.table.create(app.fields.mapping,false,false,false).addClass('bst-mapping').spread((row,index) => {
+														/* event */
+														row.elm('.bst-table-row-add').on('click',(e) => {
+															tab.tables.mapping.insertRow(row);
+														});
+														row.elm('.bst-table-row-del').on('click',(e) => {
+															bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],() => {
+																tab.tables.mapping.delRow(row);
+															});
+														});
+														/* modify elements */
+														((cells) => {
+															cells.external.on('change',(e) => e.currentTarget.rebuild()).rebuild=() => {
+																return new Promise((resolve,reject) => {
+																	cells.internal.empty().assignOption([{code:'',label:''}],'label','code');
+																	if (cells.external.val())
+																	{
+																		resolve((() => {
+																			var res={};
+																			for (var key in tab.fields.internal.parallelize)
+																				((fieldInfo) => {
+																					if (bst.field.typing(fieldInfo,tab.fields.external.parallelize[cells.external.val()])) res[fieldInfo.code]=fieldInfo;
+																				})(tab.fields.internal.parallelize[key]);
+																			cells.internal.assignOption(Object.values(res),'label','code');
+																			return res;
+																		})());
+																	}
+																	else resolve({});
+																});
+															};
+														})({
+															external:row.elm('[field-id=external]').elm('select'),
+															internal:row.elm('[field-id=internal]').elm('select')
+														});
+													},(table,index) => {
+														if (table.tr.length==0) table.addRow();
+													},false),
+													formula:{
+														destination:bst.table.create(app.fields.formulaDestination,false,false,false).addClass('bst-mapping').spread((row,index) => {
+															/* event */
+															row.elm('.bst-table-row-add').on('click',(e) => {
+																tab.tables.formula.destination.insertRow(row);
+															});
+															row.elm('.bst-table-row-del').on('click',(e) => {
+																bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],() => {
+																	tab.tables.formula.destination.delRow(row);
+																});
+															});
+															/* modify elements */
+															((cells) => {
+																cells.field.on('change',(e) => e.currentTarget.rebuild()).rebuild=(clear=true) => {
+																	if (cells.field.val()) bst.formula.field.set(cells.formula,tab.fields.external.parallelize[cells.field.val()],clear);
+																};
+															})({
+																field:row.elm('[field-id=field]').elm('select'),
+																formula:row.elm('[field-id=formula]').elm('.bst-field-value')
+															});
+														},(table,index) => {
+															if (table.tr.length==0) table.addRow();
+														},false),
+														source:bst.table.create(app.fields.formulaSource,false,false,false).addClass('bst-mapping').spread((row,index) => {
+															/* event */
+															row.elm('.bst-table-row-add').on('click',(e) => {
+																tab.tables.formula.source.insertRow(row);
+															});
+															row.elm('.bst-table-row-del').on('click',(e) => {
+																bst.confirm(bst.constants.common.message.confirm.delete[bst.operator.language],() => {
+																	tab.tables.formula.source.delRow(row);
+																});
+															});
+															/* modify elements */
+															((cells) => {
+																cells.field.on('change',(e) => e.currentTarget.rebuild()).rebuild=(clear=true) => {
+																	if (cells.field.val()) bst.formula.field.set(cells.formula,tab.fields.internal.parallelize[cells.field.val()],clear);
+																};
+															})({
+																field:row.elm('[field-id=field]').elm('select'),
+																guide:row.elm('[field-id=guide]').css({width:'100%'}).parentNode.addClass('bst-mapping-guide'),
+																formula:row.elm('[field-id=formula]').css({width:'450px'}).elm('.bst-field-value')
+															});
+														},(table,index) => {
+															if (table.tr.length==0) table.addRow();
+														},false)
+													}
+												};
+												tab.panel.addClass('bst-scope').attr('form-id','form_'+app.id)
+												.append(
+													bst.config[PLUGIN_ID].ui.fields.users.set(bst.config[PLUGIN_ID].ui.fields.conditions.set(bst.create('div').addClass('bst-config-tabbed-panel-block'),app),app)
+													.append(bst.create('h1').html(bst.constants.config.caption.event[bst.operator.language]))
+													.append(
+														bst.create('section')
+														.append(bst.field.activate(((res) => {
+															res.elms('[type=checkbox]').each((element,index) => {
+																element.closest('label').elm('span').html(bst.constants.config.caption.event[element.val()][bst.operator.language]);
+															});
+															return res;
+														})(bst.field.create(app.fields.event)),app))
+													)
+													.append(
+														bst.create('section').addClass('bst-hidden')
+														.append(bst.field.activate(((res) => {
+															res.elm('select').empty().assignOption(([{code:'',label:''}]).concat(statusInfos.actions.map((item) => {
+																return {code:item.key,label:item.name+'&nbsp;('+item.from+'&nbsp;&gt;&nbsp;'+item.to+')'};
+															})),'label','code');
+															return res;
+														})(bst.field.create(app.fields.action)),app))
+													)
+													.append(bst.create('section').addClass('bst-hidden').append(bst.field.activate(bst.field.create(app.fields.label).css({width:'100%'}),app)))
+													.append(bst.create('section').addClass('bst-hidden').append(bst.field.activate(bst.field.create(app.fields.message).css({width:'100%'}),app)))
+													.append(
+														bst.create('section').addClass('bst-hidden')
+														.append(bst.field.activate(((res) => {
+															res.elm('select').empty().assignOption(([{code:'',label:bst.constants.config.caption.view.all[bst.operator.language]}]).concat(viewInfos.list.map((item) => {
+																return {code:item.id,label:item.name};
+															})),'label','code');
+															return res;
+														})(bst.field.create(app.fields.view)),app))
+													)
+												)
+												.append(bst.create('h1').html(bst.constants.config.caption.app.destination[bst.operator.language]))
+												.append(
+													bst.create('section')
+													.append(((res) => {
+														res.elm('select').empty().assignOption(([{appId:'',name:''}]).concat(appInfos),'name','appId').on('change',(e) => e.currentTarget.rebuild()).rebuild=() => {
+															return new Promise((resolve,reject) => {
+																((criteria,mapping,formula,filter,captions) => {
+																	criteria.clearRows();
+																	criteria.template.elm('[field-id=external]').css({width:'100%'}).elm('select').empty().assignOption([{code:'',label:''}],'label','code');
+																	criteria.template.elm('[field-id=operator]').css({width:'100%'}).elm('select').empty();
+																	criteria.template.elm('[field-id=internal]').css({width:'100%'}).elm('select').empty().assignOption([{code:'',label:''}],'label','code');
+																	mapping.clearRows();
+																	mapping.template.elm('[field-id=external]').css({width:'100%'}).elm('select').empty().assignOption([{code:'',label:''}],'label','code');
+																	mapping.template.elm('[field-id=internal]').css({width:'100%'}).elm('select').empty().assignOption([{code:'',label:''}],'label','code');
+																	mapping.template.elm('[field-id=guide]').css({width:'100%'}).parentNode.addClass('bst-mapping-guide');
+																	formula.clearRows();
+																	formula.template.elm('[field-id=field]').css({width:'100%'}).elm('select').empty().assignOption([{code:'',label:''}],'label','code');
+																	formula.template.elm('[field-id=guide]').css({width:'100%'}).parentNode.addClass('bst-mapping-guide');
+																	formula.template.elm('[field-id=formula]').css({width:'450px'});
+																	if (res.elm('select').val())
+																	{
+																		bst.field.load(res.elm('select').val()).then((fieldInfos) => {
+																			tab.fields.external=fieldInfos;
+																			resolve(((app) => {
+																				var res={
+																					criteria:tab.fields.external.criterias,
+																					mapping:((fieldInfos) => {
+																						var res={};
+																						for (var key in fieldInfos)
+																							((fieldInfo) => {
+																								if (!tab.fields.external.disables.includes(fieldInfo.code)) res[fieldInfo.code]=fieldInfo;
+																							})(fieldInfos[key]);
+																						return res;
+																					})(tab.fields.external.parallelize),
+																					formula:((fieldInfos) => {
+																						var res={};
+																						for (var key in fieldInfos)
+																							((fieldInfo) => {
+																								if (!tab.fields.external.disables.includes(fieldInfo.code))
+																									if (!fieldInfo.tableCode)
+																										if (fieldInfo.type!='FILE')
+																											res[fieldInfo.code]=fieldInfo;
+																							})(fieldInfos[key]);
+																						return res;
+																					})(tab.fields.external.parallelize)
+																				};
+																				criteria.template.elm('[field-id=external]').elm('select').assignOption(Object.values(res.criteria),'label','code');
+																				mapping.template.elm('[field-id=external]').elm('select').assignOption(Object.values(res.mapping),'label','code');
+																				formula.template.elm('[field-id=field]').elm('select').assignOption(Object.values(res.formula),'label','code');
+																				criteria.addRow();
+																				mapping.addRow();
+																				formula.addRow();
+																				filter.reset({id:app,fields:tab.fields.external.parallelize});
+																				return res;
+																			})(res.elm('select').val()));
+																		});
+																	}
+																	else
+																	{
+																		criteria.addRow();
+																		mapping.addRow();
+																		formula.addRow();
+																		filter.reset({id:null,fields:{}});
+																		resolve({
+																			criteria:{},
+																			mapping:{},
+																			formula:{}
+																		});
+																	}
+																})(tab.tables.criteria,tab.tables.mapping,tab.tables.formula.destination,tab.panel.elm('[field-id=filter]').elm('.bst-field-value'),bst.constants.config.caption);
+															});
+														};
+														return res;
+													})(bst.field.activate(bst.field.create(app.fields.app),app)))
+												)
+												.append(bst.create('h1').html(bst.constants.config.caption.pattern[bst.operator.language]))
+												.append(
+													bst.create('section')
+													.append(bst.field.activate(((res) => {
+														res.elms('[data-name='+app.fields.pattern.code+']').each((element,index) => {
+															element.closest('label').elm('span').html(bst.constants.config.caption.pattern[element.val()][bst.operator.language]);
+														});
+														return res;
+													})(bst.field.create(app.fields.pattern)),app))
+												)
+												.append(bst.create('h1').hide().html(bst.constants.config.caption.criteria[bst.operator.language]))
+												.append(
+													bst.create('section').hide()
+													.append(tab.tables.criteria)
+													.append(bst.create('p').addClass('bst-caution').html(bst.constants.config.description.criteria[bst.operator.language]))
+													.append(bst.create('p').html(bst.constants.config.caption.filter[bst.operator.language]))
+													.append(bst.field.activate(bst.field.create(app.fields.filter).css({width:'100%'}),app))
+												)
+												.append(bst.create('h1').html(bst.constants.config.caption.mapping[bst.operator.language]))
+												.append(
+													bst.create('section')
+													.append(tab.tables.mapping)
+													.append(bst.create('p').addClass('bst-caution').html(bst.constants.config.description.mapping[bst.operator.language]))
+												)
+												.append(bst.create('h1').html(bst.constants.config.caption.formula[bst.operator.language]))
+												.append(
+													bst.create('section')
+													.append(bst.create('h1').html(bst.constants.config.caption.app.destination[bst.operator.language]))
+													.append(
+														bst.create('section')
+														.append(tab.tables.formula.destination)
+														.append(bst.create('p').addClass('bst-caution').html(bst.constants.config.description.formula.destination[bst.operator.language]))
+													)
+													.append(bst.create('h1').html(bst.constants.config.caption.app.source[bst.operator.language]))
+													.append(
+														bst.create('section')
+														.append(((table) => {
+															table.template.elm('[field-id=field]').elm('select').empty().assignOption((() => {
+																var res={};
+																for (var key in tab.fields.internal.parallelize)
+																	((fieldInfo) => {
+																		if (!tab.fields.internal.disables.includes(fieldInfo.code))
+																			if (!fieldInfo.tableCode)
+																				if (fieldInfo.type!='FILE')
+																					res[fieldInfo.code]=fieldInfo;
+																	})(tab.fields.internal.parallelize[key]);
+																return [{code:'',label:''}].concat(Object.values(res));
+															})(),'label','code');
+															return table;
+														})(tab.tables.formula.source))
+														.append(bst.create('p').addClass('bst-caution').html(bst.constants.config.description.formula.source[bst.operator.language]))
+														.append(bst.create('p').html('&nbsp;'))
+														.append(bst.create('p').addClass('bst-caution').html(bst.constants.config.description.formula.fixed[bst.operator.language]))
+														.append(bst.create('p').addClass('bst-hint').html(bst.constants.config.description.formula.hint[bst.operator.language]))
+														.append(
+															bst.create('p').addClass('bst-hint').html(
+																((anchor) => {
+																	return bst.constants.config.description.formula.link[bst.operator.language]+'<br>'+anchor.outerHTML;
+																})(
+																	bst.create('a')
+																	.attr('href','https://booooooost.com/'+bst.operator.language.substring(0,2)+'/functions.html')
+																	.attr('target','_blank')
+																	.html('https://booooooost.com/'+bst.operator.language.substring(0,2)+'/functions.html')
+																)
+															)
+														)
+													)
+												);
+												tab.panel.elm('[field-id=app]').elm('select').rebuild().then((fields) => {
+													tab.tables.criteria.clearRows();
+													tab.tables.mapping.clearRows();
+													tab.tables.formula.destination.clearRows();
+													tab.tables.criteria.addRow();
+													tab.tables.mapping.addRow();
+													tab.tables.formula.destination.addRow();
+												});
+												tab.tables.formula.source.addRow();
+												/* event */
+												bst.event.on('bst.change.event',(e) => {
+													if (e.container==tab.panel)
+													{
+														tab.panel.elm('[field-id=action]').closest('section').addClass('bst-hidden');
+														tab.panel.elm('[field-id=view]').closest('section').addClass('bst-hidden');
+														tab.panel.elm('[field-id=label]').closest('section').addClass('bst-hidden');
+														tab.panel.elm('[field-id=message]').closest('section').addClass('bst-hidden');
+														if (e.record.event.value.includes('process')) tab.panel.elm('[field-id=action]').closest('section').removeClass('bst-hidden');
+														if (e.record.event.value.includes('detail')) tab.panel.elm('[field-id=label]').closest('section').removeClass('bst-hidden');
+														if (e.record.event.value.includes('detail')) tab.panel.elm('[field-id=message]').closest('section').removeClass('bst-hidden');
+														if (e.record.event.value.includes('index')) tab.panel.elm('[field-id=label]').closest('section').removeClass('bst-hidden');
+														if (e.record.event.value.includes('index')) tab.panel.elm('[field-id=message]').closest('section').removeClass('bst-hidden');
+														if (e.record.event.value.includes('index')) tab.panel.elm('[field-id=view]').closest('section').removeClass('bst-hidden');
+													}
+													return e;
+												});
+												bst.event.on('bst.change.pattern',(e) => {
+													if (e.container==tab.panel)
+													{
+														switch (e.record.pattern.value)
+														{
+															case 'insert':
+																tab.tables.criteria.closest('section').hide().previousSibling.hide();
+																break;
+															default:
+																tab.tables.criteria.closest('section').show().previousSibling.show();
+																break;
+														}
+													}
+													return e;
+												});
+												tab.panel.elms('input,select,textarea').each((element,index) => element.initialize());
+											})({
+												id:vars.app.id,
+												fields:vars.app.fields.tab
+											});
+										},
+										copy:(source,destination) => {
+											((app) => {
+												setup(destination,app,bst.record.get(source.panel,app,true).record);
+											})({
+												id:vars.app.id,
+												fields:vars.app.fields.tab
+											});
+										},
+										del:(index) => {}
+									}
+								);
+								/* setup */
+								if (Object.keys(config).length!=0)
+								{
+									((settings) => {
+										settings.each((setting) => {
+											if (!('formulaDestination' in setting.setting)) setting.setting.formulaDestination=setting.setting.formula;
+											if (!('formulaSource' in setting.setting)) setting.setting.formulaSource={type:'SUBTABLE',value:[]};
+											if (('formula' in setting.setting)) delete setting.setting.formula;
+											((app,tab) => {
+												setup(tab,app,setting.setting);
+												tab.label.html(setting.label);
+											})(
+												{
+													id:vars.app.id,
+													fields:vars.app.fields.tab
+												},
+												bst.config[PLUGIN_ID].tabbed.add()
+											);
+										});
+									})(JSON.parse(config.tab));
+								}
+								else
+								{
+									((tab) => {
+										tab.panel.elm('[field-id=app]').elm('select').rebuild().then((fields) => {
+											tab.tables.criteria.clearRows();
+											tab.tables.mapping.clearRows();
+											tab.tables.formula.destination.clearRows();
+											tab.tables.criteria.addRow();
+											tab.tables.mapping.addRow();
+											tab.tables.formula.destination.addRow();
+										});
+									})(bst.config[PLUGIN_ID].tabbed.add());
+								}
+							}
+							catch(error){bst.alert(bst.error.parse(error))}
+						}
+					);
+				});
+			});
+		});
+	});
+})(kintone.$PLUGIN_ID);
+/*
+Message definition by language
+*/
+bst.constants=bst.extend({
+	config:{
+		caption:{
+			action:{
+				'en':'Action Name',
+				'ja':'アクション名',
+				'zh':'操作名称',
+				'zh-TW':'操作名稱'
+			},
+			app:{
+				destination:{
+					'en':'Destination App for Copying or Updating',
+					'ja':'コピーまたは更新先アプリ',
+					'zh':'用于复制或更新的目标应用',
+					'zh-TW':'用於複製或更新的目標應用'
+				},
+				source:{
+					'en':'This App',
+					'ja':'このアプリ',
+					'zh':'此应用',
+					'zh-TW':'此應用程式'
+				}
+			},
+			criteria:{
+				'en':'Record association for updates',
+				'ja':'更新時のレコードの関連付け',
+				'zh':'更新时的记录关联',
+				'zh-TW':'更新時的記錄關聯'
+			},
+			destination:{
+				'en':'Destination',
+				'ja':'コピーまたは更新先アプリのフィールド',
+				'zh':'复制或更新目标应用的字段',
+				'zh-TW':'複製或更新目標應用的字段'
+			},
+			event:{
+				'en':'Action Available Event',
+				'ja':'動作イベント',
+				'zh':'可操作事件',
+				'zh-TW':'可操作事件',
+				create:{
+					'en':'After Record Creation Success',
+					'ja':'レコード追加画面でのレコード保存成功後',
+					'zh':'记录创建成功后',
+					'zh-TW':'記錄創建成功後'
+				},
+				detail:{
+					'en':'Clicking the button on the record detail page',
+					'ja':'レコード詳細画面でのボタンクリック',
+					'zh':'在记录详细页面上点击按钮',
+					'zh-TW':'在記錄詳細頁面上點擊按鈕'
+				},
+				edit:{
+					'en':'After Record Edit Success',
+					'ja':'レコード編集画面でのレコード保存成功後',
+					'zh':'记录编辑成功后',
+					'zh-TW':'記錄編輯成功後'
+				},
+				index:{
+					'en':'Bulk Execution from List View',
+					'ja':'一覧画面からの一括実行',
+					'zh':'从列表屏幕的批量执行',
+					'zh-TW':'從列表畫面的批量執行'
+				},
+				process:{
+					'en':'Process Action',
+					'ja':'プロセスアクション',
+					'zh':'过程操作',
+					'zh-TW':'過程操作'
+				}
+			},
+			filter:{
+				'en':'Narrow it down further',
+				'ja':'さらに絞り込む',
+				'zh':'进一步缩小',
+				'zh-TW':'進一步縮小'
+			},
+			formula:{
+				'en':'Field to insert fixed values or calculation results',
+				'ja':'固定値や計算結果を挿入するフィールド',
+				'zh':'将固定值或计算结果插入的字段',
+				'zh-TW':'將固定值或計算結果插入的字段',
+				formula:{
+					'en':'Fixed value or function',
+					'ja':'固定値または関数',
+					'zh':'固定值或函数',
+					'zh-TW':'固定值或函數'
+				}
+			},
+			label:{
+				'en':'Execution Button Label',
+				'ja':'実行ボタンのラベルテキスト',
+				'zh':'执行按钮的标签名称',
+				'zh-TW':'執行按鈕的標籤名稱'
+			},
+			mapping:{
+				'en':'Copy or Update Field Mappings',
+				'ja':'コピーまたは更新するフィールド',
+				'zh':'复制或更新字段映射',
+				'zh-TW':'複製或更新字段映射'
+			},
+			message:{
+				'en':'Execution Confirmation Dialog Message',
+				'ja':'実行確認ダイアログのメッセージ',
+				'zh':'执行确认对话框的消息',
+				'zh-TW':'執行確認對話框的消息'
+			},
+			pattern:{
+				'en':'Pattern',
+				'ja':'パターン',
+				'zh':'模式',
+				'zh-TW':'模式',
+				insert:{
+					'en':'Insert only',
+					'ja':'コピーのみ',
+					'zh':'仅复制',
+					'zh-TW':'僅複製'
+				},
+				update:{
+					'en':'Update only',
+					'ja':'更新のみ',
+					'zh':'仅更新',
+					'zh-TW':'僅更新'
+				},
+				upsert:{
+					'en':'Upsert',
+					'ja':'更新出来なければコピー',
+					'zh':'如果无法更新则复制',
+					'zh-TW':'如果無法更新則複製'
+				}
+			},
+			source:{
+				'en':'Source',
+				'ja':'このアプリのフィールド',
+				'zh':'此应用的字段',
+				'zh-TW':'此應用的字段'
+			},
+			view:{
+				'en':'Executable List View',
+				'ja':'実行可能な一覧画面',
+				'zh':'可执行的列表屏幕',
+				'zh-TW':'可執行的列表畫面',
+				all:{
+					'en':'No restrictions',
+					'ja':'制限しない',
+					'zh':'不限制',
+					'zh-TW':'不限制'
+				}
+			}
+		},
+		description:{
+			criteria:{
+				'en':'When you specify your own app as the "Destination App for Copying or Updating" and link it to update the same record, please be cautious as unexpected errors might occur.',
+				'ja':'「コピーまたは更新先アプリ」に自アプリを指定し、自レコードを更新するような関連付けをすると、予期せぬエラーが発生しますので、ご注意ください。',
+				'zh':'当您指定自己的应用为“用于复制或更新的目标应用”并链接它以更新相同的记录时，请小心，因为可能会发生意外的错误。',
+				'zh-TW':'當您指定自己的應用為“用於複製或更新的目標應用”並鏈接它以更新相同的記錄時，請小心，因為可能會發生意外的錯誤。'
+			},
+			formula:{
+				destination:{
+					'en':'This feature is not just for simply copying or updating. It is used when you want to copy or update based on calculated results from the field value. Please note that the field code you assign as a function argument will be the field on the destination app for copying or updating.',
+					'ja':'この機能は、単純にコピーまたは更新するだけではなく、フィールドの値を元に計算した結果をコピーまたは更新したい場合に利用する機能になります。関数の引数として代入するフィールドコードはコピーまたは更新先アプリ側のフィールドになりますので、ご注意ください。',
+					'zh':'这个功能不仅仅是为了简单地复制或更新。当您想要基于字段值的计算结果进行复制或更新时，您可以使用此功能。请注意，您作为函数参数分配的字段代码将是用于复制或更新的目标应用中的字段。',
+					'zh-TW':'這個功能不僅僅是為了簡單地複製或更新。當您想要基於字段值的計算結果進行複製或更新時，您可以使用此功能。請注意，您作為函數參數分配的字段代碼將是用於複製或更新的目標應用中的字段。',
+				},
+				fixed:{
+					'en':'When entering a fixed value, please enclose it in double quotes.',
+					'ja':'固定値を入力する場合は、ダブルクォーテーションで囲うようにして下さい。',
+					'zh':'当输入固定值时，请用双引号括起来。',
+					'zh-TW':'當輸入固定值時，請用雙引號括起來。'
+				},
+				hint:{
+					'en':'This feature can only be used for fields that do not belong to a table.',
+					'ja':'この機能が使えるのはテーブルに属さないフィールドのみとなります。',
+					'zh':'该功能只能用于不属于表格的字段。',
+					'zh-TW':'該功能只能用於不屬於表格的字段。'
+				},
+				link:{
+					'en':'You can refer to the available functions from the URL below.',
+					'ja':'利用可能な関数は以下のURLから参照して下さい。',
+					'zh':'您可以从下面的URL参考可用的功能。',
+					'zh-TW':'您可以從下面的URL參考可用的功能。'
+				},
+				source:{
+					'en':'This feature is used when you want to update the source record after copying or updating is complete, such as setting a "processed" flag. Please note that the field code you assign as a function argument will be the field on the source app.',
+					'ja':'この機能は、コピーまたは更新完了後に「処理済」フラグを立てるなど、コピー元アプリのレコードを更新したい場合に利用する機能になります。関数の引数として代入するフィールドコードはコピー元アプリ側のフィールドになりますので、ご注意ください。',
+					'zh':'此功能用于在复制或更新完成后更新复制源记录，例如设置“已处理”标志。请注意，您作为函数参数分配的字段代码将是复制源应用中的字段。',
+					'zh-TW':'此功能用於在複製或更新完成後更新複製來源記錄，例如設置「已處理」標誌。請注意，您作為函數參數分配的欄位代碼將是複製來源應用中的欄位。'
+				}
+			},
+			mapping:{
+				'en':'This plugin not only allows for copying and updating between records, but also supports special transfers such as "merged transfer" which copies or updates from a record to a table, and "segmented transfer" which copies or updates from a table to a record. When performing operations that involve updates, it\'s essential to ensure proper associations, so please be cautious.',
+				'ja':'本プラグインはレコード同士のコピーや更新だけではなく、レコードからテーブルへのコピーまたは更新を行う「結合転送」やテーブルからレコードへのコピーまたは更新を行う「分割転送」といった特殊な転送が可能となっておりますが、更新を伴う処理を行う場合は、関連付けが重要となりますので、ご注意ください。',
+				'zh':'此插件不仅支持记录之间的复制和更新，还支持从记录到表的“合并传输”或从表到记录的“分割传输”等特殊传输。当执行涉及更新的操作时，确保适当的关联是非常重要的，所以请注意。',
+				'zh-TW':'此插件不僅支持記錄之間的複製和更新，還支持從記錄到表的“合併傳輸”或從表到記錄的“分割傳輸”等特殊傳輸。當執行涉及更新的操作時，確保適當的關聯是非常重要的，所以請注意。'
+			}
+		},
+		message:{
+			invalid:{
+				action:{
+					'en':'If you specify "Process Action" for the action event, please indicate its action name.',
+					'ja':'動作イベントに「プロセスアクション」を指定した場合は、そのアクション名を指定して下さい。',
+					'zh':'如果在操作事件中指定了“过程操作”，请指定其操作名称。',
+					'zh-TW':'如果在操作事件中指定了“過程操作”，請指定其操作名稱。'
+				},
+				criteria:{
+					'en':'Please specify the record association for updates.',
+					'ja':'更新時のレコードの関連付けを指定して下さい。',
+					'zh':'请指定更新时的记录关联。',
+					'zh-TW':'請指定更新時的記錄關聯。'
+				},
+				diversion:{
+					'en':'When performing record division and transfer, it is not possible to specify fields from tables other than the table to which the field for division and transfer belongs as criteria for associating the records to be transferred',
+					'ja':'レコードの分割転送を行う場合は、分割転送するフィールドが属するテーブル以外のテーブル内フィールドを転送するレコードの関連付けに指定することは出来ません',
+					'zh':'在进行记录分割和传输时，不能将分割和传输字段所属表以外的表内字段指定为要传输记录的关联字段。',
+					'zh-TW':'在進行記錄分割和傳輸時，不能將分割和傳輸欄位所屬表以外的表內欄位指定為要傳輸記錄的關聯欄位。'
+				},
+				dividing:{
+					'en':'For the segmented transfer of records, the fields being segmented must belong to the same table.',
+					'ja':'レコードの分割転送を行う場合は、分割転送するフィールドが同じテーブル内に属する必要があります。',
+					'zh':'执行记录的分段传输时，需要分段的字段必须属于同一张表。',
+					'zh-TW':'執行記錄的分段傳輸時，需要分段的字段必須屬於同一張表。'
+				},
+				formula:{
+					'en':'Contains characters that cannot be used in the formula.',
+					'ja':'計算式に使用出来ない文字が含まれています。',
+					'zh':'表达式中包含无效字符。',
+					'zh-TW':'表達式中包含無效字符。'
+				},
+				label:{
+					detail:{
+						'en':'If you specify "Clicking the button on the record detail page" for the action event, please input its execution button label.',
+						'ja':'動作イベントに「レコード詳細画面でのボタンクリック」を指定した場合は、その実行ボタンのラベルテキストを入力して下さい。',
+						'zh':'如果在操作事件中指定了“在记录详细页面上点击按钮”，请输入其执行按钮的标签名称。',
+						'zh-TW':'如果在操作事件中指定了“在記錄詳細頁面上點擊按鈕”，請輸入其執行按鈕的標籤名稱。'
+					},
+					index:{
+						'en':'If you specify "Bulk Execution from List View" for the action event, please input its execution button label.',
+						'ja':'動作イベントに「一覧画面からの一括実行」を指定した場合は、その実行ボタンのラベルテキストを入力して下さい。',
+						'zh':'如果在操作事件中指定了“从列表屏幕的批量执行”，请输入其执行按钮的标签名称。',
+						'zh-TW':'如果在操作事件中指定了“從列表畫面的批量執行”，請輸入其執行按鈕的標籤名稱。'
+					}
+				},
+				mapping:{
+					'en':'Please specify the Field Mappings to Copy or Update.',
+					'ja':'コピーまたは更新するフィールドを指定して下さい。',
+					'zh':'请指定要复制或更新的字段映射。',
+					'zh-TW':'請指定要複製或更新的字段映射。'
+				},
+				message:{
+					detail:{
+						'en':'If you specify "Clicking the button on the record detail page" for the action event, please input its execution confirmation dialog message.',
+						'ja':'動作イベントに「レコード詳細画面でのボタンクリック」を指定した場合は、その実行確認ダイアログのメッセージを入力して下さい。',
+						'zh':'如果在操作事件中指定了“在记录详细页面上点击按钮”，请输入其执行确认对话框的消息。',
+						'zh-TW':'如果在操作事件中指定了“在記錄詳細頁面上點擊按鈕”，請輸入其執行確認對話框的消息。'
+					},
+					index:{
+						'en':'If you specify "Bulk Execution from List View" for the action event, please input its execution confirmation dialog message.',
+						'ja':'動作イベントに「一覧画面からの一括実行」を指定した場合は、その実行確認ダイアログのメッセージを入力して下さい。',
+						'zh':'如果在操作事件中指定了“从列表屏幕的批量执行”，请输入其执行确认对话框的消息。',
+						'zh-TW':'如果在操作事件中指定了“從列表畫面的批量執行”，請輸入其執行確認對話框的消息。'
+					}
+				},
+				multiple:{
+					'en':'You cannot specify fields from different tables for the record association for updates.',
+					'ja':'更新時のレコードの関連付けに異なるテーブル内のフィールドを指定することは出来ません。',
+					'zh':'无法为更新时的记录关联指定来自不同表的字段。',
+					'zh-TW':'無法為更新時的記錄關聯指定來自不同表的欄位。'
+				},
+				unmatch:{
+					'en':'When performing segmented record transfers, you need to specify a record association for updates that matches the segmented transfer.',
+					'ja':'レコードの分割転送を行う場合は、更新時のレコードの関連付けにも分割転送に合致した関連付けを指定する必要があります。',
+					'zh':'执行记录分段转移时，还需要为更新时的记录关联指定符合分段转移条件的关联。',
+					'zh-TW':'執行記錄分段轉移時，還需要為更新時的記錄關聯指定符合分段轉移條件的關聯。'
+				},
+				various:{
+					'en':'Combining fields from different tables to transfer to the same table is not possible.',
+					'ja':'異なるテーブル内のフィールドを組み合わせて、同じテーブルに転送することは出来ません。',
+					'zh':'不可以将不同表中的字段组合传输到同一张表。',
+					'zh-TW':'不可以將不同表中的字段組合傳輸到同一張表。'
+				}
+			}
+		}
+	}
+},bst.constants);

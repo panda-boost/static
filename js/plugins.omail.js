@@ -5,19 +5,492 @@
 * Distributed under the terms of the GNU Lesser General Public License.
 * https://opensource.org/licenses/LGPL-2.1
 */
-'use strict';(z=>{var b={handlers:{}},B=(f,n,C=!1)=>new Promise((x,v)=>{var u="",q=(w,h)=>{var l=()=>{w++;w<f.length?q(w,h):h()};(a=>{var c=bst.filter.scan(b.app,n,a.condition.value);c?bst.filter.auth(a.user.value,a.organization.value,a.group.value).then(e=>{if(e){var p=(k,r,g)=>{"HTML"==a.format.value&&(k=k.replace(/\r/g,"").replace(/\n/g,"<br>"));for(var d in r){var m=r[d].value;d in b.fieldInfos.parallelize&&("HTML"==a.format.value&&"MULTI_LINE_TEXT"==b.fieldInfos.parallelize[d].type&&(m=m.replace(/\r/g,"").replace(/\n/g,
-"<br>")),k=k.replace(new RegExp("%"+d+"%","g"),bst.field.stringify(b.fieldInfos.parallelize[d],m," / ",!0)))}for(d in g)m=g[d].value,d in b.fieldInfos.parallelize&&("HTML"==a.format.value&&"MULTI_LINE_TEXT"==b.fieldInfos.parallelize[d].type&&(m=m.replace(/\r/g,"").replace(/\n/g,"<br>")),k=k.replace(new RegExp("%"+d+"%","g"),bst.field.stringify(b.fieldInfos.parallelize[d],m," / ",!0)));return k};(k=>{var r=(g,d)=>{(m=>{var F=(t,y)=>{if(0!=m.attachment.length){var D=!1;window.hasOwnProperty("bst_report_temp")&&
-m.attachment[t].fileKey in window.bst_report_temp&&(D=!0);D?(m.attachment[t].data=window.bst_report_temp[m.attachment[t].fileKey],t++,t<m.attachment.length?F(t,y):y()):bst.file.download(m.attachment[t],!0).then(A=>{bst.field.blobToBase64(A,G=>{m.attachment[t].data=G;t++;t<m.attachment.length?F(t,y):y()})}).catch(A=>{bst.alert(bst.error.parse(A));v()})}else y()};F(0,()=>{bst.encrypt(JSON.stringify(m.data),u).then(t=>{var y=fetch,D="https://api.booooooost.com/mail/oauth/"+bst.operator.language,A=JSON,
-G=A.stringify;m.data=t.data;m.iv=t.iv;m.tag=t.tag;y(D,{method:"POST",headers:{"X-Requested-With":"XMLHttpRequest"},body:G.call(A,m)}).then(E=>{E.json().then(H=>{switch(E.status){case 200:g++;g<k.length?r(g,d):d();break;default:bst.alert(bst.error.parse(H)),v()}})}).catch(E=>{bst.alert(bst.error.parse(E));v()})}).catch(t=>{v()})})})(k[g])};0!=k.length?r(0,()=>{try{a.formula.value.map(g=>g.value).each((g,d)=>{g.field.value in b.fieldInfos.parallelize&&(d=b.fieldInfos.parallelize[g.field.value],d.tableCode||
-(c[d.code].value=bst.formula.calculate(g,c,c,n,b.fieldInfos.parallelize),d.lookup&&(c[d.code].lookup=!0),g=c.$id.value,g in b.formulaRecords||(b.formulaRecords[g]={$id:{value:g}}),b.formulaRecords[g][d.code]=c[d.code]))}),l()}catch(g){bst.alert(bst.error.parse(g)),v()}}):l()})((()=>{var k=[];(b.fieldInfos.parallelize[a.to.value].tableCode?c[b.fieldInfos.parallelize[a.to.value].tableCode].value:[{value:c}]).each((r,g)=>{r.value[a.to.value].value&&k.push({data:{client_id:a.client_id.value,client_secret:a.client_secret.value,
-author:a.author.value,sender:a.sender.value,subdomain:location.host.split(".")[0],provider:(d=>{d="";switch(a.provider.value){case "GMail":d="google";break;case "Exchange Online":d="microsoft"}return d})(a.provider.value),to:r.value[a.to.value].value,cc:p(a.cc.value,c,b.fieldInfos.parallelize[a.to.value].tableCode?r.value:{}),bcc:p(a.bcc.value,c,b.fieldInfos.parallelize[a.to.value].tableCode?r.value:{}),html:"HTML"==a.format.value},subject:p(a.subject.value,c,b.fieldInfos.parallelize[a.to.value].tableCode?
-r.value:{}),body:p(a.body.value,c,b.fieldInfos.parallelize[a.to.value].tableCode?r.value:{}),attachment:(()=>{var d=[];a.attachment.value&&a.attachment.value in b.fieldInfos.parallelize&&(d=(b.fieldInfos.parallelize[a.attachment.value].tableCode?r.value:c)[a.attachment.value].value);return d})()})});return k})())}else l()}).catch(e=>{bst.alert(bst.error.parse(e));v()}):l()})(f[w])};fetch("https://api.booooooost.com/mail/oauth/"+bst.operator.language,{method:"GET",headers:{"X-Requested-With":"XMLHttpRequest"}}).then(w=>
-{w.json().then(h=>{switch(w.status){case 200:u=h.passphrase;C||bst.loadStart();q(0,()=>{C||bst.loadEnd();x()});break;default:bst.alert(bst.error.parse(h)),v()}})}).catch(w=>{bst.alert(bst.error.parse(w));v()})});kintone.events.on("app.record.create.submit.success app.record.detail.show app.record.edit.submit.success app.record.index.show mobile.app.record.create.submit.success mobile.app.record.detail.show mobile.app.record.edit.submit.success mobile.app.record.index.show".split(" "),f=>new Promise((n,
-C)=>{((x,v)=>{b.mobile=x;b.type=v;for(var u in b.handlers)b.handlers[u].each((q,w)=>{kintone.events.off(u,q)});bst.config[z].config.get().then(q=>{0!=Object.keys(q).length?bst.field.load(bst.config[z].app,!0).then(w=>{b.app={id:bst.config[z].app,fields:w.origin};b.fieldInfos=w;b.formulaRecords={};try{["detail"].includes(b.type)&&kintone.app.record.getPermissions().then(h=>{h.editRecord&&(l=>{0!=l.length&&((a,c)=>{kintone.events.on(a,c);a.each((e,p)=>{e in b.handlers||(b.handlers[e]=[]);b.handlers[e].push(c)})})(["app.record.detail.process.proceed",
-"mobile.app.record.detail.process.proceed"],a=>new Promise((c,e)=>{try{(p=>{0!=p.length?B(p,a.record).then(k=>c(a)).catch(()=>{}):c(a)})(l.filter(p=>p.action.value==a.action.value+":"+a.status.value+":"+a.nextStatus.value))}catch(p){bst.alert(bst.error.parse(p)),c(a)}}))})(JSON.parse(q.tab).map((l,a)=>bst.extend({sIndex:{value:a.toString()}},l.setting)).reduce((l,a)=>{(b.mobile?["all","both","mobile"]:["all","both","pc"]).includes(a.device.value)&&a.event.value.includes("process")&&l.push(a);return l},
-[]))}).catch(()=>{}),(h=>{if(0!=h.length){var l=c=>{0!=Object.keys(b.formulaRecords).length?bst.view.records.set(b.app.id,{put:Object.values(b.formulaRecords).map(e=>bst.view.records.transform(e))},!1).then(e=>c()).catch(e=>bst.alert(bst.error.parse(e))):c()};switch(b.type){case "create":case "edit":B(h,f.record).then(c=>l(()=>n(f))).catch(()=>{});break;case "detail":var a=c=>{(e=>{bst.filter.scan(b.app,f.record,e.condition.value)?bst.filter.auth(e.user.value,e.organization.value,e.group.value).then(p=>
-{p&&bst.button.create(b.mobile,b.type,"bst-mail-button"+c.toString(),e.label.value,e.message.value,()=>B([e],f.record).then(k=>l(()=>bst.alert("Done!",()=>window.location.reload(!0)))).catch(()=>{}));c++;c<h.length&&a(c)}).catch(p=>{c++;c<h.length&&a(c)}):(c++,c<h.length&&a(c))})(h[c])};a(0);n(f);break;case "index":a=c=>{(e=>{bst.filter.auth(e.user.value,e.organization.value,e.group.value).then(p=>{p&&(e.view.value&&e.view.value!=f.viewId.toString()||bst.button.create(b.mobile,b.type,"bst-mail-button"+
-c.toString(),e.label.value,e.message.value,()=>{bst.view.records.get(b.app.id,(b.mobile?kintone.mobile.app:kintone.app).getQueryCondition()).then(k=>{let r=(g,d)=>{B([e],k[g],!0).then(m=>{bst.progressUpdate();g++;g<k.length?r(g,d):d()}).catch(()=>{})};0!=k.length?(bst.progressStart(k.length),r(0,()=>l(()=>bst.alert("Done!",()=>window.location.reload(!0))))):bst.alert("There are no records.")}).catch(k=>bst.alert(bst.error.parse(k)))}));c++;c<h.length&&a(c)}).catch(p=>{c++;c<h.length&&a(c)})})(h[c])},
-a(0),n(f)}}else n(f)})(JSON.parse(q.tab).map((h,l)=>bst.extend({sIndex:{value:l.toString()}},h.setting)).reduce((h,l)=>{(b.mobile?["all","both","mobile"]:["all","both","pc"]).includes(l.device.value)&&l.event.value.includes(b.type)&&h.push(l);return h},[]))}catch(h){bst.alert(bst.error.parse(h)),n(f)}}).catch(w=>n(f)):n(f)}).catch(q=>n(f))})("mobile"==f.type.split(".").first(),(x=>{switch(x){case "submit":x=f.type.split(".").slice(-3).first()}return x})(f.type.split(".").slice(-2).first()))}));bst.event.on("bst.omail.call",
-f=>new Promise((n,C)=>{bst.config[z].config.get().then(x=>{0!=Object.keys(x).length?bst.field.load(bst.config[z].app,!0).then(v=>{b.app={id:bst.config[z].app,fields:v.origin};b.fieldInfos=v;try{(u=>{0!=u.length?B(u,f.record,!0).then(q=>n(f)).catch(()=>n(f)):n(f)})(JSON.parse(x.tab).map((u,q)=>bst.extend({sIndex:{value:q.toString()}},u.setting)).reduce((u,q)=>{(f.mobile?["all","both","mobile"]:["all","both","pc"]).includes(q.device.value)&&q.event.value.includes(f.pattern)&&u.push(q);return u},[]))}catch(u){bst.alert(bst.error.parse(u)),
-n(f)}}).catch(v=>n(f)):n(f)}).catch(x=>n(f))}))})(kintone.$PLUGIN_ID);
+"use strict";
+((PLUGIN_ID) => {
+	var vars={handlers:{}};
+	var apply=(settings,record,silent=false) => {
+		return new Promise((resolve,reject) => {
+			var passphrase='';
+			var recurse=(index,callback) => {
+				var finish=() => {
+					index++;
+					if (index<settings.length) recurse(index,callback);
+					else callback();
+				};
+				((setting) => {
+					var result=bst.filter.scan(vars.app,record,setting.condition.value);
+					if (result)
+					{
+						bst.filter.auth(setting.user.value,setting.organization.value,setting.group.value)
+						.then((auth) => {
+							if (auth)
+							{
+								var assign=(target,record,row) => {
+									if (setting.format.value=='HTML') target=target.replace(/\r/g,'').replace(/\n/g,'<br>');
+									for (var key in record)
+									{
+										var assignValue=record[key].value;
+										if (key in vars.fieldInfos.parallelize)
+										{
+											if (setting.format.value=='HTML' && vars.fieldInfos.parallelize[key].type=='MULTI_LINE_TEXT') assignValue=assignValue.replace(/\r/g,'').replace(/\n/g,'<br>');
+											target=target.replace(new RegExp('%'+key+'%','g'),bst.field.stringify(vars.fieldInfos.parallelize[key],assignValue,' / ',true));
+										}
+									}
+									for (var key in row)
+									{
+										var assignValue=row[key].value;
+										if (key in vars.fieldInfos.parallelize)
+										{
+											if (setting.format.value=='HTML' && vars.fieldInfos.parallelize[key].type=='MULTI_LINE_TEXT') assignValue=assignValue.replace(/\r/g,'').replace(/\n/g,'<br>');
+											target=target.replace(new RegExp('%'+key+'%','g'),bst.field.stringify(vars.fieldInfos.parallelize[key],assignValue,' / ',true));
+										}
+									}
+									return target;
+								};
+								((bodies) => {
+									var send=(index,callback) => {
+										((body) => {
+											var download=(index,callback) => {
+												if (body.attachment.length!=0)
+												{
+													var isReport=false;
+													if (window.hasOwnProperty('bst_report_temp'))
+														if (body.attachment[index].fileKey in window.bst_report_temp) isReport=true;
+													if (!isReport)
+													{
+														bst.file.download(body.attachment[index],true)
+														.then((resp) => {
+															bst.field.blobToBase64(resp,(base64) => {
+																body.attachment[index].data=base64;
+																index++;
+																if (index<body.attachment.length) download(index,callback);
+																else callback();
+															})
+														})
+														.catch((error) => {
+															bst.alert(bst.error.parse(error));
+															reject();
+														});
+													}
+													else
+													{
+														body.attachment[index].data=window.bst_report_temp[body.attachment[index].fileKey];
+														index++;
+														if (index<body.attachment.length) download(index,callback);
+														else callback();
+													}
+												}
+												else callback();
+											};
+											download(0,() => {
+												bst.encrypt(JSON.stringify(body.data),passphrase).then((encrypted) => {
+													fetch(
+														'https://api.booooooost.com/mail/oauth/'+bst.operator.language,
+														{
+															method:'POST',
+															headers:{
+																'X-Requested-With':'XMLHttpRequest'
+															},
+															body:JSON.stringify((() => {
+																body.data=encrypted.data;
+																body.iv=encrypted.iv;
+																body.tag=encrypted.tag;
+																return body;
+															})())
+														}
+													)
+													.then((response) => {
+														response.json().then((json) => {
+															switch (response.status)
+															{
+																case 200:
+																	index++;
+																	if (index<bodies.length) send(index,callback);
+																	else callback();
+																	break;
+																default:
+																	bst.alert(bst.error.parse(json));
+																	reject();
+																	break;
+															}
+														});
+													})
+													.catch((error) => {
+														bst.alert(bst.error.parse(error));
+														reject();
+													});
+												})
+												.catch((error) => {
+													reject();
+												});
+											});
+										})(bodies[index]);
+									};
+									if (bodies.length!=0)
+									{
+										send(0,() => {
+											try
+											{
+												setting.formula.value.map((item) => item.value).each((formula,index) => {
+													if (formula.field.value in vars.fieldInfos.parallelize)
+														((fieldInfo) => {
+															if (!fieldInfo.tableCode)
+															{
+																result[fieldInfo.code].value=bst.formula.calculate(formula,result,result,record,vars.fieldInfos.parallelize);
+																if (fieldInfo.lookup) result[fieldInfo.code].lookup=true;
+																((id) => {
+																	if (!(id in vars.formulaRecords)) vars.formulaRecords[id]={'$id':{value:id}};
+																	vars.formulaRecords[id][fieldInfo.code]=result[fieldInfo.code];
+																})(result['$id'].value);
+															}
+														})(vars.fieldInfos.parallelize[formula.field.value]);
+												});
+												finish();
+											}
+											catch(error)
+											{
+												bst.alert(bst.error.parse(error));
+												reject();
+											}
+										});
+									}
+									else finish();
+								})((() => {
+									var res=[];
+									((vars.fieldInfos.parallelize[setting.to.value].tableCode)?result[vars.fieldInfos.parallelize[setting.to.value].tableCode].value:[{value:result}]).each((record,index) => {
+										if (record.value[setting.to.value].value)
+											res.push({
+												data:{
+													client_id:setting.client_id.value,
+													client_secret:setting.client_secret.value,
+													author:setting.author.value,
+													sender:setting.sender.value,
+													subdomain:location.host.split('.')[0],
+													provider:((provider) => {
+														var res='';
+														switch (setting.provider.value)
+														{
+															case 'GMail':
+																res='google';
+																break;
+															case 'Exchange Online':
+																res='microsoft';
+																break;
+														}
+														return res;
+													})(setting.provider.value),
+													to:record.value[setting.to.value].value,
+													cc:assign(setting.cc.value,result,(vars.fieldInfos.parallelize[setting.to.value].tableCode)?record.value:{}),
+													bcc:assign(setting.bcc.value,result,(vars.fieldInfos.parallelize[setting.to.value].tableCode)?record.value:{}),
+													html:(setting.format.value=='HTML')
+												},
+												subject:assign(setting.subject.value,result,(vars.fieldInfos.parallelize[setting.to.value].tableCode)?record.value:{}),
+												body:assign(setting.body.value,result,(vars.fieldInfos.parallelize[setting.to.value].tableCode)?record.value:{}),
+												attachment:(() => {
+													var res=[];
+													if (setting.attachment.value)
+														if (setting.attachment.value in vars.fieldInfos.parallelize)
+															res=((record) => {
+																return record[setting.attachment.value].value;
+															})(((vars.fieldInfos.parallelize[setting.attachment.value].tableCode)?record.value:result));
+													return res;
+												})()
+											});
+									});
+									return res;
+								})());
+							}
+							else finish();
+						})
+						.catch((error) => {
+							bst.alert(bst.error.parse(error));
+							reject();
+						});
+					}
+					else finish();
+				})(settings[index]);
+			};
+			fetch(
+				'https://api.booooooost.com/mail/oauth/'+bst.operator.language,
+				{
+					method:'GET',
+					headers:{
+						'X-Requested-With':'XMLHttpRequest'
+					}
+				}
+			)
+			.then((response) => {
+				response.json().then((json) => {
+					switch (response.status)
+					{
+						case 200:
+							passphrase=json.passphrase;
+							if (!silent) bst.loadStart();
+							recurse(0,() => {
+								if (!silent) bst.loadEnd();
+								resolve();
+							});
+							break;
+						default:
+							bst.alert(bst.error.parse(json));
+							reject();
+							break;
+					}
+				});
+			})
+			.catch((error) => {
+				bst.alert(bst.error.parse(error));
+				reject();
+			});
+		});
+	};
+	kintone.events.on([
+		'app.record.create.submit.success',
+		'app.record.detail.show',
+		'app.record.edit.submit.success',
+		'app.record.index.show',
+		'mobile.app.record.create.submit.success',
+		'mobile.app.record.detail.show',
+		'mobile.app.record.edit.submit.success',
+		'mobile.app.record.index.show'
+	],(e) => {
+		return new Promise((resolve,reject) => {
+			((mobile,type) => {
+				vars.mobile=mobile;
+				vars.type=type;
+				for (var key in vars.handlers)
+					vars.handlers[key].each((handler,index) => {
+						kintone.events.off(key,handler);
+					});
+				/* get config */
+				bst.config[PLUGIN_ID].config.get()
+				.then((config) => {
+					if (Object.keys(config).length!=0)
+					{
+						bst.field.load(bst.config[PLUGIN_ID].app,true).then((fieldInfos) => {
+							vars.app={
+								id:bst.config[PLUGIN_ID].app,
+								fields:fieldInfos.origin
+							}
+							vars.fieldInfos=fieldInfos;
+							vars.formulaRecords={};
+							try
+							{
+								if (['detail'].includes(vars.type))
+								{
+									kintone.app.record.getPermissions().then((resp) => {
+										if (resp.editRecord)
+										{
+											((settings) => {
+												if (settings.length!=0)
+												{
+													((types,handler) => {
+														kintone.events.on(types,handler);
+														types.each((type,index) => {
+															if (!(type in vars.handlers)) vars.handlers[type]=[];
+															vars.handlers[type].push(handler);
+														});
+													})(
+														['app.record.detail.process.proceed','mobile.app.record.detail.process.proceed'],
+														(e) => {
+															return new Promise((resolve,reject) => {
+																try
+																{
+																	((settings) => {
+																		if (settings.length!=0) apply(settings,e.record).then((resp) => resolve(e)).catch(() => {});
+																		else resolve(e);
+																	})(settings.filter((item) => item.action.value==e.action.value+':'+e.status.value+':'+e.nextStatus.value));
+																}
+																catch(error)
+																{
+																	bst.alert(bst.error.parse(error));
+																	resolve(e);
+																}
+															});
+														}
+													);
+												}
+											})(JSON.parse(config.tab).map((item,index) => bst.extend({sIndex:{value:index.toString()}},item.setting)).reduce((result,current) => {
+												if (((vars.mobile)?['all','both','mobile']:['all','both','pc']).includes(current.device.value) && current.event.value.includes('process')) result.push(current);
+												return result;
+											},[]));
+										}
+									}).catch(() => {});
+								}
+								((settings) => {
+									if (settings.length!=0)
+									{
+										var finish=(callback) => {
+											if (Object.keys(vars.formulaRecords).length!=0)
+											{
+												bst.view.records.set(vars.app.id,{put:Object.values(vars.formulaRecords).map((item) => bst.view.records.transform(item))},false)
+												.then((resp) => callback())
+												.catch((error) => bst.alert(bst.error.parse(error)));
+											}
+											else callback();
+										};
+										switch (vars.type)
+										{
+											case 'create':
+											case 'edit':
+												apply(settings,e.record).then((resp) => finish(() => resolve(e))).catch(() => {});
+												break;
+											case 'detail':
+												var recurse=(index) => {
+													((setting) => {
+														if (bst.filter.scan(vars.app,e.record,setting.condition.value))
+														{
+															bst.filter.auth(setting.user.value,setting.organization.value,setting.group.value)
+															.then((auth) => {
+																if (auth)
+																{
+																	bst.button.create(
+																		vars.mobile,
+																		vars.type,
+																		'bst-mail-button'+index.toString(),
+																		setting.label.value,
+																		setting.message.value,
+																		() => apply([setting],e.record).then((resp) => finish(() => bst.alert('Done!',() => window.location.reload(true)))).catch(() => {})
+																	);
+																}
+																index++;
+																if (index<settings.length) recurse(index);
+															})
+															.catch((error) => {
+																index++;
+																if (index<settings.length) recurse(index);
+															});
+														}
+														else
+														{
+															index++;
+															if (index<settings.length) recurse(index);
+														}
+													})(settings[index]);
+												};
+												recurse(0);
+												resolve(e);
+												break;
+											case 'index':
+												var recurse=(index) => {
+													((setting) => {
+														bst.filter.auth(setting.user.value,setting.organization.value,setting.group.value)
+														.then((auth) => {
+															if (auth)
+															{
+																if (!setting.view.value || setting.view.value==e.viewId.toString())
+																	bst.button.create(
+																		vars.mobile,
+																		vars.type,
+																		'bst-mail-button'+index.toString(),
+																		setting.label.value,
+																		setting.message.value,
+																		() => {
+																			bst.view.records.get(
+																				vars.app.id,
+																				((vars.mobile)?kintone.mobile.app:kintone.app).getQueryCondition()
+																			)
+																			.then((records) => {
+																				let deepRecurse=(index,callback) => {
+																					apply([setting],records[index],true)
+																					.then((resp) => {
+																						bst.progressUpdate();
+																						index++;
+																						if (index<records.length) deepRecurse(index,callback);
+																						else callback();
+																					})
+																					.catch(() => {});
+																				};
+																				if (records.length!=0)
+																				{
+																					bst.progressStart(records.length);
+																					deepRecurse(0,() => finish(() => bst.alert('Done!',() => window.location.reload(true))));
+																				}
+																				else bst.alert('There are no records.');
+																			})
+																			.catch((error) => bst.alert(bst.error.parse(error)))
+																		});
+															}
+															index++;
+															if (index<settings.length) recurse(index);
+														})
+														.catch((error) => {
+															index++;
+															if (index<settings.length) recurse(index);
+														});
+													})(settings[index]);
+												};
+												recurse(0);
+												resolve(e);
+												break;
+										}
+									}
+									else resolve(e);
+								})(JSON.parse(config.tab).map((item,index) => bst.extend({sIndex:{value:index.toString()}},item.setting)).reduce((result,current) => {
+									if (((vars.mobile)?['all','both','mobile']:['all','both','pc']).includes(current.device.value) && current.event.value.includes(vars.type)) result.push(current);
+									return result;
+								},[]));
+							}
+							catch(error)
+							{
+								bst.alert(bst.error.parse(error));
+								resolve(e);
+							}
+						})
+						.catch((error) => resolve(e));
+					}
+					else resolve(e);
+				})
+				.catch((error) => resolve(e));
+			})(
+				e.type.split('.').first()=='mobile',
+				((type) => {
+					switch (type)
+					{
+						case 'submit':
+							type=e.type.split('.').slice(-3).first();
+							break;
+					}
+					return type;
+				})(e.type.split('.').slice(-2).first())
+			);
+		});
+	});
+	bst.event.on('bst.omail.call',(e) => {
+		return new Promise((resolve,reject) => {
+			/* get config */
+			bst.config[PLUGIN_ID].config.get()
+			.then((config) => {
+				if (Object.keys(config).length!=0)
+				{
+					bst.field.load(bst.config[PLUGIN_ID].app,true).then((fieldInfos) => {
+						vars.app={
+							id:bst.config[PLUGIN_ID].app,
+							fields:fieldInfos.origin
+						}
+						vars.fieldInfos=fieldInfos;
+						vars.formulaRecords={};
+						try
+						{
+							((settings) => {
+								if (settings.length!=0) apply(settings,e.record,true).then((resp) => resolve(e)).catch(() => resolve(e));
+								else resolve(e);
+							})(JSON.parse(config.tab).map((item,index) => bst.extend({sIndex:{value:index.toString()}},item.setting)).reduce((result,current) => {
+								if (((e.mobile)?['all','both','mobile']:['all','both','pc']).includes(current.device.value) && current.event.value.includes(e.pattern)) result.push(current);
+								return result;
+							},[]));
+						}
+						catch(error)
+						{
+							bst.alert(bst.error.parse(error));
+							resolve(e);
+						}
+					})
+					.catch((error) => resolve(e));
+				}
+				else resolve(e);
+			})
+			.catch((error) => resolve(e));
+		});
+	});
+})(kintone.$PLUGIN_ID);
