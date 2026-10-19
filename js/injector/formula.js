@@ -167,24 +167,24 @@ window.BooooooostFilter=class extends BooooooostDialog{
 			var queries=this.query.parse(query);
 			var comparison=(fieldInfo,query) => {
 				var TODAY=(type='date',adddays='0') => {
-					var date=new Date(new Date().format('Y-m-d'));
-					return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+					var date=new Date().format('Y-m-d').parseDateTime();
+					return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 				};
 				var FROM_TODAY=(interval,unit,type='date',adddays='0') => {
-					var date=new Date(new Date().format('Y-m-d')).calc(interval+' '+unit);
-					return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+					var date=new Date().format('Y-m-d').parseDateTime().calc(interval+' '+unit);
+					return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 				};
 				var FROM_THISWEEK=(interval,unit,type='date',adddays='0') => {
-					var date=new Date(new Date().format('Y-m-d')).calc('-'+new Date().getDay().toString()+' day,'+interval+' '+unit);
-					return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+					var date=new Date().format('Y-m-d').parseDateTime().calc('-'+new Date().getDay().toString()+' day,'+interval+' '+unit);
+					return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 				};
 				var FROM_THISMONTH=(interval,unit,type='date',adddays='0') => {
-					var date=new Date(new Date().format('Y-m-01')).calc(interval+' '+unit);
-					return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+					var date=new Date().format('Y-m-01').parseDateTime().calc(interval+' '+unit);
+					return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 				};
 				var FROM_THISYEAR=(interval,unit,type='date',adddays='0') => {
-					var date=new Date(new Date().format('Y-01-01')).calc(interval+' '+unit);
-					return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+					var date=new Date().format('Y-01-01').parseDateTime().calc(interval+' '+unit);
+					return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 				};
 				return ((value) => {
 					var res='';
@@ -957,24 +957,24 @@ window.BooooooostFilter=class extends BooooooostDialog{
 				return res;
 			};
 			var TODAY=(type='date',adddays='0') => {
-				var date=new Date(new Date().format('Y-m-d'));
-				return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+				var date=new Date().format('Y-m-d').parseDateTime();
+				return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 			};
 			var FROM_TODAY=(interval,unit,type='date',adddays='0') => {
-				var date=new Date(new Date().format('Y-m-d')).calc(interval+' '+unit);
-				return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+				var date=new Date().format('Y-m-d').parseDateTime().calc(interval+' '+unit);
+				return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 			};
 			var FROM_THISWEEK=(interval,unit,type='date',adddays='0') => {
-				var date=new Date(new Date().format('Y-m-d')).calc('-'+new Date().getDay().toString()+' day,'+interval+' '+unit);
-				return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+				var date=new Date().format('Y-m-d').parseDateTime().calc('-'+new Date().getDay().toString()+' day,'+interval+' '+unit);
+				return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 			};
 			var FROM_THISMONTH=(interval,unit,type='date',adddays='0') => {
-				var date=new Date(new Date().format('Y-m-01')).calc(interval+' '+unit);
-				return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+				var date=new Date().format('Y-m-01').parseDateTime().calc(interval+' '+unit);
+				return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 			};
 			var FROM_THISYEAR=(interval,unit,type='date',adddays='0') => {
-				var date=new Date(new Date().format('Y-01-01')).calc(interval+' '+unit);
-				return (type!='date')?date.calc(adddays+' day,'+date.getTimezoneOffset().toString()+' minute').format('ISO'):date.format('Y-m-d');
+				var date=new Date().format('Y-01-01').parseDateTime().calc(interval+' '+unit);
+				return (type!='date')?date.calc(adddays+' day').format('ISO'):date.format('Y-m-d');
 			};
 			switch (fieldInfo.type)
 			{
@@ -1274,7 +1274,7 @@ window.BooooooostFormula=class{
 		};
 		this.report={
 			DATE_FORMAT:(value,format) => {
-				return (!isNaN(Date.parse(value)))?new Date(value).format(format):'';
+				return (!isNaN(Date.parse(value)))?String(value).parseDateTime().format(format):'';
 			},
 			TODAY:(format) => {
 				return new Date().format((format)?format:'Y-m-d');
@@ -1303,7 +1303,7 @@ window.BooooooostFormula=class{
 					return ((date) => {
 						var thisyear=new Date(new Date().getFullYear(),date.getMonth(),date.getDate());
 						return (new Date().getFullYear()-date.getFullYear())+((thisyear.getTime()>new Date().getTime())?-1:0);
-					})(new Date(TO_STRING(value)))
+					})(TO_STRING(value).parseDateTime())
 				}
 			};
 			var ASC=(value) => {
@@ -1368,7 +1368,7 @@ window.BooooooostFormula=class{
 					if (isNaN(Date.parse(date))) return null;
 					else
 					{
-						date=new Date(date).calc(TO_STRING(pattern));
+						date=date.parseDateTime().calc(TO_STRING(pattern));
 						switch (fieldInfos[param.field.value].type)
 						{
 							case 'DATE':
@@ -1397,7 +1397,7 @@ window.BooooooostFormula=class{
 						}
 						return date;
 					}
-				})((type=='TIME')?new Date('2020-01-01').calc(value.split(':').first()+' hour,'+value.split(':').last()+' minute').format('ISO'):value);
+				})((type=='TIME')?'2020-01-01'.parseDateTime().calc(value.split(':').first()+' hour,'+value.split(':').last()+' minute').format('ISO'):value);
 			};
 			var DATE_DIFF=(from,to,format) => {
 				from=TO_STRING(from);
@@ -1406,46 +1406,24 @@ window.BooooooostFormula=class{
 				else
 				{
 					return ((from,to,res) => {
-						var year=0;
-						var month=0;
-						var day=0;
-						var days=parseInt(from.format('d'))-1;
-						var keep={
-							from:from.calc('first-of-month'),
-							to:to.calc('first-of-month')
+						var days=(from,to) => {
+							return Math.floor((to.getTime()-from.getTime()-(to.getTimezoneOffset()-from.getTimezoneOffset())*60000)/(1000*60*60*24));
 						};
-						if (keep.from.format('Y-m-d')==keep.to.format('Y-m-d')) day=Math.floor((to.getTime()-from.getTime())/(1000*60*60*24));
-						else
-						{
-							while (keep.from.getTime()<keep.to.getTime())
-							{
-								if (keep.from.calc('1 month,'+days.toString()+' day')<to)
-								{
-									month++;
-									if (month>11)
-									{
-										year++;
-										month=0;
-									}
-									day=Math.floor((to.getTime()-keep.from.calc('1 month,'+days.toString()+' day').getTime())/(1000*60*60*24));
-								}
-								else day=Math.floor((to.getTime()-keep.from.calc(days.toString()+' day').getTime())/(1000*60*60*24));
-								keep.from=keep.from.calc('1 month');
-							}
-						}
+						var months=0;
+						while (from.calc((months+1).toString()+' month')<=to) months++;
 						return res
-						.replace(/Y/g,year.toString())
-						.replace(/FM/g,((year*12)+month).toString())
-						.replace(/M/g,month.toString())
-						.replace(/FD/g,Math.floor((to.getTime()-from.getTime())/(1000*60*60*24)).toString())
-						.replace(/D/g,day.toString());
-					})(new Date(from),(isNaN(Date.parse(to)))?new Date():new Date(to),TO_STRING(format));
+						.replace(/Y/g,Math.floor(months/12).toString())
+						.replace(/FM/g,months.toString())
+						.replace(/M/g,(months%12).toString())
+						.replace(/FD/g,days(from,to).toString())
+						.replace(/D/g,days(from.calc(months.toString()+' month'),to).toString());
+					})(from.parseDateTime(),(isNaN(Date.parse(to)))?new Date():to.parseDateTime(),TO_STRING(format));
 				}
 			};
 			var DATE_FORMAT=(value,format) => {
 				var value=TO_STRING(value);
 				if (value.match(/^[0-9]{1,2}:[0-9]{1,2}$/g)) value=new Date().format('Y-m-d')+'T'+value.split(':').map((item) => ('0'+item).slice(-2)).join(':')+':00';
-				return (!isNaN(Date.parse(value)))?new Date(value).format(format):'';
+				return (!isNaN(Date.parse(value)))?String(value).parseDateTime().format(format):'';
 			};
 			var DATE_STRING=(value) => {
 				return (!isNaN(Date.parse(TO_STRING(value))))?((date) => {
@@ -1479,7 +1457,7 @@ window.BooooooostFormula=class{
 						year-=1867;
 					}
 					return era+('0'+year).slice(-2)+'年'+month+'月'+day+'日';
-				})(new Date(TO_STRING(value))):'';
+				})(TO_STRING(value).parseDateTime()):'';
 			};
 			var LEN=(value) => {
 				return TO_STRING(value).length;
@@ -1763,7 +1741,7 @@ window.BooooooostFormula=class{
 				return res;
 			};
 			var WEEK_CALC=(value) => {
-				return (!isNaN(Date.parse(value)))?new Date(value).getDay():-1;
+				return (!isNaN(Date.parse(value)))?TO_STRING(value).parseDateTime().getDay():-1;
 			};
 			var result=(answer,fieldInfo) => {
 				var res=null;
