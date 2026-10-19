@@ -1474,7 +1474,9 @@ window.BooooooostFormula=class{
 				}
 			};
 			var DATE_FORMAT=(value,format) => {
-				return (!isNaN(Date.parse(TO_STRING(value))))?new Date(TO_STRING(value)).format(format):'';
+				var value=TO_STRING(value);
+				if (value.match(/^[0-9]{1,2}:[0-9]{1,2}$/g)) value=new Date().format('Y-m-d')+'T'+value.split(':').map((item) => ('0'+item).slice(-2)).join(':')+':00';
+				return (!isNaN(Date.parse(value)))?new Date(value).format(format):'';
 			};
 			var DATE_STRING=(value) => {
 				return (!isNaN(Date.parse(TO_STRING(value))))?((date) => {
@@ -1670,6 +1672,9 @@ window.BooooooostFormula=class{
 						break;
 					case 'TIME':
 						res=new Date().format('H:i');
+						break;
+					default:
+						res=new Date().format('Y-m-dTH:i:s');
 						break;
 				}
 				return res;
