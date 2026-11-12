@@ -1197,12 +1197,19 @@ body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-calendar t
 }
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-calendar tbody td .bst-calendar-cell .bst-calendar-cell-item{
 	cursor:pointer;
-	margin-left:2px;
-	width:calc(100% - 2px);
+	margin:0 0.5em;
+	width:calc(100% - 1em);
 }
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-calendar tbody td .bst-calendar-cell .bst-calendar-cell-item *{
 	pointer-events:none;
 	text-align:left;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-calendar tbody td .bst-calendar-cell .bst-calendar-cell-item .bst-field{
+	padding:0 0 0.25em 0;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-calendar tbody td .bst-calendar-cell .bst-calendar-cell-item .bst-field .bst-field-value .bst-guide{
+	border-radius:0.5em;
+	padding:0.25em 0.5em;
 }
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-calendar tbody td *:hover .bst-calendar-cell-button{
 	display:inline-block;
@@ -1226,22 +1233,22 @@ body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view{
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view :is(td,th){
 	background-color:var(--echo-bg-color);
 }
-body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view :is(td,th):before{
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view > :is(tbody,thead) > tr > :is(td,th):before{
 	display:none;
 }
-body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view tbody td{
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view > tbody > tr > td{
 	background-color:var(--echo-cell-color);
 	padding-bottom:0.75em;
 	padding-top:0.75em;
 	transition:background-color 0.25s;
 }
-body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view tbody td.bst-view-button{
-	padding-top:0.5em;
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view > tbody > tr > td.bst-view-button{
+	padding-top:1.25em;
 }
-body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view tbody td:first-child{
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view > tbody > tr > td:first-child{
 	border-radius:0.75em 0 0 0.75em;
 }
-body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view tbody td:last-child{
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view > tbody > tr > td:last-child{
 	border-radius:0 0.75em 0.75em 0;
 }
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view thead :is(td,th){
@@ -1258,6 +1265,47 @@ body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view thead
 	font-weight:700;
 	letter-spacing:0.15em;
 }
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table{
+	border-collapse:separate;
+	border-spacing:0 0.5em;
+	margin:-0.75em 0;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table tbody tr:last-of-type :is(td,th){
+	padding-bottom:0.25em !important;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table td:first-child > .bst-field{
+	padding-left:1em;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table td:first-child:before{
+	border-bottom-left-radius:0.5em;
+	border-top-left-radius:0.5em;
+	left:0.5em;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table td:has(+ .bst-table-button) > .bst-field{
+	padding-right:1em;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table td:has(+ .bst-table-button):before{
+	border-bottom-right-radius:0.5em;
+	border-top-right-radius:0.5em;
+	right:0.5em;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table tr:not(:has(.bst-guide:not(:empty))) td:before{
+	display:none;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table :is(td,th){
+	background-color:transparent;
+	padding:0.25em 0;
+}
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-table :is(td,th):before{
+	background-color:var(--echo-bg-color);
+	border-top:none;
+	height:100%;
+	left:0;
+	right:0;
+	top:0;
+	width:auto;
+	z-index:-1;
+}
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-view-row .bst-field-value.bst-textarea .bst-guide{
 	overflow-wrap:anywhere;
 	word-break:normal;
@@ -1265,7 +1313,7 @@ body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-view-row .bst-view-row-cell{
 	background-color:transparent;
 }
-body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-view-row:hover td{
+body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main .bst-view .bst-view-row:hover > td{
 	background-color:var(--echo-hover-color);
 }
 body .bst-echo .bst-echo-main .bst-echo-body .bst-echo-body-main.bst-view-container{
@@ -1435,4 +1483,19 @@ body.pop .bst-echo .bst-echo-main .bst-echo-mask{
 	display:block;
 	height:calc(100% - 1.5em);
 	z-index:2;
+}
+body.pop .bst-echo .bst-echo-main .bst-echo-mask:before{
+	background-color:var(--echo-bg-color);
+	content:'';
+	display:block;
+	height:100%;
+	position:absolute;
+	top:0;
+	width:0.5em;
+}
+body.pop .bst-echo .bst-echo-main .bst-echo-mask.bst-echo-mask-left:before{
+	left:1.5em;
+}
+body.pop .bst-echo .bst-echo-main .bst-echo-mask.bst-echo-mask-right:before{
+	right:1.5em;
 }
