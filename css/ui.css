@@ -1471,3 +1471,6 @@ body.pop .bst-echo .bst-echo-main .bst-echo-mask.bst-echo-mask-left:before{
 body.pop .bst-echo .bst-echo-main .bst-echo-mask.bst-echo-mask-right:before{
 	right:1.5em;
 }
+body.pop .bst-echo .bst-echo-main-calendar .bst-echo-body .bst-echo-body-main{
+	padding-bottom:0.5em;
+}
