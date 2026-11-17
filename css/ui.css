@@ -1508,6 +1508,9 @@ body.bst-surface .bst-dialog .bst-dialog-contents .bst-dropdown::after{
 	border-bottom:solid 2px var(--surface-fr-color);
 	border-right:solid 2px var(--surface-fr-color);
 }
+body.bst-surface .bst-dialog .bst-dialog-contents .bst-dropdown:is(.bst-hour,.bst-minute){
+	width:calc(3.5em + 2px);
+}
 body.bst-surface .bst-dialog .bst-dialog-contents .bst-field .bst-field-caption{
 	color:var(--surface-muted-color);
 	font-size:0.85em;
@@ -1536,9 +1539,23 @@ body.bst-surface .bst-dialog .bst-dialog-contents .bst-field .bst-field-value :i
 body.bst-surface .bst-dialog .bst-dialog-contents .bst-field .bst-field-value :is(input[type=checkbox],input[type=radio]):checked+span:after{
 	border:none;
 }
+body.bst-surface .bst-dialog .bst-dialog-contents .bst-field .bst-field-value:has(> label > :is(input[type=checkbox],input[type=radio])){
+	padding-bottom:calc(0.5em + 1px);
+	padding-top:calc(0.5em + 1px);
+}
+body.bst-surface .bst-dialog .bst-dialog-contents .bst-field .bst-field-value:is(.bst-date,.bst-datetime) input{
+	width:calc(7.5em + 2px) !important;
+}
+body.bst-surface .bst-dialog .bst-dialog-contents .bst-field .bst-field-value:is(.bst-group,.bst-organization,.bst-user){
+	padding-bottom:calc(0.5em + 1px);
+	padding-top:calc(0.5em + 1px);
+}
 body.bst-surface .bst-dialog .bst-dialog-contents .bst-field .bst-field-value:not(.bst-condition,.bst-file,.bst-organization,.bst-group,.bst-user) .bst-icon:is(.bst-camera,.bst-clear,.bst-open,.bst-search){
 	background-position:center center;
-	height:2.5em;
+	height:calc(2.5em + 2px);
+}
+body.bst-surface .bst-dialog .bst-dialog-contents .bst-table .bst-table-button .bst-icon{
+	height:calc(3em + 2px);
 }
 body.bst-surface .bst-dialog .bst-dialog-contents > .bst-scope{
 	padding:0.75em 0.75em 0 0.75em;
