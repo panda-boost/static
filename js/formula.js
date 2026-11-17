@@ -1885,18 +1885,18 @@ window.BooooooostFormula=class{
 								if (fieldInfo.tableCode)
 								{
 									if (fieldInfo.code in row)
-										formula=formula.replace(new RegExp('FLAT\\([ ]*%'+fieldInfo.code+'%[ ]*\\)','g'),flat(fieldInfo,row[fieldInfo.code].value));
+										formula=formula.replace(new RegExp('FLAT\\([ ]*%'+fieldInfo.code+'%[ ]*\\)','g'),() => flat(fieldInfo,row[fieldInfo.code].value));
 								}
-								else formula=formula.replace(new RegExp('FLAT\\([ ]*%'+fieldInfo.code+'%[ ]*\\)','g'),flat(fieldInfo,record[fieldInfo.code].value));
+								else formula=formula.replace(new RegExp('FLAT\\([ ]*%'+fieldInfo.code+'%[ ]*\\)','g'),() => flat(fieldInfo,record[fieldInfo.code].value));
 							}
 							if (formula.match(new RegExp('%'+fieldInfo.code+'%')))
 							{
 								if (fieldInfo.tableCode)
 								{
 									if (fieldInfo.code in row)
-										formula=formula.replace(new RegExp('(%'+fieldInfo.code+'%)','g'),adjust(fieldInfo,row[fieldInfo.code].value));
+										formula=formula.replace(new RegExp('(%'+fieldInfo.code+'%)','g'),() => adjust(fieldInfo,row[fieldInfo.code].value));
 								}
-								else formula=formula.replace(new RegExp('(%'+fieldInfo.code+'%)','g'),adjust(fieldInfo,record[fieldInfo.code].value));
+								else formula=formula.replace(new RegExp('(%'+fieldInfo.code+'%)','g'),() => adjust(fieldInfo,record[fieldInfo.code].value));
 							}
 							return formula;
 						})(
@@ -1928,7 +1928,7 @@ window.BooooooostFormula=class{
 						);
 					})(fieldInfos[key]);
 				reserved.each((reserved,index) => {
-					formula=formula.replace(new RegExp('calculate_'+(index+1).toString()+'(?![0-9])','g'),reserved);
+					formula=formula.replace(new RegExp('calculate_'+(index+1).toString()+'(?![0-9])','g'),() => reserved);
 				});
 				return result(eval(formula),fieldInfos[param.field.value]);
 			}
