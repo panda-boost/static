@@ -1897,7 +1897,7 @@ window.BooooooostFormula=class{
 						);
 					})(fieldInfos[key]);
 				reserved.each((reserved,index) => {
-					formula=formula.replace(new RegExp('calculate_'+(index+1).toString(),'g'),reserved);
+					formula=formula.replace(new RegExp('calculate_'+(index+1).toString()+'(?![0-9])','g'),reserved);
 				});
 				return result(eval(formula),fieldInfos[param.field.value]);
 			}
